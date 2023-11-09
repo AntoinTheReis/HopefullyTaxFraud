@@ -19,7 +19,8 @@ public class gunManager : MonoBehaviour
 
     private direction facingDirection;
 
-    private bool ableToShoot;
+    private bool ableToShoot = true;
+    public float shootingWaitingTime = 1f;
 
     private bool up;
     private float holdingUp = 0;
@@ -32,6 +33,7 @@ public class gunManager : MonoBehaviour
 
     public GameObject gun;
     public GameObject bullet;
+    private SpriteRenderer gunSprite;
 
     [Header("Directions")]
     public Transform dirUp;
@@ -47,15 +49,23 @@ public class gunManager : MonoBehaviour
     void Start()
     {
         facingDirection = direction.Right;
+        gunSprite = gun.GetComponent<SpriteRenderer>();
+        gunSprite.enabled= false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateDirection();
-        if (Input.GetKeyDown(KeyCode.X))
+        if (ableToShoot)
+        {
+            UpdateDirection();
+        }
+        if (Input.GetKeyDown(KeyCode.X) && ableToShoot)
         {
             Instantiate(bullet, gun.transform.position, gun.transform.rotation);
+            gunSprite.enabled = true;
+            ableToShoot = false;
+            StartCoroutine(ShootCoroutine());
         }
 
         if(facingDirection == direction.Left)
@@ -215,5 +225,12 @@ public class gunManager : MonoBehaviour
                 return;
             }
         }
+    }
+
+    IEnumerator ShootCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(shootingWaitingTime);
+        ableToShoot = true;
+        gunSprite.enabled = false;
     }
 }
