@@ -31,6 +31,7 @@ public class gunManager : MonoBehaviour
     private float holdingRight = 0;
 
     public GameObject gun;
+    public GameObject bullet;
 
     [Header("Directions")]
     public Transform dirUp;
@@ -52,42 +53,50 @@ public class gunManager : MonoBehaviour
     void Update()
     {
         UpdateDirection();
-        //if (Input.GetKeyDown("X"))
+        if (Input.GetKeyDown(KeyCode.X))
         {
-
+            Instantiate(bullet, gun.transform.position, gun.transform.rotation);
         }
 
         if(facingDirection == direction.Left)
         {
             gun.transform.position = dirLeft.position;
+            gun.transform.rotation = dirLeft.rotation;
         }
         else if(facingDirection == direction.Right)
         {
             gun.transform.position = dirRight.position;
+            gun.transform.rotation = dirRight.rotation;
         }
         else if (facingDirection == direction.Up)
         {
             gun.transform.position = dirUp.position;
+            gun.transform.rotation = dirUp.rotation;
         }
         else if (facingDirection == direction.Down)
         {
             gun.transform.position = dirDown.position;
+            gun.transform.rotation = dirDown.rotation;
         }
         else if (facingDirection == direction.DownLeft)
         {
             gun.transform.position = dirDownLeft.position;
+            gun.transform.rotation = dirDownLeft.rotation;
         }
         else if(facingDirection == direction.UpLeft)
         {
             gun.transform.position = dirUpLeft.position;
+            gun.transform.rotation = dirUpLeft.rotation;
         }
         else if(facingDirection == direction.DownRight)
         {
             gun.transform.position = dirDownRight.position;
+            gun.transform.rotation = dirDownRight.rotation;
         }
         else if(facingDirection == direction.UpRight)
         {
             gun.transform.position = dirUpRight.position;
+            gun.transform.rotation = dirUpRight.rotation;
         }
     }
 
