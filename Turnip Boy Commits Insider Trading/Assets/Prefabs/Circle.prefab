@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 8287968450963911942}
   - component: {fileID: 5292324117596140767}
   - component: {fileID: 2104493027966194855}
+  - component: {fileID: 3572789326548946406}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -288,6 +289,29 @@ MonoBehaviour:
   shootingWaitingTime: 1
   sword: {fileID: 3006178813697378516, guid: aa2fc838882b2f54fabb45c8d2377466, type: 3}
   gun: {fileID: 3327005327767509910, guid: 8570b8af6b1389944a023a7426ca234e, type: 3}
+  dirUp: {fileID: 8062233885276504060}
+  dirDown: {fileID: 2542709084173440321}
+  dirLeft: {fileID: 5791605382438188980}
+  dirRight: {fileID: 8725062039839542339}
+  dirUpLeft: {fileID: 4198827384374010345}
+  dirDownLeft: {fileID: 8507901789579827975}
+  dirUpRight: {fileID: 7192653781401114904}
+  dirDownRight: {fileID: 6301772726523668295}
+--- !u!114 &3572789326548946406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268243590973323220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b539f2dc1e5c5488c0509e2a8fd903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingWaitingTime: 1
+  can: {fileID: 7753141478333302895, guid: ab082ce4fbf065d4d87b7801544b4189, type: 3}
+  gun: {fileID: 5932208994752320903}
   dirUp: {fileID: 8062233885276504060}
   dirDown: {fileID: 2542709084173440321}
   dirLeft: {fileID: 5791605382438188980}
