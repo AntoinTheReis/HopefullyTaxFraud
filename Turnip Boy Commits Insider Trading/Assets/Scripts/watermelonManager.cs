@@ -18,11 +18,15 @@ public class watermelonManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("triggered");
+        //Debug.Log("triggered");
         if (collision.tag == "water")
         {
             gameObject.transform.localScale += new Vector3(1, 1, 0);
-            Debug.Log("triggered water");
+            //Debug.Log("triggered water");
+            //gameObject.GetComponent<Rigidbody2D>().constraints;
+            gameObject.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+            gameObject.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+
         }
     }
 
