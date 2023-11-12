@@ -15,4 +15,15 @@ public class watermelonManager : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("triggered");
+        if (collision.tag == "water")
+        {
+            gameObject.transform.localScale += new Vector3(1, 1, 0);
+            Debug.Log("triggered water");
+        }
+    }
+
 }
