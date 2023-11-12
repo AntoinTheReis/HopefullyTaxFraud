@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingWaitingTime: 1
-  can: {fileID: 0}
+  can: {fileID: 7753141478333302895, guid: ab082ce4fbf065d4d87b7801544b4189, type: 3}
   gun: {fileID: 5932208994752320903}
   dirUp: {fileID: 8062233885276504060}
   dirDown: {fileID: 2542709084173440321}

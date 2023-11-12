@@ -6,6 +6,7 @@ TagManager:
   tags:
   - sword
   - bullet
+  - water
   layers:
   - Default
   - TransparentFX
