@@ -28,10 +28,12 @@ public class bomb : MonoBehaviour
             if (!watered)
             {
                 watered = true;
+                Debug.Log("watered1");
             }
-            else
+            else if(!launched)
             {
                 watered2 = true;
+                Debug.Log("watered2");
             }
         }
     }

@@ -111,6 +111,6 @@ public class playerMovement : MonoBehaviour
     // For print debugging
     void LateUpdate()
     {
-        print(velocity);
+        //print(velocity);
     }
 }
