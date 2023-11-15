@@ -7,7 +7,7 @@ public class bombZone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Invoke("selfDestruct", 0.05f);
     }
 
     // Update is called once per frame
@@ -15,4 +15,10 @@ public class bombZone : MonoBehaviour
     {
         
     }
+
+    private void selfDestruct()
+    {
+        Destroy(gameObject);
+    }
+
 }

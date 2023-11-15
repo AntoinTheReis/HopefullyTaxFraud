@@ -17,6 +17,7 @@ public class playerMovement : MonoBehaviour
     public float acceleration;
     public float friction;
     public float maxVelocity;
+    public float bombPush;
 
     // Update is called once per frame
     void Update()
@@ -113,4 +114,16 @@ public class playerMovement : MonoBehaviour
     {
         //print(velocity);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "bombZone")
+        {
+            Debug.Log("hit by bomb");
+            Vector3 dir = collision.transform.position - transform.position;
+            dir = -dir.normalized;
+            GetComponent<Rigidbody2D>().AddForce(dir * bombPush);
+        }
+    }
+
 }
