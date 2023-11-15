@@ -9,6 +9,8 @@ public class bomb : MonoBehaviour
     private bool watered2;
     private bool launched;
 
+    public GameObject bombZone;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +35,23 @@ public class bomb : MonoBehaviour
             else if(!launched)
             {
                 watered2 = true;
+                Invoke("Explode", 3);
                 Debug.Log("watered2");
             }
         }
+        if(collision.tag == "sword")
+        {
+            if(watered)
+            {
+                launched = true;
+            }
+        }
+    }
+
+    private void Explode()
+    {
+        Instantiate(bombZone, gameObject.transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
 }
