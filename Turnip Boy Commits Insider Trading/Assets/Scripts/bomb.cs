@@ -48,7 +48,7 @@ public class bomb : MonoBehaviour
                 launched = true;
                 if(gameObject.transform.position.y < player.position.y)
                 {
-                    if(player.position.y - gameObject.transform.position.y< Mathf.Abs(gameObject.transform.position.x - player.position.x))
+                    if(player.position.y - gameObject.transform.position.y > Mathf.Abs(gameObject.transform.position.x - player.position.x))
                     {
                         GetComponent<Rigidbody2D>().AddForce(Vector2.down * bombVelocity);
                     }
@@ -63,7 +63,7 @@ public class bomb : MonoBehaviour
                 }
                 else
                 {
-                    if (gameObject.transform.position.y - player.position.y < Mathf.Abs(gameObject.transform.position.x - player.position.x))
+                    if (gameObject.transform.position.y - player.position.y > Mathf.Abs(gameObject.transform.position.x - player.position.x))
                     {
                         GetComponent<Rigidbody2D>().AddForce(Vector2.up * bombVelocity);
                     }
