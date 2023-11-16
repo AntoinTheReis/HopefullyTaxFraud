@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 1903939706396921011}
   - component: {fileID: 1492706791366218220}
   - component: {fileID: 2546216672695354822}
+  - component: {fileID: 6816295530636664016}
   m_Layer: 0
   m_Name: Raddish Boy
   m_TagString: Player
@@ -401,6 +402,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6816295530636664016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268243590973323220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd02e9b9a4eb1b41b77bd960b989352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counter: 0
+  canManager: {fileID: 3572789326548946406}
+  swordManager: {fileID: 2104493027966194855}
+  gunManager: {fileID: 5292324117596140767}
 --- !u!1 &6724049194802111716
 GameObject:
   m_ObjectHideFlags: 0
