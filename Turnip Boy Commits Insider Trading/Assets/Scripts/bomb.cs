@@ -7,7 +7,7 @@ public class bomb : MonoBehaviour
 
     private bool watered;
     private bool watered2;
-    private bool launched;
+    public bool launched;
 
     public GameObject bombZone;
     public float bombVelocity;

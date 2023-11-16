@@ -30,4 +30,20 @@ public class watermelonManager : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "bomb")
+        {
+            if(collision.collider.GetComponent<bomb>().launched == true)
+            {
+                Exploded();
+            }
+        }
+    }
+
+    private void Exploded()
+    {
+        Destroy(gameObject);
+    }
+
 }
