@@ -7,6 +7,7 @@ TagManager:
   - sword
   - bullet
   - water
+  - bombZone
   layers:
   - Default
   - TransparentFX
