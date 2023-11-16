@@ -10,11 +10,13 @@ public class bomb : MonoBehaviour
     private bool launched;
 
     public GameObject bombZone;
+    public float bombVelocity;
+    private Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -41,10 +43,48 @@ public class bomb : MonoBehaviour
         }
         if(collision.tag == "sword")
         {
-            if(watered)
+            if(watered && !launched)
             {
                 launched = true;
+                if(gameObject.transform.position.y < player.position.y)
+                {
+                    if(player.position.y - gameObject.transform.position.y< Mathf.Abs(gameObject.transform.position.x - player.position.x))
+                    {
+                        GetComponent<Rigidbody2D>().AddForce(Vector2.down * bombVelocity);
+                    }
+                    else if(gameObject.transform.position.x - player.position.x > 0)
+                    {
+                        GetComponent<Rigidbody2D>().AddForce(Vector2.right * bombVelocity);
+                    }
+                    else
+                    {
+                        GetComponent<Rigidbody2D>().AddForce(Vector2.left * bombVelocity);
+                    }
+                }
+                else
+                {
+                    if (gameObject.transform.position.y - player.position.y < Mathf.Abs(gameObject.transform.position.x - player.position.x))
+                    {
+                        GetComponent<Rigidbody2D>().AddForce(Vector2.up * bombVelocity);
+                    }
+                    else if (gameObject.transform.position.x - player.position.x > 0)
+                    {
+                        GetComponent<Rigidbody2D>().AddForce(Vector2.right * bombVelocity);
+                    }
+                    else
+                    {
+                        GetComponent<Rigidbody2D>().AddForce(Vector2.left * bombVelocity);
+                    }
+                }
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (launched)
+        {
+            Explode();
         }
     }
 
