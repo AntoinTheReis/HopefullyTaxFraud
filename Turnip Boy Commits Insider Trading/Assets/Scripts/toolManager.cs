@@ -15,6 +15,8 @@ public class toolManager : MonoBehaviour
     public Sprite swordSprite;
     public SpriteRenderer backItemRenderer;
 
+    private bool usingTool = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,7 @@ public class toolManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && !usingTool)
         {
             counter--;
             if(counter<0)
@@ -53,7 +55,7 @@ public class toolManager : MonoBehaviour
                 swordManager.enabled = false;
             }
         }
-        if(Input.GetKeyDown(KeyCode.S))
+        if(Input.GetKeyDown(KeyCode.S) && !usingTool)
         {
             counter++;
             if(counter > 2)
@@ -82,5 +84,18 @@ public class toolManager : MonoBehaviour
                 swordManager.enabled = false;
             }
         }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            usingTool = true;
+            backItemRenderer.enabled = false;
+            Invoke("chillForSec", 1);
+        }
     }
+
+    private void chillForSec()
+    {
+        usingTool = false;
+        backItemRenderer.enabled = true;
+    }
+
 }
