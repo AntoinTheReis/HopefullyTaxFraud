@@ -10,6 +10,11 @@ public class toolManager : MonoBehaviour
     public swordManager swordManager;
     public gunManager gunManager;
 
+    public Sprite canSprite;
+    public Sprite gunSprite;
+    public Sprite swordSprite;
+    public SpriteRenderer backItemRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +31,27 @@ public class toolManager : MonoBehaviour
             {
                 counter = 2;
             }
+            if(counter == 0)
+            {
+                backItemRenderer.sprite = canSprite;
+                canManager.enabled = true;
+                gunManager.enabled = false;
+                swordManager.enabled = false;
+            }
+            else if(counter == 1)
+            {
+                backItemRenderer.sprite = swordSprite;
+                canManager.enabled = false;
+                gunManager.enabled = false;
+                swordManager.enabled = true;
+            }
+            else
+            {
+                backItemRenderer.sprite = gunSprite;
+                canManager.enabled = false;
+                gunManager.enabled = true;
+                swordManager.enabled = false;
+            }
         }
         if(Input.GetKeyDown(KeyCode.S))
         {
@@ -33,6 +59,27 @@ public class toolManager : MonoBehaviour
             if(counter > 2)
             {
                 counter = 0;
+            }
+            if (counter == 0)
+            {
+                backItemRenderer.sprite = canSprite;
+                canManager.enabled = true;
+                gunManager.enabled = false;
+                swordManager.enabled = false;
+            }
+            else if (counter == 1)
+            {
+                backItemRenderer.sprite = swordSprite;
+                canManager.enabled = false;
+                gunManager.enabled = false;
+                swordManager.enabled = true;
+            }
+            else
+            {
+                backItemRenderer.sprite = gunSprite;
+                canManager.enabled = false;
+                gunManager.enabled = true;
+                swordManager.enabled = false;
             }
         }
     }
