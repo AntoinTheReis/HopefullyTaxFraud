@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 1492706791366218220}
   - component: {fileID: 2546216672695354822}
   - component: {fileID: 6816295530636664016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Raddish Boy
   m_TagString: Player
   m_Icon: {fileID: 0}
