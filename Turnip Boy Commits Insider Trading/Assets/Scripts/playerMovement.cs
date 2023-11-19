@@ -18,34 +18,45 @@ public class playerMovement : MonoBehaviour
     public float friction;
     public float maxVelocity;
     public float bombPush;
+    public bool usingItem;
 
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.X)) 
+        {
+            usingItem = true;
+            Invoke("itemDone", 1);
+        }
+
         // Registering player input
-        if (Input.GetKey("left"))
+        if ((!usingItem))
         {
-            hozDirection = -1;
-            prevHozDirection = -1;
-            miscInputRegistration(0);
-        }
-        else if (Input.GetKey("right"))
-        {
-            hozDirection = 1;
-            prevHozDirection = 1;
-            miscInputRegistration(1);
-        }
-        if (Input.GetKey("up"))
-        {
-            vertDirection = 1;
-            prevVertDirection = 1;
-            miscInputRegistration(2);
-        }
-        else if (Input.GetKey("down"))
-        {
-            vertDirection = -1;
-            prevVertDirection = -1;
-            miscInputRegistration(3);
+            if (Input.GetKey("left"))
+            {
+                hozDirection = -1;
+                prevHozDirection = -1;
+                miscInputRegistration(0);
+            }
+            else if (Input.GetKey("right"))
+            {
+                hozDirection = 1;
+                prevHozDirection = 1;
+                miscInputRegistration(1);
+            }
+            if (Input.GetKey("up"))
+            {
+                vertDirection = 1;
+                prevVertDirection = 1;
+                miscInputRegistration(2);
+            }
+            else if (Input.GetKey("down"))
+            {
+                vertDirection = -1;
+                prevVertDirection = -1;
+                miscInputRegistration(3);
+            }
         }
 
         // Moving the player
@@ -124,6 +135,11 @@ public class playerMovement : MonoBehaviour
             dir = -dir.normalized;
             GetComponent<Rigidbody2D>().AddForce(dir * bombPush);
         }
+    }
+
+    private void itemDone()
+    {
+        usingItem = false;
     }
 
 }
