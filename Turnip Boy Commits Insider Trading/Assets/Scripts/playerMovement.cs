@@ -11,41 +11,53 @@ public class playerMovement : MonoBehaviour
     private int prevHozDirection;
     private int prevVertDirection;
     private bool isMoving;
+    private bool plDialogueOn = false;
     private float velocity;
-    private bool[] boolArray = {false, false, false, false}; // Left, Right, Up, Down
+    private bool[] boolArray = { false, false, false, false }; // Left, Right, Up, Down
     [Header("True public")]
     public float acceleration;
     public float friction;
     public float maxVelocity;
     public float bombPush;
+    public bool usingItem;
 
     // Update is called once per frame
     void Update()
     {
-        // Registering player input
-        if (Input.GetKey("left"))
+        // Registering player input for using an item
+        if (Input.GetKeyDown(KeyCode.X))
         {
-            hozDirection = -1;
-            prevHozDirection = -1;
-            miscInputRegistration(0);
+            usingItem = true;
+            Invoke("itemDone", 1);
         }
-        else if (Input.GetKey("right"))
+
+        // Registering player input for movement
+        if (!usingItem && !plDialogueOn)
         {
-            hozDirection = 1;
-            prevHozDirection = 1;
-            miscInputRegistration(1);
-        }
-        if (Input.GetKey("up"))
-        {
-            vertDirection = 1;
-            prevVertDirection = 1;
-            miscInputRegistration(2);
-        }
-        else if (Input.GetKey("down"))
-        {
-            vertDirection = -1;
-            prevVertDirection = -1;
-            miscInputRegistration(3);
+            if (Input.GetKey("left"))
+            {
+                hozDirection = -1;
+                prevHozDirection = -1;
+                miscInputRegistration(0);
+            }
+            else if (Input.GetKey("right"))
+            {
+                hozDirection = 1;
+                prevHozDirection = 1;
+                miscInputRegistration(1);
+            }
+            if (Input.GetKey("up"))
+            {
+                vertDirection = 1;
+                prevVertDirection = 1;
+                miscInputRegistration(2);
+            }
+            else if (Input.GetKey("down"))
+            {
+                vertDirection = -1;
+                prevVertDirection = -1;
+                miscInputRegistration(3);
+            }
         }
 
         // Moving the player
@@ -83,8 +95,8 @@ public class playerMovement : MonoBehaviour
     {
         velocity += acceleration;
 
-        if (velocity > maxVelocity) 
-        { 
+        if (velocity > maxVelocity)
+        {
             velocity = maxVelocity;
         }
     }
@@ -101,7 +113,7 @@ public class playerMovement : MonoBehaviour
     private void resetVars()
     {
         isMoving = false;
-        for (int i = 0; i < 4;  i++)
+        for (int i = 0; i < 4; i++)
         {
             boolArray[i] = false;
         }
@@ -115,9 +127,10 @@ public class playerMovement : MonoBehaviour
         //print(velocity);
     }
 
+    // When player gets hit by a bomb
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "bombZone")
+        if (collision.tag == "bombZone")
         {
             Debug.Log("hit by bomb");
             Vector3 dir = collision.transform.position - transform.position;
@@ -126,4 +139,15 @@ public class playerMovement : MonoBehaviour
         }
     }
 
+    // Flipping the usingItem boolean variable a second after the player uses an item
+    private void itemDone()
+    {
+        usingItem = false;
+    }
+
+    // Setting the plDialogueOn boolean variable to true or false depending on whether or not the dialogue UI is on screen
+    public void set_plDialogueOn(bool dialogueOn)
+    {
+        plDialogueOn = dialogueOn;
+    }
 }

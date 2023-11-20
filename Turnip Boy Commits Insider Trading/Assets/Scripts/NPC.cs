@@ -9,6 +9,7 @@ public class NPC : MonoBehaviour
     private bool playerClose;
     private bool dialogueOn;
     private bool interactHit;
+    private GameObject Player;
     [Header("True public")]
     public GameObject Canvas;
     public GameObject Radish_talker;
@@ -22,6 +23,12 @@ public class NPC : MonoBehaviour
     public string myDialogue;
     public string myName;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        Player = GameObject.FindWithTag("Player");
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -32,6 +39,7 @@ public class NPC : MonoBehaviour
             npcDialogue.GetComponent<Text>().text = myDialogue;
             npcName.GetComponent<Text>().text = myName;
             dialogueOn = true;
+            Player.GetComponent<playerMovement>().set_plDialogueOn(dialogueOn);
             interactHit = true;
         }
 
@@ -40,6 +48,7 @@ public class NPC : MonoBehaviour
         {
             dialogueUI_switcher(false);
             dialogueOn = false;
+            Player.GetComponent<playerMovement>().set_plDialogueOn(dialogueOn);
         }
 
         interactHit = false;
