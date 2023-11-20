@@ -26,11 +26,12 @@ public class playerMovement : MonoBehaviour
     {
         // Registering player input for using an item
         if (Input.GetKeyDown(KeyCode.X))
+
         {
             usingItem = true;
             Invoke("itemDone", 1);
         }
-
+        
         // Registering player input for movement
         if (!usingItem && !plDialogueOn)
         {
@@ -139,12 +140,13 @@ public class playerMovement : MonoBehaviour
         }
     }
 
+
     // Flipping the usingItem boolean variable a second after the player uses an item
     private void itemDone()
     {
         usingItem = false;
     }
-
+    
     // Setting the plDialogueOn boolean variable to true or false depending on whether or not the dialogue UI is on screen
     public void set_plDialogueOn(bool dialogueOn)
     {

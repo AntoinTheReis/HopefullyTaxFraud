@@ -8,15 +8,16 @@ TagManager:
   - bullet
   - water
   - bombZone
+  - watermelon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - watermelon hole
   - Water
   - UI
-  - 
-  - 
+  - characters
+  - hole outside
   - 
   - 
   - 
