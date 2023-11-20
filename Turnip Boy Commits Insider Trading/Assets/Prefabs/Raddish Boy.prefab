@@ -421,10 +421,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8ff49f5a32e034bbf95c155b6d8218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 1
-  friction: 0.4
+  acceleration: 0.5
+  friction: 0.09
   maxVelocity: 5
   bombPush: 900
+  usingItem: 0
 --- !u!58 &1492706791366218220
 CircleCollider2D:
   m_ObjectHideFlags: 0
