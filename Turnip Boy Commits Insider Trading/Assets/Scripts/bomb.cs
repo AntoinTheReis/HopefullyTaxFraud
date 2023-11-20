@@ -6,7 +6,7 @@ public class bomb : MonoBehaviour
 {
 
     private bool watered;
-    private bool watered2;
+    //private bool watered2;
     public bool launched;
 
     public GameObject bombZone;
@@ -36,7 +36,7 @@ public class bomb : MonoBehaviour
             }
             else if(!launched)
             {
-                watered2 = true;
+                //watered2 = true;
                 Invoke("Explode", 3);
                 Debug.Log("watered2");
             }
