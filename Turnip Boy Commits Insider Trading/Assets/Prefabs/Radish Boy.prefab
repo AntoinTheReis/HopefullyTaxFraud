@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 6816295530636664016}
   - component: {fileID: 1338111725728770541}
   m_Layer: 6
-  m_Name: Raddish Boy
+  m_Name: Radish Boy
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,8 +529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8ff49f5a32e034bbf95c155b6d8218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 0.5
-  friction: 0.09
+  acceleration: 0.75
+  friction: 0.5
   maxVelocity: 5
   bombPush: 900
   usingItem: 0

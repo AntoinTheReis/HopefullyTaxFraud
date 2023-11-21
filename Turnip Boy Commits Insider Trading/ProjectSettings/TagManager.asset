@@ -9,6 +9,9 @@ TagManager:
   - water
   - bombZone
   - watermelon
+  - Dialogue_UI
+  - Dialogue_Text
+  - Name_Text
   layers:
   - Default
   - TransparentFX
