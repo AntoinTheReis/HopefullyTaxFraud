@@ -9,24 +9,19 @@ public class NPC : MonoBehaviour
     private bool playerClose;
     private bool dialogueOn;
     private bool interactHit;
-    private GameObject Player;
-    [Header("True public")]
-    public GameObject Canvas;
-    public GameObject Radish_talker;
-    public GameObject NPC_talker;
-    public GameObject Background;
-    public GameObject dialogueBox;
-    public GameObject interactSymbol;
-    public GameObject nameBox;
-    public GameObject npcDialogue;
-    public GameObject npcName;
+    private GameObject OBJ_Player;
+    [Header("Necessary Objects")]
+    public GameObject OBJ_Dialogue_UI;
+    public GameObject OBJ_Dialogue_Text;
+    public GameObject OBJ_Name_Text;
+    [Header("NPC's Dialogue & Name")]
     public string myDialogue;
     public string myName;
 
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.FindWithTag("Player");
+        OBJ_Player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -35,20 +30,20 @@ public class NPC : MonoBehaviour
         // When player interacts with self
         if (playerClose && Input.GetKeyDown(KeyCode.Z) && !dialogueOn)
         {
-            dialogueUI_switcher(true);
-            npcDialogue.GetComponent<Text>().text = myDialogue;
-            npcName.GetComponent<Text>().text = myName;
+            OBJ_Dialogue_UI.SetActive(true);
+            OBJ_Dialogue_Text.GetComponent<Text>().text = myDialogue;
+            OBJ_Name_Text.GetComponent<Text>().text = myName;
             dialogueOn = true;
-            Player.GetComponent<playerMovement>().set_plDialogueOn(dialogueOn);
+            OBJ_Player.GetComponent<playerMovement>().set_plDialogueOn(dialogueOn);
             interactHit = true;
         }
 
         // When player is actively talking to self (bro, this mf won't stop saying shit like "???" Like dawg, say something!)
         if (dialogueOn && Input.GetKeyDown(KeyCode.Z) && !interactHit)
         {
-            dialogueUI_switcher(false);
+            OBJ_Dialogue_UI.SetActive(false);
             dialogueOn = false;
-            Player.GetComponent<playerMovement>().set_plDialogueOn(dialogueOn);
+            OBJ_Player.GetComponent<playerMovement>().set_plDialogueOn(dialogueOn);
         }
 
         interactHit = false;
@@ -72,15 +67,9 @@ public class NPC : MonoBehaviour
         }
     }
 
-    // Activate or deactivate NPC dialogue UI
-    private void dialogueUI_switcher(bool boolean)
+    // When sprites and animations are implemented for the dialogue UI elements, this method will serve to execute those animations
+    private void Untitled(bool boolean)
     {
-        Canvas.SetActive(boolean);
-        Radish_talker.SetActive(boolean);
-        NPC_talker.SetActive(boolean);
-        Background.SetActive(boolean);
-        dialogueBox.SetActive(boolean);
-        interactSymbol.SetActive(boolean);
-        nameBox.SetActive(boolean);
+        // TODO: Execute dialogue UI animations
     } 
 }
