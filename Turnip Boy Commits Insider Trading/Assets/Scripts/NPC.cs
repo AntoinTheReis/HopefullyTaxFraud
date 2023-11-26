@@ -38,7 +38,7 @@ public class NPC : MonoBehaviour
             interactHit = true;
         }
 
-        // When player is actively talking to self (bro, this mf won't stop saying shit like "???" Like dawg, say something!)
+        // When player is actively talking to self
         if (dialogueOn && Input.GetKeyDown(KeyCode.Z) && !interactHit)
         {
             OBJ_Dialogue_UI.SetActive(false);

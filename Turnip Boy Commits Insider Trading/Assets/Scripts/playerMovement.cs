@@ -14,12 +14,12 @@ public class playerMovement : MonoBehaviour
     private bool plDialogueOn = false;
     private float velocity;
     private bool[] boolArray = { false, false, false, false }; // Left, Right, Up, Down
+    public bool usingItem;
     [Header("True public")]
     public float acceleration;
     public float friction;
     public float maxVelocity;
     public float bombPush;
-    public bool usingItem;
 
     // Update is called once per frame
     void Update()
@@ -79,6 +79,7 @@ public class playerMovement : MonoBehaviour
         // Slowing the player down to a stop
         else if (!isMoving && velocity > 0)
         {
+
             velocity -= friction;
 
             if (velocity < 0)
@@ -89,6 +90,9 @@ public class playerMovement : MonoBehaviour
             transform.position += new Vector3(prevHozDirection * velocity * Time.deltaTime, prevVertDirection * velocity * Time.deltaTime, 0);
         }
         resetVars();
+
+        print(velocity);
+
     }
 
     // Accelerating
@@ -139,7 +143,6 @@ public class playerMovement : MonoBehaviour
             GetComponent<Rigidbody2D>().AddForce(dir * bombPush);
         }
     }
-
 
     // Flipping the usingItem boolean variable a second after the player uses an item
     private void itemDone()
