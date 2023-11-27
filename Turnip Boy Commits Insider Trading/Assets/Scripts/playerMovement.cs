@@ -22,7 +22,7 @@ public class playerMovement : MonoBehaviour
     public float bombPush;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Registering player input for using an item
         if (Input.GetKeyDown(KeyCode.X))
@@ -90,9 +90,6 @@ public class playerMovement : MonoBehaviour
             transform.position += new Vector3(prevHozDirection * velocity * Time.deltaTime, prevVertDirection * velocity * Time.deltaTime, 0);
         }
         resetVars();
-
-        print(velocity);
-
     }
 
     // Accelerating
