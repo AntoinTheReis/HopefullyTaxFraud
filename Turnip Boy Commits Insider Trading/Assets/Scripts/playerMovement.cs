@@ -11,7 +11,7 @@ public class playerMovement : MonoBehaviour
     private int prevHozDirection;
     private int prevVertDirection;
     private bool isMoving;
-    private bool plDialogueOn = false;
+    private bool higherUI = false;
     private float velocity;
     private bool[] boolArray = { false, false, false, false }; // Left, Right, Up, Down
     public bool usingItem;
@@ -33,7 +33,7 @@ public class playerMovement : MonoBehaviour
         }
         
         // Registering player input for movement
-        if (!usingItem && !plDialogueOn)
+        if (!usingItem && !higherUI)
         {
             if (Input.GetKey("left"))
             {
@@ -147,9 +147,9 @@ public class playerMovement : MonoBehaviour
         usingItem = false;
     }
     
-    // Setting the plDialogueOn boolean variable to true or false depending on whether or not the dialogue UI is on screen
-    public void set_plDialogueOn(bool dialogueOn)
+    // Setting the higherUI boolean variable to true or false depending on whether or not UI is on screen
+    public void set_higherUI(bool UI_On)
     {
-        plDialogueOn = dialogueOn;
+        higherUI = UI_On;
     }
 }

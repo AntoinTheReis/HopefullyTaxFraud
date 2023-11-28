@@ -14,7 +14,7 @@ public class Test_paper_script : MonoBehaviour
     {
         if (playerClose && !paperGiven)
         {
-
+            // Call to Paper object
             paperGiven = true;
         }
     }
