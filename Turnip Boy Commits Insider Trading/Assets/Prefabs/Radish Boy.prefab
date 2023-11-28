@@ -530,8 +530,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usingItem: 0
-  acceleration: 0.15
-  friction: 0.07
+  acceleration: 1
+  friction: 0.45
   maxVelocity: 5
   bombPush: 900
 --- !u!58 &1492706791366218220
