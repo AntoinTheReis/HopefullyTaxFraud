@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 0.15
-  friction: 0.07
+  friction: 0.14
   maxVelocity: 5
   bombPush: 900
   usingItem: 0
