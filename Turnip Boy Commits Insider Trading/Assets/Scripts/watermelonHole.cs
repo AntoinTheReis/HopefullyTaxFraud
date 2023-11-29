@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class watermelonHole : MonoBehaviour
 {
+
+    private bool filled;
+    public GameObject outside;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +22,13 @@ public class watermelonHole : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "watermelon")
+        if(collision.tag == "watermelon" && !filled)
         {
             GetComponent<SpriteRenderer>().color = Color.green;
             GetComponent<Collider2D>().enabled= false;
             Destroy(collision.gameObject);
+            filled = true;
+            Destroy(outside);
         }
     }
 
