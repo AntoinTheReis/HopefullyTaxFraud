@@ -17,10 +17,33 @@ public class toolManager : MonoBehaviour
 
     private bool usingTool = false;
 
+    private bool up;
+    private float holdingUp = 0;
+    private bool left;
+    private float holdingLeft = 0;
+    private bool down;
+    private float holdingDown = 0;
+    private bool right;
+    private float holdingRight = 0;
+
+    public enum direction
+    {
+        Up,
+        Left,
+        Down,
+        Right,
+        UpLeft,
+        DownLeft,
+        UpRight,
+        DownRight
+    }
+
+    public direction facingDirection;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        facingDirection = direction.Right;
     }
 
     // Update is called once per frame
@@ -89,6 +112,127 @@ public class toolManager : MonoBehaviour
             usingTool = true;
             backItemRenderer.enabled = false;
             Invoke("chillForSec", 1);
+        }
+        if (!usingTool)
+        {
+            UpdateDirection();
+        }
+    }
+
+    private void UpdateDirection()
+    {
+        if (Input.GetKey("left"))
+        {
+            left = true;
+            holdingLeft += 0.01f;
+        }
+        else
+        {
+            left = false;
+            holdingLeft = 0;
+        }
+        if (Input.GetKey("down"))
+        {
+            down = true;
+            holdingDown += 0.01f;
+        }
+        else
+        {
+            down = false;
+            holdingDown = 0;
+        }
+        if (Input.GetKey("up"))
+        {
+            up = true;
+            holdingUp += 0.01f;
+        }
+        else
+        {
+            up = false;
+            holdingUp = 0;
+        }
+        if (Input.GetKey("right"))
+        {
+            right = true;
+            holdingRight += 0.01f;
+        }
+        else
+        {
+            right = false;
+            holdingRight = 0;
+        }
+
+        if (up && holdingUp > holdingDown)
+        {
+            if (left && !right)
+            {
+                facingDirection = direction.UpLeft;
+                return;
+            }
+            else if (!left && right)
+            {
+                facingDirection = direction.UpRight;
+                return;
+            }
+            else
+            {
+                facingDirection = direction.Up;
+                return;
+            }
+        }
+        else if (down && holdingDown > holdingUp)
+        {
+            if (left && !right)
+            {
+                facingDirection = direction.DownLeft;
+                return;
+            }
+            else if (!left && right)
+            {
+                facingDirection = direction.DownRight;
+                return;
+            }
+            else
+            {
+                facingDirection = direction.Down;
+                return;
+            }
+        }
+        else if (right && holdingRight > holdingLeft)
+        {
+            if (up && !down)
+            {
+                facingDirection = direction.UpRight;
+                return;
+            }
+            else if (!up && down)
+            {
+                facingDirection = direction.DownRight;
+                return;
+            }
+            else
+            {
+                facingDirection = direction.Right;
+                return;
+            }
+        }
+        else if (left && holdingRight < holdingLeft)
+        {
+            if (up && !down)
+            {
+                facingDirection = direction.UpLeft;
+                return;
+            }
+            else if (!up && down)
+            {
+                facingDirection = direction.DownLeft;
+                return;
+            }
+            else
+            {
+                facingDirection = direction.Left;
+                return;
+            }
         }
     }
 
