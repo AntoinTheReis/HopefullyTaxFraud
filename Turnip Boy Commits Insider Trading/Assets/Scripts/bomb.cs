@@ -43,6 +43,8 @@ public class bomb : MonoBehaviour
         {
             if(watered && !launched)
             {
+                GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+                GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
                 launched = true;
                 if(gameObject.transform.position.y < player.position.y)
                 {

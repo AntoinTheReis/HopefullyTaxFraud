@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad095cdddaed7cf43ba30a9c99b686c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  launched: 0
   bombZone: {fileID: 5571059539204941975, guid: 81c65bb6af066724e8d433aef3ff7a53, type: 3}
   bombVelocity: 900
 --- !u!58 &5084657386773026348
@@ -162,4 +163,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
