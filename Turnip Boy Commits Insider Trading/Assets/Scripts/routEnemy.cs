@@ -17,19 +17,24 @@ public class routEnemy : MonoBehaviour
     public float vel;
     public float accel;
 
-
+    private int gp;
+    private bool dying;
 
     // Start is called before the first frame update
     void Start()
     {
         transform.position = target1.position;
         currentTarget = target2;
+        gp = 3;
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, currentTarget.position, vel);
+        if (!dying)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, currentTarget.position, vel);
+        }
     }
 
     private void Update()
@@ -61,7 +66,28 @@ public class routEnemy : MonoBehaviour
             Vector3 dir = collision.transform.position - transform.position;
             dir = -dir.normalized;
             GetComponent<Rigidbody2D>().AddForce(dir * push);
+            dying = true;
+            Invoke("Dying", 2);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "bullet")
+        {
+            gp--;
+            if (gp == 0)
+            {
+                Vector3 dir = collision.transform.position - transform.position;
+                dir = -dir.normalized;
+                GetComponent<Rigidbody2D>().AddForce(dir * push);
+                dying = true;
+                Invoke("Dying", 2);
+            }
         }
     }
 
+    private void Dying()
+    {
+        Destroy(gameObject);
+    }
 }
