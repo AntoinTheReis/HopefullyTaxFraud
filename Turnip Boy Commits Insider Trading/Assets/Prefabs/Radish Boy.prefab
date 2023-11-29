@@ -355,13 +355,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5030844992859930416}
   - component: {fileID: 8287968450963911942}
+  - component: {fileID: 6816295530636664016}
   - component: {fileID: 5292324117596140767}
   - component: {fileID: 2104493027966194855}
   - component: {fileID: 3572789326548946406}
   - component: {fileID: 1903939706396921011}
+  - component: {fileID: 8492559362678775207}
   - component: {fileID: 1492706791366218220}
   - component: {fileID: 2546216672695354822}
-  - component: {fileID: 6816295530636664016}
   - component: {fileID: 1338111725728770541}
   m_Layer: 6
   m_Name: Radish Boy
@@ -448,6 +449,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6816295530636664016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268243590973323220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd02e9b9a4eb1b41b77bd960b989352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counter: 0
+  canManager: {fileID: 3572789326548946406}
+  swordManager: {fileID: 2104493027966194855}
+  gunManager: {fileID: 5292324117596140767}
+  canSprite: {fileID: 1072325286, guid: 2913df42dd0df49eda5efa57bf584c6c, type: 3}
+  gunSprite: {fileID: 1167990214, guid: 2913df42dd0df49eda5efa57bf584c6c, type: 3}
+  swordSprite: {fileID: -1364401081, guid: 2913df42dd0df49eda5efa57bf584c6c, type: 3}
+  backItemRenderer: {fileID: 59318838118350009}
 --- !u!114 &5292324117596140767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,8 +553,20 @@ MonoBehaviour:
   acceleration: 0.75
   friction: 0.5
   maxVelocity: 5
-  bombPush: 900
+  bombPush: 5000
   usingItem: 0
+--- !u!114 &8492559362678775207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268243590973323220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b4d891930dc114c9152c3a51ff3bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &1492706791366218220
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -596,26 +629,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6816295530636664016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6268243590973323220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdd02e9b9a4eb1b41b77bd960b989352, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  counter: 0
-  canManager: {fileID: 3572789326548946406}
-  swordManager: {fileID: 2104493027966194855}
-  gunManager: {fileID: 5292324117596140767}
-  canSprite: {fileID: 1072325286, guid: 2913df42dd0df49eda5efa57bf584c6c, type: 3}
-  gunSprite: {fileID: 1167990214, guid: 2913df42dd0df49eda5efa57bf584c6c, type: 3}
-  swordSprite: {fileID: -1364401081, guid: 2913df42dd0df49eda5efa57bf584c6c, type: 3}
-  backItemRenderer: {fileID: 59318838118350009}
 --- !u!95 &1338111725728770541
 Animator:
   serializedVersion: 5

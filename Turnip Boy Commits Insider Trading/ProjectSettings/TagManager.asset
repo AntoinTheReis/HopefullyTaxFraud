@@ -12,6 +12,7 @@ TagManager:
   - Dialogue_UI
   - Dialogue_Text
   - Name_Text
+  - Enemy
   layers:
   - Default
   - TransparentFX
