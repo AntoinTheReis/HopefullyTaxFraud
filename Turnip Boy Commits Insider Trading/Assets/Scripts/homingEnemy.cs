@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
-public class routEnemy : MonoBehaviour
+public class homingEnemy : MonoBehaviour
 {
 
-    public Transform target1;
-    public Transform target2;
-    private Transform currentTarget;
-    private bool even = false;
-    public float push;
+    private GameObject player;
+    private bool attacking;
 
+    public float push;
+    public float closeness;
     [Header("Movement floats")]
     public float maxVel;
     public float vel;
@@ -23,45 +22,35 @@ public class routEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = target1.position;
-        currentTarget = target2;
+        player = GameObject.FindGameObjectWithTag("Player");
         gp = 3;
     }
 
     // Update is called once per frame
-    private void FixedUpdate()
+    void Update()
     {
-        if (!dying)
+        if(!attacking && Vector3.Distance(gameObject.transform.position, player.transform.position) <= closeness)
         {
-            transform.position = Vector3.MoveTowards(transform.position, currentTarget.position, vel);
+            attacking = true;
         }
-    }
-
-    private void Update()
-    {
-        if(vel < maxVel)
+        if (vel < maxVel && attacking)
         {
             vel += accel;
         }
-        if(transform.position == currentTarget.position)
+    }
+
+    private void FixedUpdate()
+    {
+        if(attacking && !dying)
         {
-            vel = 0f;
-            if(!even)
-            {
-                even = true;
-                currentTarget = target1;
-            }
-            else
-            {
-                even = false;
-                currentTarget = target2;
-            }
+            Debug.Log("Supposed to move");
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, vel);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if((collision.tag == "sword" || collision.tag == "bomb") && !dying)
+        if ((collision.tag == "sword" || collision.tag == "bomb") && !dying)
         {
             Vector3 dir = collision.transform.position - transform.position;
             dir = -dir.normalized;
@@ -77,13 +66,17 @@ public class routEnemy : MonoBehaviour
             vel = 0;
             Vector3 dir = collision.transform.position - transform.position;
             dir = -dir.normalized;
-            GetComponent<Rigidbody2D>().AddForce(dir * push*0.1f);
+            GetComponent<Rigidbody2D>().AddForce(dir * push * 0.1f);
             gp--;
             if (gp == 0)
             {
-                //GetComponent<Rigidbody2D>().AddForce(dir * push*0.9f);
+                //GetComponent<Rigidbody2D>().AddForce(dir * push * 0.9f);
                 dying = true;
                 Invoke("Dying", 2);
+            }
+            if (!attacking)
+            {
+                attacking = true;
             }
         }
     }
@@ -92,4 +85,5 @@ public class routEnemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }
