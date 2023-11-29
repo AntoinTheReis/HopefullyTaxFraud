@@ -6,11 +6,12 @@ public class watermelonManager : MonoBehaviour
 {
 
     private bool watered;
+    private int bp;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        bp = 3;
     }
 
     // Update is called once per frame
@@ -35,9 +36,17 @@ public class watermelonManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "bomb")
+        if(collision.collider.tag == "bomb" && watered)
         {
             if(collision.collider.GetComponent<bomb>().launched == true)
+            {
+                Exploded();
+            }
+        }
+        if(collision.gameObject.tag == "bullet" && watered)
+        {
+            bp--;
+            if(bp == 0)
             {
                 Exploded();
             }
