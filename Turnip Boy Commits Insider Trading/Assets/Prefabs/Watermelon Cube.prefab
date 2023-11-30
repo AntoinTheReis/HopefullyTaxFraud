@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8609331314622697834}
   - component: {fileID: 7873731534543898643}
   - component: {fileID: 139781229799369692}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Watermelon Cube
   m_TagString: watermelon
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

@@ -31,6 +31,8 @@ public class watermelonManager : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionY;
             gameObject.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
             watered = true;
+            gameObject.GetComponent<Collider2D>().includeLayers = LayerMask.GetMask("characters");
+            gameObject.GetComponent<Collider2D>().excludeLayers = 0;
         }
     }
 
