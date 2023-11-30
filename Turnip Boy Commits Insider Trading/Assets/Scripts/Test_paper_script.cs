@@ -8,13 +8,14 @@ public class Test_paper_script : MonoBehaviour
     // Necessary variable
     private bool playerClose;
     private bool paperGiven;
+    public Paper Paper;
 
     // Update is called once per frame
     void Update()
     {
         if (playerClose && !paperGiven)
         {
-            // Call to Paper object
+            Paper.activatePaper("holy smokes");
             paperGiven = true;
         }
     }
