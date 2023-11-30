@@ -52,7 +52,7 @@ public class canManager : MonoBehaviour
     {
         gun.GetComponent<SpriteRenderer>().enabled = false;
     }
-    private void OnEnable()
+    private void SetActive()
     {
         facingDirection = (direction)(toolManager.facingDirection);
     }
