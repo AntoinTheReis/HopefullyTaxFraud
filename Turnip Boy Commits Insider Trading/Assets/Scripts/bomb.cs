@@ -32,6 +32,8 @@ public class bomb : MonoBehaviour
             {
                 watered = true;
                 Debug.Log("watered1");
+                gameObject.GetComponent<Collider2D>().includeLayers = LayerMask.GetMask("characters");
+                gameObject.GetComponent<Collider2D>().excludeLayers = 0;
             }
             else if(!launched)
             {
@@ -83,6 +85,10 @@ public class bomb : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (launched)
+        {
+            Explode();
+        }
+        if(watered && !launched && collision.gameObject.tag == "bullet")
         {
             Explode();
         }
