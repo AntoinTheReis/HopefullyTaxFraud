@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class swordManager : MonoBehaviour
 {
-    
+
+    public toolManager toolManager;
+
     private enum direction
     {
         Up,
@@ -46,8 +48,12 @@ public class swordManager : MonoBehaviour
 
     void Start()
     {
-        facingDirection = direction.Right;
         gun.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    private void OnEnable()
+    {
+        facingDirection = (direction)(toolManager.facingDirection);
     }
 
     // Update is called once per frame

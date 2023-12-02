@@ -32,6 +32,8 @@ public class bomb : MonoBehaviour
             {
                 watered = true;
                 Debug.Log("watered1");
+                gameObject.GetComponent<Collider2D>().includeLayers = LayerMask.GetMask("characters");
+                gameObject.GetComponent<Collider2D>().excludeLayers = 0;
             }
             else if(!launched)
             {
@@ -39,18 +41,32 @@ public class bomb : MonoBehaviour
                 Debug.Log("watered2");
             }
         }
-        if(collision.tag == "sword")
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (launched)
         {
-            if(watered && !launched)
+            Explode();
+        }
+        if(watered && !launched && collision.gameObject.tag == "bullet")
+        {
+            Explode();
+        }
+        if(collision.gameObject.tag == "Player")
+        {
+            if (watered && !launched)
             {
+                GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+                GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
                 launched = true;
-                if(gameObject.transform.position.y < player.position.y)
+                if (gameObject.transform.position.y < player.position.y)
                 {
-                    if(player.position.y - gameObject.transform.position.y > Mathf.Abs(gameObject.transform.position.x - player.position.x))
+                    if (player.position.y - gameObject.transform.position.y > Mathf.Abs(gameObject.transform.position.x - player.position.x))
                     {
                         GetComponent<Rigidbody2D>().AddForce(Vector2.down * bombVelocity);
                     }
-                    else if(gameObject.transform.position.x - player.position.x > 0)
+                    else if (gameObject.transform.position.x - player.position.x > 0)
                     {
                         GetComponent<Rigidbody2D>().AddForce(Vector2.right * bombVelocity);
                     }
@@ -75,14 +91,6 @@ public class bomb : MonoBehaviour
                     }
                 }
             }
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (launched)
-        {
-            Explode();
         }
     }
 
