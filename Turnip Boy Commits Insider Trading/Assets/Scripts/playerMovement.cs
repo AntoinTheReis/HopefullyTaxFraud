@@ -23,15 +23,7 @@ public class playerMovement : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {
-        // Registering player input for using an item
-        if (Input.GetKeyDown(KeyCode.X))
-
-        {
-            usingItem = true;
-            Invoke("itemDone", 1);
-        }
-        
+    { 
         // Registering player input for movement
         if (!usingItem && !higherUI)
         {
@@ -90,6 +82,15 @@ public class playerMovement : MonoBehaviour
             transform.position += new Vector3(prevHozDirection * velocity * Time.deltaTime, prevVertDirection * velocity * Time.deltaTime, 0);
         }
         resetVars();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            usingItem = true;
+            Invoke("itemDone", 1);
+        }
     }
 
     // Accelerating
