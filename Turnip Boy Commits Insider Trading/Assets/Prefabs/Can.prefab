@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1097529027983519576}
   - component: {fileID: 7643232309422512723}
   - component: {fileID: 2954387970194635848}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Area of Effect
   m_TagString: water
   m_Icon: {fileID: 0}

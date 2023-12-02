@@ -5,6 +5,8 @@ using UnityEngine;
 public class gunManager : MonoBehaviour
 {
 
+    public toolManager toolManager;
+
     private enum direction
     {
         Up,
@@ -48,9 +50,14 @@ public class gunManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        facingDirection = direction.Right;
         gunSprite = gun.GetComponent<SpriteRenderer>();
         gunSprite.enabled= false;
+    }
+
+    private void OnEnable()
+    {
+        facingDirection = (direction)((int)toolManager.facingDirection);
+        //Debug.Log("did a thing");
     }
 
     // Update is called once per frame

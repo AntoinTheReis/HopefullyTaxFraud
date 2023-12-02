@@ -5,7 +5,7 @@ using UnityEngine;
 public class playeVenemy : MonoBehaviour
 {
 
-    private static int hp = 6;
+    private static float hp = 3;
     private playerMovement playerMovement;
 
     // Start is called before the first frame update

@@ -469,6 +469,7 @@ MonoBehaviour:
   gunSprite: {fileID: 1167990214, guid: 2913df42dd0df49eda5efa57bf584c6c, type: 3}
   swordSprite: {fileID: -1364401081, guid: 2913df42dd0df49eda5efa57bf584c6c, type: 3}
   backItemRenderer: {fileID: 59318838118350009}
+  facingDirection: 0
 --- !u!114 &5292324117596140767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f3b77d380bce9468571ed71977f3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toolManager: {fileID: 6816295530636664016}
   shootingWaitingTime: 1
   gun: {fileID: 5932208994752320903}
   bullet: {fileID: 3992602747892495238, guid: 934bf33957ada2a45aad0ee98ed8d6a4, type: 3}
@@ -504,6 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54d113a029feec49bcdc9e668af1b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toolManager: {fileID: 6816295530636664016}
   shootingWaitingTime: 1
   sword: {fileID: 3006178813697378516, guid: aa2fc838882b2f54fabb45c8d2377466, type: 3}
   gun: {fileID: 3327005327767509910, guid: 8570b8af6b1389944a023a7426ca234e, type: 3}
@@ -527,6 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b539f2dc1e5c5488c0509e2a8fd903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toolManager: {fileID: 6816295530636664016}
   shootingWaitingTime: 1
   can: {fileID: 7753141478333302895, guid: ab082ce4fbf065d4d87b7801544b4189, type: 3}
   gun: {fileID: 5932208994752320903}
