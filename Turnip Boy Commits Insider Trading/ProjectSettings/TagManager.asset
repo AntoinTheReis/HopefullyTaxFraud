@@ -12,7 +12,7 @@ TagManager:
   - Dialogue_UI
   - Dialogue_Text
   - Name_Text
-  - Enemy
+  - Ripping_UI
   layers:
   - Default
   - TransparentFX

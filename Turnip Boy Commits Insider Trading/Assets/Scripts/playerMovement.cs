@@ -11,18 +11,18 @@ public class playerMovement : MonoBehaviour
     private int prevHozDirection;
     private int prevVertDirection;
     private bool isMoving;
-    private bool plDialogueOn = false;
+    private bool higherUI = false;
     private float velocity;
     private bool[] boolArray = { false, false, false, false }; // Left, Right, Up, Down
+    public bool usingItem;
     [Header("True public")]
     public float acceleration;
     public float friction;
     public float maxVelocity;
     public float bombPush;
-    public bool usingItem;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Registering player input for using an item
         if (Input.GetKeyDown(KeyCode.X))
@@ -33,7 +33,7 @@ public class playerMovement : MonoBehaviour
         }
         
         // Registering player input for movement
-        if (!usingItem && !plDialogueOn)
+        if (!usingItem && !higherUI)
         {
             if (Input.GetKey("left"))
             {
@@ -79,6 +79,7 @@ public class playerMovement : MonoBehaviour
         // Slowing the player down to a stop
         else if (!isMoving && velocity > 0)
         {
+
             velocity -= friction;
 
             if (velocity < 0)
@@ -140,16 +141,15 @@ public class playerMovement : MonoBehaviour
         }
     }
 
-
     // Flipping the usingItem boolean variable a second after the player uses an item
     private void itemDone()
     {
         usingItem = false;
     }
     
-    // Setting the plDialogueOn boolean variable to true or false depending on whether or not the dialogue UI is on screen
-    public void set_plDialogueOn(bool dialogueOn)
+    // Setting the higherUI boolean variable to true or false depending on whether or not UI is on screen
+    public void set_higherUI(bool UI_On)
     {
-        plDialogueOn = dialogueOn;
+        higherUI = UI_On;
     }
 }
