@@ -34,17 +34,15 @@ public class watermelonManager : MonoBehaviour
             gameObject.GetComponent<Collider2D>().includeLayers = LayerMask.GetMask("characters");
             gameObject.GetComponent<Collider2D>().excludeLayers = 0;
         }
+        if (collision.tag == "bombZone" && watered)
+        {
+            Exploded();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "bomb" && watered)
-        {
-            if(collision.collider.GetComponent<bomb>().launched == true)
-            {
-                Exploded();
-            }
-        }
+        
         if(collision.gameObject.tag == "bullet" && watered)
         {
             bp--;
