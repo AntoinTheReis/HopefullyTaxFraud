@@ -24,6 +24,7 @@ public class heartLeaf : MonoBehaviour
     {
         if(collision.tag  == "bombZone" || collision.tag == "sword")
         {
+            Debug.Log("sword detected");
             Destroyed();
         }
     }
