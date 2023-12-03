@@ -5,7 +5,7 @@ using UnityEngine;
 public class playeVenemy : MonoBehaviour
 {
 
-    private static float hp = 3;
+    public float hp = 3;
     private playerMovement playerMovement;
 
     // Start is called before the first frame update
@@ -17,7 +17,10 @@ public class playeVenemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (hp > 3)
+        {
+            hp = 3;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
