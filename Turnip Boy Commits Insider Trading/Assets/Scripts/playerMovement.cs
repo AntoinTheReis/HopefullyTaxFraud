@@ -29,6 +29,7 @@ public class playerMovement : MonoBehaviour
         {
             if (Input.GetKey("left"))
             {
+                
                 hozDirection = -1;
                 prevHozDirection = -1;
                 miscInputRegistration(0);
@@ -101,6 +102,15 @@ public class playerMovement : MonoBehaviour
         if (velocity > maxVelocity)
         {
             velocity = maxVelocity;
+        }
+
+        if (hozDirection > 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if(hozDirection < 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 
