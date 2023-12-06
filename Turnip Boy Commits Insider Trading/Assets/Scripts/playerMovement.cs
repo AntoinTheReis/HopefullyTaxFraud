@@ -20,6 +20,10 @@ public class playerMovement : MonoBehaviour
     public float maxVelocity;
     public float bombPush;
     public bool usingItem;
+    [Header("Hat Controller")]
+    public SpriteRenderer hatFaceRight;
+    public SpriteRenderer hatFaceLeft;
+    private bool facingRight;
 
     // Update is called once per frame
     void Update()
