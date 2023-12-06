@@ -25,7 +25,7 @@ public class playerMovement : MonoBehaviour
     public SpriteRenderer hatFaceLeft;
     public SpriteRenderer backFaceRight;
     public SpriteRenderer backFaceLeft;
-    private bool facingRight;
+    public bool facingRight;
 
     // Update is called once per frame
     void FixedUpdate()

@@ -27,6 +27,9 @@ public class toolManager : MonoBehaviour
     private bool right;
     private float holdingRight = 0;
 
+    private playerMovement playerCode;
+    private bool facingRight;
+
     public enum direction
     {
         Up,
@@ -118,6 +121,7 @@ public class toolManager : MonoBehaviour
         {
             usingTool = true;
             backItemRendererRight.enabled = false;
+            backItemRendererLeft.enabled = false;
             Invoke("chillForSec", 1);
         }
         if (!usingTool)
@@ -245,8 +249,16 @@ public class toolManager : MonoBehaviour
 
     private void chillForSec()
     {
+        facingRight = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>().facingRight;
         usingTool = false;
-        backItemRendererRight.enabled = true;
+        if (facingRight)
+        {
+            backItemRendererRight.enabled = true;
+        }
+        else
+        {
+            backItemRendererLeft.enabled = true;
+        }
     }
 
 }
