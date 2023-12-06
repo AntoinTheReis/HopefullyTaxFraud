@@ -126,7 +126,7 @@ Animator:
   m_GameObject: {fileID: 1393521651242503816}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5fb916ac906b64831a2f4da0bfa08df2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -263,7 +263,7 @@ Animator:
   m_GameObject: {fileID: 2425998397772745067}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5fb916ac906b64831a2f4da0bfa08df2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -666,8 +666,8 @@ MonoBehaviour:
   friction: 0.45
   maxVelocity: 5
   bombPush: 5000
-  hatFaceRight: {fileID: 0}
-  hatFaceLeft: {fileID: 0}
+  hatFaceRight: {fileID: 6129891213765296112}
+  hatFaceLeft: {fileID: 5158371031513730199}
 --- !u!114 &8492559362678775207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,6 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b4d891930dc114c9152c3a51ff3bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 3
 --- !u!58 &1492706791366218220
 CircleCollider2D:
   m_ObjectHideFlags: 0

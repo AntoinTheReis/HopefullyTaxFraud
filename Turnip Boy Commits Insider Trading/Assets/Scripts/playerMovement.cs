@@ -111,10 +111,16 @@ public class playerMovement : MonoBehaviour
         if (hozDirection > 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            facingRight = true;
+            hatFaceLeft.enabled = false;
+            hatFaceRight.enabled = true;
         }
         else if(hozDirection < 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            facingRight = false;
+            hatFaceLeft.enabled = true;
+            hatFaceRight.enabled = false;
         }
     }
 

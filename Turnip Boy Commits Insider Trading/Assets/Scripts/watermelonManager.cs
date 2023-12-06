@@ -38,6 +38,10 @@ public class watermelonManager : MonoBehaviour
         {
             Exploded();
         }
+        if(collision.tag == "sword" && watered)
+        {
+            Exploded();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
