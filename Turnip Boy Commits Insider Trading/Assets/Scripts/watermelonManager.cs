@@ -7,6 +7,7 @@ public class watermelonManager : MonoBehaviour
 
     private bool watered;
     private int bp;
+    public float push;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,9 @@ public class watermelonManager : MonoBehaviour
         
         if(collision.gameObject.tag == "bullet" && watered)
         {
+            Vector3 dir = collision.transform.position - transform.position;
+            dir = -dir.normalized;
+            GetComponent<Rigidbody2D>().AddForce(dir * push * 0.1f);
             bp--;
             if(bp == 0)
             {
