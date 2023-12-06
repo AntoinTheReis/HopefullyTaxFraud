@@ -13,7 +13,8 @@ public class toolManager : MonoBehaviour
     public Sprite canSprite;
     public Sprite gunSprite;
     public Sprite swordSprite;
-    public SpriteRenderer backItemRenderer;
+    public SpriteRenderer backItemRendererRight;
+    public SpriteRenderer backItemRendererLeft;
 
     private bool usingTool = false;
 
@@ -58,21 +59,24 @@ public class toolManager : MonoBehaviour
             }
             if(counter == 0)
             {
-                backItemRenderer.sprite = canSprite;
+                backItemRendererRight.sprite = canSprite;
+                backItemRendererLeft.sprite = canSprite;
                 canManager.enabled = true;
                 gunManager.enabled = false;
                 swordManager.enabled = false;
             }
             else if(counter == 1)
             {
-                backItemRenderer.sprite = swordSprite;
+                backItemRendererRight.sprite = swordSprite;
+                backItemRendererLeft.sprite = swordSprite;
                 canManager.enabled = false;
                 gunManager.enabled = false;
                 swordManager.enabled = true;
             }
             else
             {
-                backItemRenderer.sprite = gunSprite;
+                backItemRendererRight.sprite = gunSprite;
+                backItemRendererLeft.sprite = gunSprite;
                 canManager.enabled = false;
                 gunManager.enabled = true;
                 swordManager.enabled = false;
@@ -87,21 +91,24 @@ public class toolManager : MonoBehaviour
             }
             if (counter == 0)
             {
-                backItemRenderer.sprite = canSprite;
+                backItemRendererRight.sprite = canSprite;
+                backItemRendererLeft.sprite = canSprite;
                 canManager.enabled = true;
                 gunManager.enabled = false;
                 swordManager.enabled = false;
             }
             else if (counter == 1)
             {
-                backItemRenderer.sprite = swordSprite;
+                backItemRendererRight.sprite = swordSprite;
+                backItemRendererLeft.sprite = swordSprite;
                 canManager.enabled = false;
                 gunManager.enabled = false;
                 swordManager.enabled = true;
             }
             else
             {
-                backItemRenderer.sprite = gunSprite;
+                backItemRendererRight.sprite = gunSprite;
+                backItemRendererLeft.sprite = gunSprite;
                 canManager.enabled = false;
                 gunManager.enabled = true;
                 swordManager.enabled = false;
@@ -110,7 +117,7 @@ public class toolManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             usingTool = true;
-            backItemRenderer.enabled = false;
+            backItemRendererRight.enabled = false;
             Invoke("chillForSec", 1);
         }
         if (!usingTool)
@@ -239,7 +246,7 @@ public class toolManager : MonoBehaviour
     private void chillForSec()
     {
         usingTool = false;
-        backItemRenderer.enabled = true;
+        backItemRendererRight.enabled = true;
     }
 
 }

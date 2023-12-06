@@ -20,9 +20,11 @@ public class playerMovement : MonoBehaviour
     public float friction;
     public float maxVelocity;
     public float bombPush;
-    [Header("Hat Controller")]
+    [Header("Hat & BackItem Controller")]
     public SpriteRenderer hatFaceRight;
     public SpriteRenderer hatFaceLeft;
+    public SpriteRenderer backFaceRight;
+    public SpriteRenderer backFaceLeft;
     private bool facingRight;
 
     // Update is called once per frame
@@ -114,6 +116,8 @@ public class playerMovement : MonoBehaviour
             facingRight = true;
             hatFaceLeft.enabled = false;
             hatFaceRight.enabled = true;
+            backFaceLeft.enabled = false;
+            backFaceRight.enabled = true;
         }
         else if(hozDirection < 0)
         {
@@ -121,6 +125,8 @@ public class playerMovement : MonoBehaviour
             facingRight = false;
             hatFaceLeft.enabled = true;
             hatFaceRight.enabled = false;
+            backFaceLeft.enabled = true;
+            backFaceRight.enabled = false;
         }
     }
 
