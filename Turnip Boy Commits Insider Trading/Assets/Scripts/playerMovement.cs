@@ -11,36 +11,29 @@ public class playerMovement : MonoBehaviour
     private int prevHozDirection;
     private int prevVertDirection;
     private bool isMoving;
-    private bool plDialogueOn = false;
+    private bool higherUI = false;
     private float velocity;
     private bool[] boolArray = { false, false, false, false }; // Left, Right, Up, Down
+    public bool usingItem;
     [Header("True public")]
     public float acceleration;
     public float friction;
     public float maxVelocity;
     public float bombPush;
-    public bool usingItem;
     [Header("Hat Controller")]
     public SpriteRenderer hatFaceRight;
     public SpriteRenderer hatFaceLeft;
     private bool facingRight;
 
     // Update is called once per frame
-    void Update()
-    {
-        // Registering player input for using an item
-        if (Input.GetKeyDown(KeyCode.X))
-
-        {
-            usingItem = true;
-            Invoke("itemDone", 1);
-        }
-        
+    void FixedUpdate()
+    { 
         // Registering player input for movement
-        if (!usingItem && !plDialogueOn)
+        if (!usingItem && !higherUI)
         {
             if (Input.GetKey("left"))
             {
+                
                 hozDirection = -1;
                 prevHozDirection = -1;
                 miscInputRegistration(0);
@@ -83,6 +76,7 @@ public class playerMovement : MonoBehaviour
         // Slowing the player down to a stop
         else if (!isMoving && velocity > 0)
         {
+
             velocity -= friction;
 
             if (velocity < 0)
@@ -95,6 +89,15 @@ public class playerMovement : MonoBehaviour
         resetVars();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            usingItem = true;
+            Invoke("itemDone", 1);
+        }
+    }
+
     // Accelerating
     private void accelerating()
     {
@@ -103,6 +106,15 @@ public class playerMovement : MonoBehaviour
         if (velocity > maxVelocity)
         {
             velocity = maxVelocity;
+        }
+
+        if (hozDirection > 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if(hozDirection < 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 
@@ -144,16 +156,15 @@ public class playerMovement : MonoBehaviour
         }
     }
 
-
     // Flipping the usingItem boolean variable a second after the player uses an item
     private void itemDone()
     {
         usingItem = false;
     }
     
-    // Setting the plDialogueOn boolean variable to true or false depending on whether or not the dialogue UI is on screen
-    public void set_plDialogueOn(bool dialogueOn)
+    // Setting the higherUI boolean variable to true or false depending on whether or not UI is on screen
+    public void set_higherUI(bool UI_On)
     {
-        plDialogueOn = dialogueOn;
+        higherUI = UI_On;
     }
 }
