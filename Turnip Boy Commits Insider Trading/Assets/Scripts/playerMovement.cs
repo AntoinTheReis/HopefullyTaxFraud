@@ -21,11 +21,10 @@ public class playerMovement : MonoBehaviour
     public float maxVelocity;
     public float bombPush;
     [Header("Hat & BackItem Controller")]
-    public SpriteRenderer hatFaceRight;
-    public SpriteRenderer hatFaceLeft;
     public SpriteRenderer backFaceRight;
     public SpriteRenderer backFaceLeft;
     public bool facingRight;
+    public Animator animator;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -74,6 +73,8 @@ public class playerMovement : MonoBehaviour
             }
 
             transform.position += new Vector3(hozDirection * velocity * Time.deltaTime, vertDirection * velocity * Time.deltaTime, 0);
+
+            animator.SetInteger("State", 1);
         }
         // Slowing the player down to a stop
         else if (!isMoving && velocity > 0)
@@ -87,6 +88,7 @@ public class playerMovement : MonoBehaviour
             }
 
             transform.position += new Vector3(prevHozDirection * velocity * Time.deltaTime, prevVertDirection * velocity * Time.deltaTime, 0);
+            animator.SetInteger("State", 0);
         }
         resetVars();
     }
@@ -114,8 +116,6 @@ public class playerMovement : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
             facingRight = true;
-            hatFaceLeft.enabled = false;
-            hatFaceRight.enabled = true;
             backFaceLeft.enabled = false;
             backFaceRight.enabled = true;
         }
@@ -123,8 +123,6 @@ public class playerMovement : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
             facingRight = false;
-            hatFaceLeft.enabled = true;
-            hatFaceRight.enabled = false;
             backFaceLeft.enabled = true;
             backFaceRight.enabled = false;
         }
