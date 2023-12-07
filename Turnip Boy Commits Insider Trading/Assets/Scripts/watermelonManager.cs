@@ -8,6 +8,7 @@ public class watermelonManager : MonoBehaviour
     private bool watered;
     private int bp;
     public float push;
+    public Sprite wateredWatermelon;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class watermelonManager : MonoBehaviour
             watered = true;
             gameObject.GetComponent<Collider2D>().includeLayers = LayerMask.GetMask("characters");
             gameObject.GetComponent<Collider2D>().excludeLayers = 0;
+            gameObject.GetComponent<SpriteRenderer>().sprite = wateredWatermelon;
         }
         if (collision.tag == "bombZone" && watered)
         {
