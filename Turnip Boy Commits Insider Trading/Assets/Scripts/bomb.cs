@@ -49,7 +49,7 @@ public class bomb : MonoBehaviour
         {
             Explode();
         }
-        if(watered && !launched && collision.gameObject.tag == "bullet")
+        if(watered && collision.gameObject.tag == "bullet")
         {
             Explode();
         }
