@@ -13,6 +13,9 @@ TagManager:
   - Dialogue_Text
   - Name_Text
   - Ripping_UI
+  - Enemy
+  - Key1
+  - Key2
   layers:
   - Default
   - TransparentFX
