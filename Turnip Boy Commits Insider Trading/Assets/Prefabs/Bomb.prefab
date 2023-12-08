@@ -104,6 +104,8 @@ MonoBehaviour:
   bombZone: {fileID: 5571059539204941975, guid: 81c65bb6af066724e8d433aef3ff7a53, type: 3}
   bombVelocity: 900
   animator: {fileID: 8626601227878267149}
+  shakeIntensity: 1
+  shakeDuration: 0.3
 --- !u!58 &5084657386773026348
 CircleCollider2D:
   m_ObjectHideFlags: 0

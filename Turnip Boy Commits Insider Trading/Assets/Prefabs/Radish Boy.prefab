@@ -661,6 +661,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
+  shakeIntensity: 0.7
+  shakeDuration: 0.25
 --- !u!58 &1492706791366218220
 CircleCollider2D:
   m_ObjectHideFlags: 0

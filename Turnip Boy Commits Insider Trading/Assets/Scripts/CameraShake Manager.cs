@@ -18,7 +18,7 @@ public class CameraShakeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StopShake();
     }
 
     public void ShakeCamera(float timeGiven, float intensity)

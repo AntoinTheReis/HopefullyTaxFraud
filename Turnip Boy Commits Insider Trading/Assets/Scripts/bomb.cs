@@ -15,9 +15,14 @@ public class bomb : MonoBehaviour
 
     public Animator animator;
 
+    public float shakeIntensity = 1f;
+    public float shakeDuration = 0.2f;
+    private CameraShakeManager shakeManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        shakeManager = GameObject.FindGameObjectWithTag("VCM").GetComponent<CameraShakeManager>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -108,6 +113,7 @@ public class bomb : MonoBehaviour
 
     private void Explode()
     {
+        shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
         Instantiate(bombZone, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

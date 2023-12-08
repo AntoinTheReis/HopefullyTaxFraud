@@ -6,11 +6,15 @@ public class playeVenemy : MonoBehaviour
 {
 
     public float hp = 3;
+    public float shakeIntensity = 0.4f;
+    public float shakeDuration = 0.15f;
     private playerMovement playerMovement;
+    private CameraShakeManager shakeManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        shakeManager = GameObject.FindGameObjectWithTag("VCM").GetComponent<CameraShakeManager>();
         playerMovement = GetComponent<playerMovement>();
     }
 
@@ -27,6 +31,7 @@ public class playeVenemy : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
+            shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
             hp--;
             Vector3 dir = collision.gameObject.transform.position - transform.position;
             dir = -dir.normalized;
