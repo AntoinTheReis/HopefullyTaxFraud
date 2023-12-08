@@ -5,13 +5,11 @@ using UnityEngine;
 public class sword : MonoBehaviour
 {
 
-    swordManager SwordManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        SwordManager = GetComponentInParent<swordManager>();
-        StartCoroutine(SelfDestruct(SwordManager.shootingWaitingTime));
+        StartCoroutine(SelfDestruct(1));
     }
 
     // Update is called once per frame

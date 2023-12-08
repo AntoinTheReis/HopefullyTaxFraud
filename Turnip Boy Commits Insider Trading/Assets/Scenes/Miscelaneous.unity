@@ -179,7 +179,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Radish Boy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9055053940836258596, guid: e264dd908671367478603a045b0613fe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
