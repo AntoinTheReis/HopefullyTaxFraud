@@ -667,8 +667,6 @@ MonoBehaviour:
   friction: 0.45
   maxVelocity: 5
   bombPush: 5000
-  hatFaceRight: {fileID: 0}
-  hatFaceLeft: {fileID: 0}
 --- !u!114 &8492559362678775207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,6 +680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
+  Health_UI: {fileID: 12866853137445858, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
 --- !u!114 &8539348425688280986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,6 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e603ba0eba0b5514f8310a34064e21ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isKey: 0
 --- !u!58 &1492706791366218220
 CircleCollider2D:
   m_ObjectHideFlags: 0
