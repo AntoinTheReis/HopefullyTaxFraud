@@ -36,6 +36,7 @@ public class gunManager : MonoBehaviour
     public GameObject gun;
     public GameObject bullet;
     private SpriteRenderer gunSprite;
+    private Animator animator;
 
     [Header("Directions")]
     public Transform dirUp;
@@ -52,6 +53,7 @@ public class gunManager : MonoBehaviour
     {
         gunSprite = gun.GetComponent<SpriteRenderer>();
         gunSprite.enabled= false;
+        animator = gun.GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -72,6 +74,7 @@ public class gunManager : MonoBehaviour
             Instantiate(bullet, gun.transform.position, gun.transform.rotation);
             gunSprite.enabled = true;
             ableToShoot = false;
+            animator.SetTrigger("Shoot");
             StartCoroutine(ShootCoroutine());
         }
 
