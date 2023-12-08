@@ -541,6 +541,7 @@ MonoBehaviour:
   backFaceRight: {fileID: 59318838118350009}
   backFaceLeft: {fileID: 7100256645469810326}
   facingRight: 1
+  animator: {fileID: 1338111725728770541}
 --- !u!114 &8492559362678775207
 MonoBehaviour:
   m_ObjectHideFlags: 0

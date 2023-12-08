@@ -12,6 +12,8 @@ public class bomb : MonoBehaviour
     public float bombVelocity;
     private Transform player;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,7 @@ public class bomb : MonoBehaviour
             {
                 watered = true;
                 Debug.Log("watered1");
+                animator.SetBool("Watered", true);
                 gameObject.GetComponent<Collider2D>().includeLayers = LayerMask.GetMask("characters");
                 gameObject.GetComponent<Collider2D>().excludeLayers = 0;
             }
@@ -39,6 +42,7 @@ public class bomb : MonoBehaviour
             {
                 Invoke("Explode", 3);
                 Debug.Log("watered2");
+                animator.SetBool("StationaryExplosion", true);
             }
         }
     }
@@ -65,14 +69,17 @@ public class bomb : MonoBehaviour
                     if (player.position.y - gameObject.transform.position.y > Mathf.Abs(gameObject.transform.position.x - player.position.x))
                     {
                         GetComponent<Rigidbody2D>().AddForce(Vector2.down * bombVelocity);
+                        animator.SetBool("LaunchedRight", true);
                     }
                     else if (gameObject.transform.position.x - player.position.x > 0)
                     {
                         GetComponent<Rigidbody2D>().AddForce(Vector2.right * bombVelocity);
+                        animator.SetBool("LaunchedRight", true);
                     }
                     else
                     {
                         GetComponent<Rigidbody2D>().AddForce(Vector2.left * bombVelocity);
+                        animator.SetBool("LaunchedLeft", true);
                     }
                 }
                 else
@@ -80,14 +87,17 @@ public class bomb : MonoBehaviour
                     if (gameObject.transform.position.y - player.position.y > Mathf.Abs(gameObject.transform.position.x - player.position.x))
                     {
                         GetComponent<Rigidbody2D>().AddForce(Vector2.up * bombVelocity);
+                        animator.SetBool("LaunchedRight", true);
                     }
                     else if (gameObject.transform.position.x - player.position.x > 0)
                     {
                         GetComponent<Rigidbody2D>().AddForce(Vector2.right * bombVelocity);
+                        animator.SetBool("LaunchedRight", true);
                     }
                     else
                     {
                         GetComponent<Rigidbody2D>().AddForce(Vector2.left * bombVelocity);
+                        animator.SetBool("LaunchedLeft", true);
                     }
                 }
             }
