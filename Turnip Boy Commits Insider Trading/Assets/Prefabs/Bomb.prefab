@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2644399629702966928}
   - component: {fileID: 5084657386773026348}
   - component: {fileID: 3276280671423987449}
-  - component: {fileID: 3570285590454161056}
+  - component: {fileID: 8626601227878267149}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -103,7 +103,7 @@ MonoBehaviour:
   launched: 0
   bombZone: {fileID: 5571059539204941975, guid: 81c65bb6af066724e8d433aef3ff7a53, type: 3}
   bombVelocity: 900
-  animator: {fileID: 3570285590454161056}
+  animator: {fileID: 8626601227878267149}
 --- !u!58 &5084657386773026348
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!95 &3570285590454161056
+--- !u!95 &8626601227878267149
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ Animator:
   m_GameObject: {fileID: 940042510180197853}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 600888708c78e604ab8b2f39de5a2e33, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0eb5a60afd876bb4c9a327a6a707b174, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
