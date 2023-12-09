@@ -8,6 +8,7 @@ public class homingEnemy : MonoBehaviour
 
     private GameObject player;
     private bool attacking;
+    private SpriteRenderer spriteRenderer;
 
     public float push;
     public float closeness;
@@ -24,6 +25,7 @@ public class homingEnemy : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         gp = 3;
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,15 @@ public class homingEnemy : MonoBehaviour
         if (vel < maxVel && attacking)
         {
             vel += accel;
+        }
+
+        if(gameObject.transform.position.x < player.transform.position.x)
+        {
+            spriteRenderer.flipX= true;
+        }
+        else
+        {
+            spriteRenderer.flipX= false;
         }
     }
 
@@ -56,6 +67,7 @@ public class homingEnemy : MonoBehaviour
             dir = -dir.normalized;
             GetComponent<Rigidbody2D>().AddForce(dir * push);
             dying = true;
+            gameObject.GetComponent<Animator>().SetTrigger("Dead");
             Invoke("Dying", 2);
         }
     }
@@ -72,6 +84,7 @@ public class homingEnemy : MonoBehaviour
             {
                 //GetComponent<Rigidbody2D>().AddForce(dir * push * 0.9f);
                 dying = true;
+                gameObject.GetComponent<Animator>().SetTrigger("Dead");
                 Invoke("Dying", 2);
             }
             if (!attacking)

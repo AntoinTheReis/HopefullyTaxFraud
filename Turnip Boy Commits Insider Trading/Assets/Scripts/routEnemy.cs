@@ -19,6 +19,7 @@ public class routEnemy : MonoBehaviour
 
     private int gp;
     private bool dying;
+    private SpriteRenderer spriteRender;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class routEnemy : MonoBehaviour
         transform.position = target1.position;
         currentTarget = target2;
         gp = 3;
+        spriteRender = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -48,11 +50,13 @@ public class routEnemy : MonoBehaviour
             vel = 0f;
             if(!even)
             {
+                spriteRender.flipX = true;
                 even = true;
                 currentTarget = target1;
             }
             else
             {
+                spriteRender.flipX = false;
                 even = false;
                 currentTarget = target2;
             }
@@ -66,6 +70,7 @@ public class routEnemy : MonoBehaviour
             Vector3 dir = collision.transform.position - transform.position;
             dir = -dir.normalized;
             GetComponent<Rigidbody2D>().AddForce(dir * push);
+            gameObject.GetComponent<Animator>().SetTrigger("Dead");
             dying = true;
             Invoke("Dying", 2);
         }
@@ -82,6 +87,7 @@ public class routEnemy : MonoBehaviour
             if (gp == 0)
             {
                 //GetComponent<Rigidbody2D>().AddForce(dir * push*0.9f);
+                gameObject.GetComponent<Animator>().SetTrigger("Dead");
                 dying = true;
                 Invoke("Dying", 2);
             }
