@@ -177,6 +177,7 @@ MonoBehaviour:
   maxVel: 0.05
   vel: 0
   accel: 0.001
+  animator: {fileID: 2575956973608083779}
 --- !u!95 &2575956973608083779
 Animator:
   serializedVersion: 5

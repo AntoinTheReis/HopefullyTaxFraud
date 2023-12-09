@@ -19,6 +19,7 @@ public class homingEnemy : MonoBehaviour
 
     private int gp;
     private bool dying;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -67,7 +68,7 @@ public class homingEnemy : MonoBehaviour
             dir = -dir.normalized;
             GetComponent<Rigidbody2D>().AddForce(dir * push);
             dying = true;
-            gameObject.GetComponent<Animator>().SetTrigger("Dead");
+            animator.SetTrigger("Dead");
             Invoke("Dying", 2);
         }
     }
@@ -84,7 +85,7 @@ public class homingEnemy : MonoBehaviour
             {
                 //GetComponent<Rigidbody2D>().AddForce(dir * push * 0.9f);
                 dying = true;
-                gameObject.GetComponent<Animator>().SetTrigger("Dead");
+                animator.SetTrigger("Dead");
                 Invoke("Dying", 2);
             }
             if (!attacking)
