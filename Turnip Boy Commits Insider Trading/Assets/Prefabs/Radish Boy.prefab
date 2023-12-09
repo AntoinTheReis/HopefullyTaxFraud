@@ -680,7 +680,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
-  Health_UI: {fileID: 12866853137445858, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
+  health_UI: {fileID: 6072723747358880890, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
+  Heart_1: {fileID: 0}
+  Heart_2: {fileID: 0}
+  Heart_3: {fileID: 0}
 --- !u!114 &8539348425688280986
 MonoBehaviour:
   m_ObjectHideFlags: 0

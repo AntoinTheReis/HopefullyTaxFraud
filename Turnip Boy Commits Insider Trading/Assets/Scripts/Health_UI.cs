@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health_UI : MonoBehaviour
 {
     [Header("Heart sprite assets")]
-    public Sprite fullHeart;
-    public Sprite halfHeart;
-    public Sprite emptyHeart;
+    public static Texture fullHeart;
+    public static Texture halfHeart;
+    public static Texture emptyHeart;
 }
