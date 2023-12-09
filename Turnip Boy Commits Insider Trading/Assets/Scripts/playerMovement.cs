@@ -15,6 +15,7 @@ public class playerMovement : MonoBehaviour
     private float velocity;
     private bool[] boolArray = { false, false, false, false }; // Left, Right, Up, Down
     public bool usingItem;
+    private float timeStill;
     [Header("True public")]
     public float acceleration;
     public float friction;
@@ -25,6 +26,8 @@ public class playerMovement : MonoBehaviour
     public SpriteRenderer backFaceLeft;
     public bool facingRight;
     public Animator animator;
+
+    private float sleepTimer;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -62,6 +65,7 @@ public class playerMovement : MonoBehaviour
         // Moving the player
         if (isMoving)
         {
+            animator.SetBool("Walking", true);
             // Resetting previous direction variables based on boolean array
             if (!boolArray[0] && !boolArray[1])
             {
@@ -71,15 +75,11 @@ public class playerMovement : MonoBehaviour
             {
                 prevVertDirection = 0;
             }
-
             transform.position += new Vector3(hozDirection * velocity * Time.deltaTime, vertDirection * velocity * Time.deltaTime, 0);
-
-            animator.SetInteger("State", 1);
         }
         // Slowing the player down to a stop
         else if (!isMoving && velocity > 0)
         {
-
             velocity -= friction;
 
             if (velocity < 0)
@@ -88,13 +88,31 @@ public class playerMovement : MonoBehaviour
             }
 
             transform.position += new Vector3(prevHozDirection * velocity * Time.deltaTime, prevVertDirection * velocity * Time.deltaTime, 0);
-            animator.SetInteger("State", 0);
         }
+        else
+        {
+            animator.SetBool("Walking", false);
+        }
+
         resetVars();
     }
 
     private void Update()
     {
+        if (!((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Z) || Input.GetKey("left") || Input.GetKey("right") || Input.GetKey("down") || Input.GetKey("up"))))
+        {
+            sleepTimer += Time.deltaTime;
+            if (sleepTimer > 15)
+            {
+                animator.SetBool("Asleep", true);
+            }
+        }
+        else
+        {
+            sleepTimer= 0;
+            animator.SetBool("Asleep", false);
+        }
+
         if (Input.GetKeyDown(KeyCode.X))
         {
             usingItem = true;
