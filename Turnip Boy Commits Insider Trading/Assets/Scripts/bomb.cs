@@ -19,6 +19,10 @@ public class bomb : MonoBehaviour
     public float shakeDuration = 0.2f;
     private CameraShakeManager shakeManager;
 
+    public ParticleSystem circle;
+    public ParticleSystem mushroom;
+    public ParticleSystem sparkles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +42,7 @@ public class bomb : MonoBehaviour
         {
             if (!watered)
             {
+                Instantiate(sparkles, gameObject.transform.position, Quaternion.identity);
                 watered = true;
                 Debug.Log("watered1");
                 animator.SetBool("Watered", true);
@@ -113,8 +118,11 @@ public class bomb : MonoBehaviour
 
     private void Explode()
     {
+        Quaternion rotation = Quaternion.Euler(-90, 0, 0);
         shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
         Instantiate(bombZone, gameObject.transform.position, Quaternion.identity);
+        Instantiate(circle, gameObject.transform.position, Quaternion.identity);
+        Instantiate(mushroom, gameObject.transform.position, rotation);
         Destroy(gameObject);
     }
 

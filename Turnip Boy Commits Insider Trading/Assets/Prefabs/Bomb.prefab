@@ -106,6 +106,9 @@ MonoBehaviour:
   animator: {fileID: 8626601227878267149}
   shakeIntensity: 1
   shakeDuration: 0.3
+  circle: {fileID: 4889706633372857220, guid: bafbd9fd2b415c74caa9322f3b636d7a, type: 3}
+  mushroom: {fileID: 8251106872785566904, guid: fcda1c6f21936c64d8d453e91dca44d9, type: 3}
+  sparkles: {fileID: 8678257322212608072, guid: 2a85fb100f4cccf45b00f1f349a9f906, type: 3}
 --- !u!58 &5084657386773026348
 CircleCollider2D:
   m_ObjectHideFlags: 0

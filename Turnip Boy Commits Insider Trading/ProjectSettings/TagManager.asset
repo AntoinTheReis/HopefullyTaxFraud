@@ -25,7 +25,7 @@ TagManager:
   - characters
   - hole outside
   - watermelon
-  - 
+  - particles
   - 
   - 
   - 
@@ -60,4 +60,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Particles
+    uniqueID: 61214071
     locked: 0
