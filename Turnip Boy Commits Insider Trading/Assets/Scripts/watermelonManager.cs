@@ -10,6 +10,9 @@ public class watermelonManager : MonoBehaviour
     public float push;
     public Sprite wateredWatermelon;
 
+    public ParticleSystem sparkles;
+    public ParticleSystem slices;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,7 @@ public class watermelonManager : MonoBehaviour
         //Debug.Log("triggered");
         if (collision.tag == "water" && !watered)
         {
+            Instantiate(sparkles, gameObject.transform.position, Quaternion.identity);
             gameObject.transform.localScale += new Vector3(1, 1, 0);
             //Debug.Log("triggered water");
             //gameObject.GetComponent<Rigidbody2D>().constraints;
@@ -65,6 +69,7 @@ public class watermelonManager : MonoBehaviour
 
     private void Exploded()
     {
+        Instantiate(slices, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

@@ -10,6 +10,9 @@ public class homingEnemy : MonoBehaviour
     private bool attacking;
     private SpriteRenderer spriteRenderer;
 
+    public ParticleSystem circle;
+    public ParticleSystem skull;
+
     public float push;
     public float closeness;
     [Header("Movement floats")]
@@ -97,6 +100,9 @@ public class homingEnemy : MonoBehaviour
 
     private void Dying()
     {
+        Quaternion rotation = Quaternion.Euler(-90, 0, 0);
+        Instantiate(circle, gameObject.transform.position, Quaternion.identity);
+        Instantiate(skull, gameObject.transform.position, rotation);
         Destroy(gameObject);
     }
 

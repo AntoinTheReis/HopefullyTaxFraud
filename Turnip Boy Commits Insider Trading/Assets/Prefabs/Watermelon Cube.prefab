@@ -129,6 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   push: 50
   wateredWatermelon: {fileID: 1352260830, guid: a511dfb70f2be424ba0b17731973a292, type: 3}
+  sparkles: {fileID: 4996703990930973002, guid: e034e0bf510e99f459b34f91bde6658d, type: 3}
+  slices: {fileID: 7268130563221021670, guid: b9a3e984a4b9e6b4ca217dc3e1742d81, type: 3}
 --- !u!61 &139781229799369692
 BoxCollider2D:
   m_ObjectHideFlags: 0
