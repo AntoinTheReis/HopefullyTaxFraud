@@ -12,6 +12,9 @@ public class routEnemy : MonoBehaviour
     private bool even = false;
     public float push;
 
+    public ParticleSystem circle;
+    public ParticleSystem skull;
+
     [Header("Movement floats")]
     public float maxVel;
     public float vel;
@@ -96,6 +99,9 @@ public class routEnemy : MonoBehaviour
 
     private void Dying()
     {
+        Quaternion rotation = Quaternion.Euler(-90, 0, 0);
+        Instantiate(circle, gameObject.transform.position, Quaternion.identity);
+        Instantiate(skull, gameObject.transform.position, rotation);
         Destroy(gameObject);
     }
 }

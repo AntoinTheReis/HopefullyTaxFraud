@@ -103,6 +103,8 @@ MonoBehaviour:
   target1: {fileID: 0}
   target2: {fileID: 0}
   push: 900
+  circle: {fileID: 4686741151472739832, guid: 2c1b9e18ec8a8034384b3f5b71c6db26, type: 3}
+  skull: {fileID: 7166342468010789435, guid: 530d4bdddcf75ac4b8a15ced3ab81096, type: 3}
   maxVel: 0.05
   vel: 0
   accel: 0.001
