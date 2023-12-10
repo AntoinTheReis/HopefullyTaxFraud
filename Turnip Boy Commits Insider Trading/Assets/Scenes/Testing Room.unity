@@ -646,6 +646,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8275847141306193751, guid: 7d8c48330f709a34ca7f0375e466278a, type: 3}
+      propertyPath: OBJ_Paper
+      value: 
+      objectReference: {fileID: 527804333}
+    - target: {fileID: 8275847141306193751, guid: 7d8c48330f709a34ca7f0375e466278a, type: 3}
+      propertyPath: OBJ_Ripping_UI
+      value: 
+      objectReference: {fileID: 527804333}
+    - target: {fileID: 8275847141306193751, guid: 7d8c48330f709a34ca7f0375e466278a, type: 3}
       propertyPath: OBJ_Dialogue_UI
       value: 
       objectReference: {fileID: 906675011}
@@ -808,6 +816,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 986368b1ed5f8ea4792e83ae7995c334, type: 3}
+--- !u!1 &527804333 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3501594053482820343, guid: 986368b1ed5f8ea4792e83ae7995c334, type: 3}
+  m_PrefabInstance: {fileID: 527804332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &906675011 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3119956680320832596, guid: 9f90d94818d922c448a0d3c576ae9c13, type: 3}
