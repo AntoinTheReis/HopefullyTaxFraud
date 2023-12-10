@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class gunManager : MonoBehaviour
 {
-
+    private CameraShakeManager shakeManager;
     public toolManager toolManager;
+    public float shakeDuration = 0.2f;
+    public float shakeIntensity = 0.4f;
 
     private enum direction
     {
@@ -36,6 +38,7 @@ public class gunManager : MonoBehaviour
     public GameObject gun;
     public GameObject bullet;
     private SpriteRenderer gunSprite;
+    private Animator animator;
 
     [Header("Directions")]
     public Transform dirUp;
@@ -52,6 +55,8 @@ public class gunManager : MonoBehaviour
     {
         gunSprite = gun.GetComponent<SpriteRenderer>();
         gunSprite.enabled= false;
+        animator = gun.GetComponent<Animator>();
+        shakeManager = GameObject.FindGameObjectWithTag("VCM").GetComponent<CameraShakeManager>();
     }
 
     private void OnEnable()
@@ -72,6 +77,8 @@ public class gunManager : MonoBehaviour
             Instantiate(bullet, gun.transform.position, gun.transform.rotation);
             gunSprite.enabled = true;
             ableToShoot = false;
+            shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
+            animator.SetTrigger("Shoot");
             StartCoroutine(ShootCoroutine());
         }
 

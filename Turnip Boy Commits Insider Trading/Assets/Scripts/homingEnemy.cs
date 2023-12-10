@@ -8,6 +8,10 @@ public class homingEnemy : MonoBehaviour
 
     private GameObject player;
     private bool attacking;
+    private SpriteRenderer spriteRenderer;
+
+    public ParticleSystem circle;
+    public ParticleSystem skull;
 
     public float push;
     public float closeness;
@@ -18,12 +22,14 @@ public class homingEnemy : MonoBehaviour
 
     private int gp;
     private bool dying;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         gp = 3;
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -36,6 +42,15 @@ public class homingEnemy : MonoBehaviour
         if (vel < maxVel && attacking)
         {
             vel += accel;
+        }
+
+        if(gameObject.transform.position.x < player.transform.position.x)
+        {
+            spriteRenderer.flipX= true;
+        }
+        else
+        {
+            spriteRenderer.flipX= false;
         }
     }
 
@@ -56,6 +71,7 @@ public class homingEnemy : MonoBehaviour
             dir = -dir.normalized;
             GetComponent<Rigidbody2D>().AddForce(dir * push);
             dying = true;
+            animator.SetTrigger("Dead");
             Invoke("Dying", 2);
         }
     }
@@ -72,6 +88,7 @@ public class homingEnemy : MonoBehaviour
             {
                 //GetComponent<Rigidbody2D>().AddForce(dir * push * 0.9f);
                 dying = true;
+                animator.SetTrigger("Dead");
                 Invoke("Dying", 2);
             }
             if (!attacking)
@@ -83,6 +100,9 @@ public class homingEnemy : MonoBehaviour
 
     private void Dying()
     {
+        Quaternion rotation = Quaternion.Euler(-90, 0, 0);
+        Instantiate(circle, gameObject.transform.position, Quaternion.identity);
+        Instantiate(skull, gameObject.transform.position, rotation);
         Destroy(gameObject);
     }
 

@@ -65,7 +65,7 @@ public class swordManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X) && ableToShoot)
         {
-            Instantiate(sword, gun.transform.position, gun.transform.rotation, gameObject.transform);
+            Instantiate(sword, gun.gameObject.transform);
             ableToShoot = false;
             StartCoroutine(ShootCoroutine());
         }

@@ -7,6 +7,11 @@ public class watermelonManager : MonoBehaviour
 
     private bool watered;
     private int bp;
+    public float push;
+    public Sprite wateredWatermelon;
+
+    public ParticleSystem sparkles;
+    public ParticleSystem slices;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +30,7 @@ public class watermelonManager : MonoBehaviour
         //Debug.Log("triggered");
         if (collision.tag == "water" && !watered)
         {
+            Instantiate(sparkles, gameObject.transform.position, Quaternion.identity);
             gameObject.transform.localScale += new Vector3(1, 1, 0);
             //Debug.Log("triggered water");
             //gameObject.GetComponent<Rigidbody2D>().constraints;
@@ -33,8 +39,13 @@ public class watermelonManager : MonoBehaviour
             watered = true;
             gameObject.GetComponent<Collider2D>().includeLayers = LayerMask.GetMask("characters");
             gameObject.GetComponent<Collider2D>().excludeLayers = 0;
+            gameObject.GetComponent<SpriteRenderer>().sprite = wateredWatermelon;
         }
         if (collision.tag == "bombZone" && watered)
+        {
+            Exploded();
+        }
+        if(collision.tag == "sword" && watered)
         {
             Exploded();
         }
@@ -45,6 +56,9 @@ public class watermelonManager : MonoBehaviour
         
         if(collision.gameObject.tag == "bullet" && watered)
         {
+            Vector3 dir = collision.transform.position - transform.position;
+            dir = -dir.normalized;
+            GetComponent<Rigidbody2D>().AddForce(dir * push * 0.1f);
             bp--;
             if(bp == 0)
             {
@@ -55,6 +69,7 @@ public class watermelonManager : MonoBehaviour
 
     private void Exploded()
     {
+        Instantiate(slices, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

@@ -15,15 +15,19 @@ public class playerMovement : MonoBehaviour
     private float velocity;
     private bool[] boolArray = { false, false, false, false }; // Left, Right, Up, Down
     public bool usingItem;
+    private float timeStill;
     [Header("True public")]
     public float acceleration;
     public float friction;
     public float maxVelocity;
     public float bombPush;
-    [Header("Hat Controller")]
-    public SpriteRenderer hatFaceRight;
-    public SpriteRenderer hatFaceLeft;
-    private bool facingRight;
+    [Header("Hat & BackItem Controller")]
+    public SpriteRenderer backFaceRight;
+    public SpriteRenderer backFaceLeft;
+    public bool facingRight;
+    public Animator animator;
+
+    private float sleepTimer;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -61,6 +65,7 @@ public class playerMovement : MonoBehaviour
         // Moving the player
         if (isMoving)
         {
+            animator.SetBool("Walking", true);
             // Resetting previous direction variables based on boolean array
             if (!boolArray[0] && !boolArray[1])
             {
@@ -70,13 +75,11 @@ public class playerMovement : MonoBehaviour
             {
                 prevVertDirection = 0;
             }
-
             transform.position += new Vector3(hozDirection * velocity * Time.deltaTime, vertDirection * velocity * Time.deltaTime, 0);
         }
         // Slowing the player down to a stop
         else if (!isMoving && velocity > 0)
         {
-
             velocity -= friction;
 
             if (velocity < 0)
@@ -86,11 +89,30 @@ public class playerMovement : MonoBehaviour
 
             transform.position += new Vector3(prevHozDirection * velocity * Time.deltaTime, prevVertDirection * velocity * Time.deltaTime, 0);
         }
+        else
+        {
+            animator.SetBool("Walking", false);
+        }
+
         resetVars();
     }
 
     private void Update()
     {
+        if (!((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Z) || Input.GetKey("left") || Input.GetKey("right") || Input.GetKey("down") || Input.GetKey("up"))))
+        {
+            sleepTimer += Time.deltaTime;
+            if (sleepTimer > 15)
+            {
+                animator.SetBool("Asleep", true);
+            }
+        }
+        else
+        {
+            sleepTimer= 0;
+            animator.SetBool("Asleep", false);
+        }
+
         if (Input.GetKeyDown(KeyCode.X))
         {
             usingItem = true;
@@ -111,10 +133,16 @@ public class playerMovement : MonoBehaviour
         if (hozDirection > 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            facingRight = true;
+            backFaceLeft.enabled = false;
+            backFaceRight.enabled = true;
         }
         else if(hozDirection < 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            facingRight = false;
+            backFaceLeft.enabled = true;
+            backFaceRight.enabled = false;
         }
     }
 

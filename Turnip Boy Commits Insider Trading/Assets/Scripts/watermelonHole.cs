@@ -8,6 +8,8 @@ public class watermelonHole : MonoBehaviour
     private bool filled;
     public GameObject outside;
 
+    public Sprite covered;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class watermelonHole : MonoBehaviour
             Destroy(collision.gameObject);
             filled = true;
             Destroy(outside);
+            GetComponent<SpriteRenderer>().sprite= covered;
         }
     }
 

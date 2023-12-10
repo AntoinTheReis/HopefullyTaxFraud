@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1214355529651626405}
   - component: {fileID: 136028995984453067}
   - component: {fileID: 8275847141306193751}
+  - component: {fileID: 2575956973608083779}
   m_Layer: 0
   m_Name: Homing Enemy
   m_TagString: Enemy
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 987104209, guid: 0f1dd58903680f94aa3ede72b0efe6d3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -119,18 +120,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.06380248, y: -0.029447317}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.4, y: 1.0666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1963153, y: 1.0588946}
   m_EdgeRadius: 0
 --- !u!50 &136028995984453067
 Rigidbody2D:
@@ -171,8 +172,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9042e9aa2b378684fa3b52e59687f361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circle: {fileID: 4686741151472739832, guid: 2c1b9e18ec8a8034384b3f5b71c6db26, type: 3}
+  skull: {fileID: 7166342468010789435, guid: 530d4bdddcf75ac4b8a15ced3ab81096, type: 3}
   push: 900
   closeness: 9
   maxVel: 0.05
   vel: 0
   accel: 0.001
+  animator: {fileID: 2575956973608083779}
+--- !u!95 &2575956973608083779
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2472021986659060145}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3b69bbd12430890498a0b2831bf54f27, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

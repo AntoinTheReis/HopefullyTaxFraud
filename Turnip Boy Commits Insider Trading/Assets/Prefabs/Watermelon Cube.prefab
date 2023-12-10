@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8609331314622697834}
   - component: {fileID: 7873731534543898643}
   - component: {fileID: 139781229799369692}
+  - component: {fileID: 3541588103325988150}
   m_Layer: 8
   m_Name: Watermelon Cube
   m_TagString: watermelon
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 185618734967204497}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.456, y: -0.015, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1352260830, guid: a511dfb70f2be424ba0b17731973a292, type: 3}
+  m_Sprite: {fileID: -795251970, guid: a511dfb70f2be424ba0b17731973a292, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +101,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.4
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -126,6 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b8509c4010c254fbf18faa323a9d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  push: 50
+  wateredWatermelon: {fileID: 1352260830, guid: a511dfb70f2be424ba0b17731973a292, type: 3}
+  sparkles: {fileID: 4996703990930973002, guid: e034e0bf510e99f459b34f91bde6658d, type: 3}
+  slices: {fileID: 7268130563221021670, guid: b9a3e984a4b9e6b4ca217dc3e1742d81, type: 3}
 --- !u!61 &139781229799369692
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -158,16 +163,37 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.003695488, y: 0.0030215383}
+  m_Offset: {x: 0, y: 0.000000059604645}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.24, y: 0.32}
+    oldSize: {x: 1.4666667, y: 1.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.27491426, y: 0.35089076}
+  m_Size: {x: 1.641024, y: 2.168636}
   m_EdgeRadius: 0
+--- !u!95 &3541588103325988150
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185618734967204497}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 60b1f3dcd3c960f43a29abf644af2955, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
