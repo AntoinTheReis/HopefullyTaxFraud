@@ -106,6 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7268068911701393987}
   - component: {fileID: 6613317933923437790}
+  - component: {fileID: 506556722532632532}
   m_Layer: 0
   m_Name: Paper
   m_TagString: Untagged
@@ -147,6 +148,19 @@ MonoBehaviour:
   OBJ_Readable_BG: {fileID: 8827469996360097587}
   OBJ_Rip_Up: {fileID: 629892974468860759}
   OBJ_Read: {fileID: 6485199481745600652}
+--- !u!114 &506556722532632532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963881993826492063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934e1528506e86741a4fba0a6b582856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health_UI: {fileID: 6072723747358880890, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
 --- !u!1 &2869692395576558428
 GameObject:
   m_ObjectHideFlags: 0
