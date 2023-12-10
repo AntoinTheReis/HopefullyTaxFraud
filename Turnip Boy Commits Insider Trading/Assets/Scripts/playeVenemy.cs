@@ -36,7 +36,7 @@ public class playeVenemy : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            hp--;
+            hp -= 0.5f;
             Vector3 dir = collision.gameObject.transform.position - transform.position;
             dir = -dir.normalized;
             GetComponent<Rigidbody2D>().AddForce(dir * playerMovement.bombPush);
@@ -69,17 +69,17 @@ public class playeVenemy : MonoBehaviour
         // Determining heart state and returning it to the HealthUIUpdate function
         if (hp >= num)
         {
-            return Health_UI.fullHeart;
+            return health_UI.GetComponent<Health_UI>().fullHeart;
         }
         else if (hp == num - 0.5f)
         {
-            return Health_UI.halfHeart;
+            return health_UI.GetComponent<Health_UI>().halfHeart;
         }
         else if (hp < num - 0.5f)
         {
-            return Health_UI.emptyHeart;
+            return health_UI.GetComponent<Health_UI>().emptyHeart;
         }
 
-        return Health_UI.fullHeart;
+        return health_UI.GetComponent<Health_UI>().fullHeart;
     }
 }
