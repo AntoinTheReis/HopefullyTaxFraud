@@ -19,7 +19,6 @@ public class consumableHeart : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<playeVenemy>().hp++;
             Destroy(gameObject);
         }
     }

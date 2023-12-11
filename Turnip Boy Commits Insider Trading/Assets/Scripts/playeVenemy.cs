@@ -52,6 +52,11 @@ public class playeVenemy : MonoBehaviour
                 Dead();
             }
         }
+        if(collision.gameObject.tag == "heart")
+        {
+            hp += 0.5f;
+            HealthUIUpdate();
+        }
     }
 
     private void Dead()
