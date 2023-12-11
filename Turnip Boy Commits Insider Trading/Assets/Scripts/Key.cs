@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
-    public static bool keyGone1;
-    public static bool keyGone2;
+    public static bool keyGone1; // Level 3 Key
+    public static bool keyGone2; // Level 5 Key
 
     private void awake()
     {
