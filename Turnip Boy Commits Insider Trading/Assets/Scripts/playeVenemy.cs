@@ -10,6 +10,7 @@ public class playeVenemy : MonoBehaviour
     public float shakeDuration = 0.15f;
     private playerMovement playerMovement;
     private CameraShakeManager shakeManager;
+    private Animator animator;
 
     [Header("HP & Health_UI Object")]
     public static float hp = 3;
@@ -23,6 +24,7 @@ public class playeVenemy : MonoBehaviour
     {
         shakeManager = GameObject.FindGameObjectWithTag("VCM").GetComponent<CameraShakeManager>();
         playerMovement = GetComponent<playerMovement>();
+        animator = GetComponent<Animator>();
         HealthUIUpdate();
     }
 
@@ -54,6 +56,7 @@ public class playeVenemy : MonoBehaviour
 
     private void Dead()
     {
+        animator.SetTrigger("Dead");
         Debug.Log("dead");
     }
 
