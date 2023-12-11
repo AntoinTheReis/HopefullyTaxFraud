@@ -33,12 +33,13 @@ public class playerMovement : MonoBehaviour
     public Animator animator;
 
     private float sleepTimer;
+    public bool dead;
 
     // Update is called once per frame
     void FixedUpdate()
     {
         // Registering player input for movement
-        if (!usingItem && !higherUI && !dashing)
+        if (!usingItem && !higherUI && !dashing && !dead)
         {
             if (Input.GetKey("left"))
             {
@@ -140,7 +141,7 @@ public class playerMovement : MonoBehaviour
             usingItem = true;
             Invoke("itemDone", 1);
         }
-        if (Input.GetKeyDown(KeyCode.Z) && !dashing)
+        if (Input.GetKeyDown(KeyCode.Z) && !dashing && !dead)
         {
             if (!inNpcRange)
             {
