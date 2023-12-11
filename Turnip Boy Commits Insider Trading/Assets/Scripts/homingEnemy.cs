@@ -19,7 +19,9 @@ public class homingEnemy : MonoBehaviour
     public float maxVel;
     public float vel;
     public float accel;
-
+    [Header("Dialogue_UI & Paper Objects")]
+    public GameObject OBJ_Dialogue_UI;
+    public GameObject OBJ_Ripping_UI;
     private int gp;
     private bool dying;
     public Animator animator;
@@ -39,7 +41,7 @@ public class homingEnemy : MonoBehaviour
         {
             attacking = true;
         }
-        if (vel < maxVel && attacking)
+        if (vel < maxVel && attacking && (!OBJ_Dialogue_UI.activeSelf || !OBJ_Ripping_UI.activeSelf))
         {
             vel += accel;
         }
@@ -59,7 +61,10 @@ public class homingEnemy : MonoBehaviour
         if(attacking && !dying)
         {
             Debug.Log("Supposed to move");
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, vel);
+            if (!OBJ_Dialogue_UI.activeSelf || !OBJ_Ripping_UI.activeSelf)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, vel);
+            }
         }
     }
 

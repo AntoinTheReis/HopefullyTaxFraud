@@ -14,7 +14,8 @@ TagManager:
   - Name_Text
   - Ripping_UI
   - Enemy
-  - VCM
+  - Key1
+  - Key2
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - characters
   - hole outside
   - watermelon
-  - particles
+  - 
   - 
   - 
   - 
@@ -49,18 +50,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 3418851637
-    locked: 0
-  - name: Forefront
-    uniqueID: 578605921
-    locked: 0
-  - name: Items
-    uniqueID: 3293427603
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Particles
-    uniqueID: 61214071
     locked: 0

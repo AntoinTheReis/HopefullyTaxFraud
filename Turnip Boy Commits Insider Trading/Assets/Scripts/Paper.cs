@@ -20,12 +20,6 @@ public class Paper : MonoBehaviour
     public GameObject OBJ_Rip_Up;
     public GameObject OBJ_Read;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -53,6 +47,7 @@ public class Paper : MonoBehaviour
                 // we'll be able to actually make this look the way it does in the game.
                 // But until then...
                 OBJ_Player.set_higherUI(false);
+                this.GetComponent<HUDHandler>().EnableHUD();
                 OBJ_Ripping_UI.SetActive(false);
                 activated = false;
             }
@@ -77,6 +72,7 @@ public class Paper : MonoBehaviour
     public void activatePaper(string desiredText)
     {
         OBJ_Player.set_higherUI(true);
+        this.GetComponent<HUDHandler>().DisableHUD();
         OBJ_Ripping_UI.SetActive(true);
         OBJ_Readable.SetActive(false);
         OBJ_Readable_BG.SetActive(false);

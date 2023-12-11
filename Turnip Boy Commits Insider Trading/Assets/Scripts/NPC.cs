@@ -10,7 +10,9 @@ public class NPC : MonoBehaviour
     private bool UI_On;
     private bool interactHit;
     private GameObject OBJ_Player;
-    [Header("Necessary Objects")]
+    [Header("Necessary Objects")] // For dragging and dropping into the inspector,
+                                  // remember to drag and drop the Dialogue_UI object that's IN THE SCENE,
+                                  // as opposed to the one in the prefab folder.
     public GameObject OBJ_Dialogue_UI;
     public GameObject OBJ_Dialogue_Text;
     public GameObject OBJ_Name_Text;
@@ -31,6 +33,7 @@ public class NPC : MonoBehaviour
         if (playerClose && Input.GetKeyDown(KeyCode.Z) && !UI_On)
         {
             OBJ_Dialogue_UI.SetActive(true);
+            this.GetComponent<HUDHandler>().DisableHUD();
             OBJ_Dialogue_Text.GetComponent<Text>().text = myDialogue;
             OBJ_Name_Text.GetComponent<Text>().text = myName;
             UI_On = true;
@@ -42,6 +45,7 @@ public class NPC : MonoBehaviour
         if (UI_On && Input.GetKeyDown(KeyCode.Z) && !interactHit)
         {
             OBJ_Dialogue_UI.SetActive(false);
+            this.GetComponent<HUDHandler>().EnableHUD();
             UI_On = false;
             OBJ_Player.GetComponent<playerMovement>().set_higherUI(UI_On);
         }
@@ -71,5 +75,5 @@ public class NPC : MonoBehaviour
     private void Untitled(bool boolean)
     {
         // TODO: Execute UI animations
-    } 
+    }
 }
