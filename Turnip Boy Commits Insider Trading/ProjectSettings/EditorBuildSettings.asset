@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FINALS/StockTradingCenter.unity
     guid: c66ef10f539cb6c448f7bfc689fec83c
-  - enabled: 1
-    path: Assets/Scenes/FINALS/Level_3.unity
+  - enabled: 0
+    path: Assets/Scenes/FINALS/Level_4.unity
     guid: e9dce16747728e149b9be770a44033c6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FINALS/End.unity
     guid: 46d35f862f390d0448edc1f52496915f
   m_configObjects: {}
