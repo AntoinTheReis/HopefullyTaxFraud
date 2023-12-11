@@ -16,6 +16,11 @@ public class playerMovement : MonoBehaviour
     private bool[] boolArray = { false, false, false, false }; // Left, Right, Up, Down
     public bool usingItem;
     private float timeStill;
+    [Header("Dash")]
+    public float dashPush;
+    public float dashTime;
+    private bool inNpcRange = false;
+    private bool dashing = false;
     [Header("True public")]
     public float acceleration;
     public float friction;
@@ -31,13 +36,13 @@ public class playerMovement : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    { 
+    {
         // Registering player input for movement
-        if (!usingItem && !higherUI)
+        if (!usingItem && !higherUI && !dashing)
         {
             if (Input.GetKey("left"))
             {
-                
+
                 hozDirection = -1;
                 prevHozDirection = -1;
                 miscInputRegistration(0);
@@ -65,7 +70,15 @@ public class playerMovement : MonoBehaviour
         // Moving the player
         if (isMoving)
         {
-            animator.SetBool("Walking", true);
+            if (dashing)
+            {
+                animator.SetBool("Dashing", true);
+            }
+            else
+            {
+                animator.SetBool("Dashing", false);
+                animator.SetBool("Walking", true);
+            }
             // Resetting previous direction variables based on boolean array
             if (!boolArray[0] && !boolArray[1])
             {
@@ -91,7 +104,16 @@ public class playerMovement : MonoBehaviour
         }
         else
         {
-            animator.SetBool("Walking", false);
+            if (dashing)
+            {
+                animator.SetBool("Dashing", true);
+            }
+            else
+            {
+                animator.SetBool("Dashing", false);
+                animator.SetBool("Walking", false);
+            }
+            
         }
 
         resetVars();
@@ -109,7 +131,7 @@ public class playerMovement : MonoBehaviour
         }
         else
         {
-            sleepTimer= 0;
+            sleepTimer = 0;
             animator.SetBool("Asleep", false);
         }
 
@@ -117,6 +139,85 @@ public class playerMovement : MonoBehaviour
         {
             usingItem = true;
             Invoke("itemDone", 1);
+        }
+        if (Input.GetKeyDown(KeyCode.Z) && !dashing)
+        {
+            if (!inNpcRange)
+            {
+                if (Input.GetKey("right"))
+                {
+                    if (Input.GetKey("up"))
+                    {
+                        Debug.Log("dash up right");
+                        GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 1) * dashPush);
+                        dashing = true;
+                        animator.SetBool("Dashing", true);
+                        Invoke("Dashing", dashTime);
+                    }
+                    else if (!Input.GetKey("up") && !Input.GetKey("down"))
+                    {
+                        Debug.Log("dash right");
+                        GetComponent<Rigidbody2D>().AddForce(Vector2.right * dashPush);
+                        dashing = true;
+                        animator.SetBool("Dashing", true);
+                        Invoke("Dashing", dashTime);
+                    }
+                    else if (Input.GetKey("down"))
+                    {
+                        Debug.Log("dash down right");
+                        GetComponent<Rigidbody2D>().AddForce(new Vector2(1, -1) * dashPush);
+                        dashing = true;
+                        animator.SetBool("Dashing", true);
+                        Invoke("Dashing", dashTime);
+                    }
+                }
+                else if (!Input.GetKey("left") && !Input.GetKey("right"))
+                {
+                    if (Input.GetKey("up"))
+                    {
+                        Debug.Log("dash up");
+                        GetComponent<Rigidbody2D>().AddForce(Vector2.up * dashPush);
+                        dashing = true;
+                        animator.SetBool("Dashing", true);
+                        Invoke("Dashing", dashTime);
+                    }
+                    if (Input.GetKey("down"))
+                    {
+                        Debug.Log("dash down");
+                        GetComponent<Rigidbody2D>().AddForce(Vector2.down * dashPush);
+                        dashing = true;
+                        animator.SetBool("Dashing", true);
+                        Invoke("Dashing", dashTime);
+                    }
+                }
+                else
+                {
+                    if (Input.GetKey("up"))
+                    {
+                        Debug.Log("dash left up");
+                        GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, 1) * dashPush);
+                        dashing = true;
+                        animator.SetBool("Dashing", true);
+                        Invoke("Dashing", dashTime);
+                    }
+                    else if (!Input.GetKey("up") && !Input.GetKey("down"))
+                    {
+                        Debug.Log("dash left");
+                        GetComponent<Rigidbody2D>().AddForce(Vector2.left * dashPush);
+                        dashing = true;
+                        animator.SetBool("Dashing", true);
+                        Invoke("Dashing", dashTime);
+                    }
+                    else if(Input.GetKey("down"))
+                    {
+                        Debug.Log("dash left down");
+                        GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, -1) * dashPush);
+                        dashing = true;
+                        animator.SetBool("Dashing", true);
+                        Invoke("Dashing", dashTime);
+                    }
+                }
+            }
         }
     }
 
@@ -137,7 +238,7 @@ public class playerMovement : MonoBehaviour
             backFaceLeft.enabled = false;
             backFaceRight.enabled = true;
         }
-        else if(hozDirection < 0)
+        else if (hozDirection < 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
             facingRight = false;
@@ -182,6 +283,18 @@ public class playerMovement : MonoBehaviour
             dir = -dir.normalized;
             GetComponent<Rigidbody2D>().AddForce(dir * bombPush);
         }
+        if (collision.tag == "npcRange")
+        {
+            inNpcRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "npcRange")
+        {
+            inNpcRange = false;
+        }
     }
 
     // Flipping the usingItem boolean variable a second after the player uses an item
@@ -189,10 +302,16 @@ public class playerMovement : MonoBehaviour
     {
         usingItem = false;
     }
-    
+
     // Setting the higherUI boolean variable to true or false depending on whether or not UI is on screen
     public void set_higherUI(bool UI_On)
     {
         higherUI = UI_On;
+    }
+
+    private void Dashing()
+    {
+        dashing = false;
+        Debug.Log("Dashed");
     }
 }

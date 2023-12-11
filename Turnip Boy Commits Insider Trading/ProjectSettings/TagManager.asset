@@ -16,6 +16,8 @@ TagManager:
   - Enemy
   - Key1
   - Key2
+  - VCM
+  - npcRange
   layers:
   - Default
   - TransparentFX
