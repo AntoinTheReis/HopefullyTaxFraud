@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorManager : MonoBehaviour
 {
@@ -17,6 +18,17 @@ public class DoorManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         intializeAllStatus();
+    }
+
+    // Update function
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "Level_4" && GameObject.FindWithTag("Enemy") == null)
+        {
+            GameObject Key = GameObject.FindWithTag("Key1");
+            Key.GetComponent<SpriteRenderer>().enabled = true;
+            Key.GetComponent<Transform>().position = new Vector3(0f, 0f, 0f);
+        }
     }
 
     // Function to SET whether or not a door is open
