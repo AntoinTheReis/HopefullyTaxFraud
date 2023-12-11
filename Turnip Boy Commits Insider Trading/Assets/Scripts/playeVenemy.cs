@@ -10,7 +10,6 @@ public class playeVenemy : MonoBehaviour
     public float shakeDuration = 0.15f;
     private playerMovement playerMovement;
     private CameraShakeManager shakeManager;
-    private Animator animator;
 
     [Header("HP & Health_UI Object")]
     public static float hp = 3;
@@ -18,6 +17,11 @@ public class playeVenemy : MonoBehaviour
     public GameObject Heart_1;
     public GameObject Heart_2;
     public GameObject Heart_3;
+
+    [Header("Death")]
+    private Animator animator;
+    public GameObject deathUiPrefab;
+
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +67,8 @@ public class playeVenemy : MonoBehaviour
     {
         animator.SetTrigger("Dead");
         Debug.Log("dead");
+        playerMovement.dead = true;
+        Invoke("Dying", 1);
     }
 
     private void HealthUIUpdate()
@@ -91,5 +97,14 @@ public class playeVenemy : MonoBehaviour
         }
 
         return health_UI.GetComponent<Health_UI>().fullHeart;
+    }
+
+    private void Dying()
+    {
+        Instantiate(deathUiPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+    }
+    public void resetHp()
+    {
+        hp = 3;
     }
 }

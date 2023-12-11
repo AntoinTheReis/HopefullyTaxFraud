@@ -643,6 +643,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usingItem: 0
+  dashPush: 10000
+  dashTime: 1.5
   acceleration: 1
   friction: 0.45
   maxVelocity: 5
@@ -651,6 +653,7 @@ MonoBehaviour:
   backFaceLeft: {fileID: 7100256645469810326}
   facingRight: 1
   animator: {fileID: 1338111725728770541}
+  dead: 0
 --- !u!114 &8492559362678775207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,11 +668,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeIntensity: 0.7
   shakeDuration: 0.25
-  hp: 3
   health_UI: {fileID: 0}
   Heart_1: {fileID: 0}
   Heart_2: {fileID: 0}
   Heart_3: {fileID: 0}
+  deathUiPrefab: {fileID: 5942672024376378947, guid: 9f173b74cf0ffcc4396ce285702fd805, type: 3}
 --- !u!114 &7948306555492155223
 MonoBehaviour:
   m_ObjectHideFlags: 0

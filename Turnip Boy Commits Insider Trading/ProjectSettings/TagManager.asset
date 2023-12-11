@@ -18,6 +18,7 @@ TagManager:
   - Key2
   - VCM
   - npcRange
+  - heart
   layers:
   - Default
   - TransparentFX
