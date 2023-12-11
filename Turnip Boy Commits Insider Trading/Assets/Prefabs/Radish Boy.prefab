@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 3572789326548946406}
   - component: {fileID: 1903939706396921011}
   - component: {fileID: 8492559362678775207}
+  - component: {fileID: 7948306555492155223}
   - component: {fileID: 1492706791366218220}
   - component: {fileID: 2546216672695354822}
   - component: {fileID: 1338111725728770541}
@@ -568,6 +569,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toolManager: {fileID: 6816295530636664016}
+  shakeDuration: 0.2
+  shakeIntensity: 0.4
   shootingWaitingTime: 1
   gun: {fileID: 5932208994752320903}
   bullet: {fileID: 3992602747892495238, guid: 934bf33957ada2a45aad0ee98ed8d6a4, type: 3}
@@ -660,9 +663,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b4d891930dc114c9152c3a51ff3bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 3
   shakeIntensity: 0.7
   shakeDuration: 0.25
+  hp: 3
+  health_UI: {fileID: 0}
+  Heart_1: {fileID: 0}
+  Heart_2: {fileID: 0}
+  Heart_3: {fileID: 0}
+--- !u!114 &7948306555492155223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268243590973323220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e603ba0eba0b5514f8310a34064e21ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isKey: 0
 --- !u!58 &1492706791366218220
 CircleCollider2D:
   m_ObjectHideFlags: 0
