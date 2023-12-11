@@ -12,7 +12,7 @@ public class playeVenemy : MonoBehaviour
     private CameraShakeManager shakeManager;
 
     [Header("HP & Health_UI Object")]
-    public float hp = 3;
+    public static float hp = 3;
     public GameObject health_UI;
     public GameObject Heart_1;
     public GameObject Heart_2;
