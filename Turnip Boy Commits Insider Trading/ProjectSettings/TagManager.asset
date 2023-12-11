@@ -52,6 +52,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Tiles Back
+    uniqueID: 3130560751
+    locked: 0
+  - name: Tiles Front
+    uniqueID: 2901570995
+    locked: 0
+  - name: Tiles Deats
+    uniqueID: 1135595669
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
