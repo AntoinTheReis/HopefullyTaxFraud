@@ -19,10 +19,11 @@ public class routEnemy : MonoBehaviour
     public float maxVel;
     public float vel;
     public float accel;
-
     private int gp;
-    private bool dying;
     private SpriteRenderer spriteRender;
+
+    [Header("MF, don't touch this.")]
+    public bool dying;
 
     // Start is called before the first frame update
     void Start()

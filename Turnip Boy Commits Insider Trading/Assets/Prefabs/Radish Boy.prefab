@@ -550,6 +550,7 @@ MonoBehaviour:
   canManager: {fileID: 3572789326548946406}
   swordManager: {fileID: 2104493027966194855}
   gunManager: {fileID: 5292324117596140767}
+  playerCode: {fileID: 1903939706396921011}
   canSprite: {fileID: 1072325286, guid: 2913df42dd0df49eda5efa57bf584c6c, type: 3}
   gunSprite: {fileID: 1167990214, guid: 2913df42dd0df49eda5efa57bf584c6c, type: 3}
   swordSprite: {fileID: -1364401081, guid: 2913df42dd0df49eda5efa57bf584c6c, type: 3}
@@ -747,7 +748,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &1338111725728770541
 Animator:
   serializedVersion: 5

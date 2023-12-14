@@ -136,7 +136,7 @@ public class playerMovement : MonoBehaviour
             animator.SetBool("Asleep", false);
         }
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X) && !usingItem)
         {
             usingItem = true;
             Invoke("itemDone", 1);
