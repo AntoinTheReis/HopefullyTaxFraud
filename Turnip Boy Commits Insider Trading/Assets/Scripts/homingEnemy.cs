@@ -23,8 +23,9 @@ public class homingEnemy : MonoBehaviour
     public GameObject OBJ_Dialogue_UI;
     public GameObject OBJ_Ripping_UI;
     private int gp;
-    private bool dying;
     public Animator animator;
+    [Header("MF, don't touch this.")]
+    public bool dying;
 
     // Start is called before the first frame update
     void Start()

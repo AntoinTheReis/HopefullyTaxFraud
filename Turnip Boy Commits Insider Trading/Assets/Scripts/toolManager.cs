@@ -9,6 +9,7 @@ public class toolManager : MonoBehaviour
     public canManager canManager;
     public swordManager swordManager;
     public gunManager gunManager;
+    public playerMovement playerCode;
 
     public Sprite canSprite;
     public Sprite gunSprite;
@@ -27,7 +28,6 @@ public class toolManager : MonoBehaviour
     private bool right;
     private float holdingRight = 0;
 
-    private playerMovement playerCode;
     private bool facingRight;
 
     public enum direction
@@ -53,7 +53,7 @@ public class toolManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) && !usingTool)
+        if (Input.GetKeyDown(KeyCode.A) && !usingTool && !playerCode.dead)
         {
             counter--;
             if(counter<0)
@@ -85,7 +85,7 @@ public class toolManager : MonoBehaviour
                 swordManager.enabled = false;
             }
         }
-        if(Input.GetKeyDown(KeyCode.S) && !usingTool)
+        if(Input.GetKeyDown(KeyCode.S) && !usingTool && !playerCode.dead)
         {
             counter++;
             if(counter > 2)

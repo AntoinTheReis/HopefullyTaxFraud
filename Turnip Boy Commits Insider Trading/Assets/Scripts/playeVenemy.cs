@@ -45,15 +45,15 @@ public class playeVenemy : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
-            hp -= 0.5f;
-            Vector3 dir = collision.gameObject.transform.position - transform.position;
-            dir = -dir.normalized;
-            GetComponent<Rigidbody2D>().AddForce(dir * playerMovement.bombPush);
-            HealthUIUpdate();
-            if (hp == 0)
+            // Taking damage IF the enemy is a routing enemy AND if they are NOT DYING.
+            if (collision.gameObject.GetComponent<routEnemy>() != null)
             {
-                Dead();
+                takeDamage(collision, "r");
+            }
+            // Taking damage IF the enemy is a homing enemy AND if they are NOT DYING.
+            else if (collision.gameObject.GetComponent<homingEnemy>() != null)
+            {
+                takeDamage(collision, "h");
             }
         }
         if(collision.gameObject.tag == "heart")
@@ -106,5 +106,42 @@ public class playeVenemy : MonoBehaviour
     public void resetHp()
     {
         hp = 3;
+    }
+
+    // Function to TAKE DAMAGE
+    private void takeDamage(Collision2D collision, string enemyType)
+    {
+        if (enemyType == "r")
+        {
+            if (!collision.gameObject.GetComponent<routEnemy>().dying)
+            {
+                shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
+                hp -= 0.5f;
+                Vector3 dir = collision.gameObject.transform.position - transform.position;
+                dir = -dir.normalized;
+                GetComponent<Rigidbody2D>().AddForce(dir * playerMovement.bombPush);
+                HealthUIUpdate();
+                if (hp == 0)
+                {
+                    Dead();
+                }
+            }
+        }
+        else if (enemyType == "h")
+        {
+            if (!collision.gameObject.GetComponent<homingEnemy>().dying)
+            {
+                shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
+                hp -= 0.5f;
+                Vector3 dir = collision.gameObject.transform.position - transform.position;
+                dir = -dir.normalized;
+                GetComponent<Rigidbody2D>().AddForce(dir * playerMovement.bombPush);
+                HealthUIUpdate();
+                if (hp == 0)
+                {
+                    Dead();
+                }
+            }
+        }
     }
 }
