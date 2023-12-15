@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: 20.11, y: 0, z: -5.1090746}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -123,7 +123,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96, y: 0.75}
+    oldSize: {x: 6.4, y: 5}
     newSize: {x: 0.96, y: 0.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -168,7 +168,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96, y: 0.75}
+    oldSize: {x: 6.4, y: 5}
     newSize: {x: 0.96, y: 0.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -193,8 +193,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71dbb904abc1d7e45a1b0d6057fff2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starterSprite: {fileID: 0}
   lockedDoor: {fileID: 21300000, guid: fe100e73a5bba45438fe7c24c46786d8, type: 3}
   breakableDoor: {fileID: 21300000, guid: e355f115ebb652f43bf27bbc89ca20d9, type: 3}
   UnbreakableDoor: {fileID: 21300000, guid: 2da0858fadb797349a3b5bc776db18d8, type: 3}
-  associateSceneName: 
-  isOpen: 0
+  associatedSceneName: 
+  doorNumber: 0
