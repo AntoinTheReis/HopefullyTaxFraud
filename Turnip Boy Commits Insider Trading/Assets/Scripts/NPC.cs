@@ -16,9 +16,11 @@ public class NPC : MonoBehaviour
     public GameObject OBJ_Dialogue_UI;
     public GameObject OBJ_Dialogue_Text;
     public GameObject OBJ_Name_Text;
+    public RawImage uiSprite;
     [Header("NPC's Dialogue & Name")]
     public string myDialogue;
     public string myName;
+    public Sprite characterSprite;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,7 @@ public class NPC : MonoBehaviour
             this.GetComponent<HUDHandler>().DisableHUD();
             OBJ_Dialogue_Text.GetComponent<Text>().text = myDialogue;
             OBJ_Name_Text.GetComponent<Text>().text = myName;
+            uiSprite.texture = characterSprite.texture;
             UI_On = true;
             OBJ_Player.GetComponent<playerMovement>().set_higherUI(UI_On);
             interactHit = true;

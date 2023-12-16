@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/NPCs_&_Dialogue.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FINALS/StockTradingCenter.unity
     guid: c66ef10f539cb6c448f7bfc689fec83c
   - enabled: 0
@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/FINALS/End.unity
     guid: 46d35f862f390d0448edc1f52496915f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Room 1.unity
+    guid: e72663b630ea9d742b222c757f9dc815
+  - enabled: 1
+    path: Assets/Scenes/Levels/Room 2.unity
+    guid: df6e1905fad66834d9f3c767b007da65
   m_configObjects: {}
