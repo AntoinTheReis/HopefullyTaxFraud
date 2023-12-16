@@ -9,7 +9,7 @@ public class KeyGet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Key1" || col.tag == "Key2")
+        if ((col.tag == "Key1" || col.tag == "Key2") && gameObject.name == "Radish Boy")
         {
             isKey = true;
             col.gameObject.GetComponent<SpriteRenderer>().enabled = false;
