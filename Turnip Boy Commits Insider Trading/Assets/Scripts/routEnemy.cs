@@ -69,7 +69,7 @@ public class routEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if((collision.tag == "sword" || collision.tag == "bomb") && !dying)
+        if((collision.tag == "sword" || collision.tag == "bombZone") && !dying)
         {
             Vector3 dir = collision.transform.position - transform.position;
             dir = -dir.normalized;
