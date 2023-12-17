@@ -6,6 +6,7 @@ public class swordManager : MonoBehaviour
 {
 
     public toolManager toolManager;
+    public playerMovement playerCode;
 
     private enum direction
     {
@@ -63,7 +64,7 @@ public class swordManager : MonoBehaviour
         {
             UpdateDirection();
         }
-        if (Input.GetKeyDown(KeyCode.X) && ableToShoot)
+        if (Input.GetKeyDown(KeyCode.X) && ableToShoot && !playerCode.getDashing())
         {
             Instantiate(sword, gun.gameObject.transform);
             ableToShoot = false;
@@ -235,4 +236,9 @@ public class swordManager : MonoBehaviour
         ableToShoot = true;
     }
 
+    // ableToShoot getter
+    public bool getAbleToShoot()
+    {
+        return ableToShoot;
+    }
 }

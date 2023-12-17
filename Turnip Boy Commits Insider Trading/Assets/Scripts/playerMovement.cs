@@ -31,6 +31,7 @@ public class playerMovement : MonoBehaviour
     public SpriteRenderer backFaceLeft;
     public bool facingRight;
     public Animator animator;
+    public toolManager toolBoss;
 
     private float sleepTimer;
     public bool dead;
@@ -122,6 +123,7 @@ public class playerMovement : MonoBehaviour
 
     private void Update()
     {
+        // Radish Boy takes NAP after 15 seconds
         if (!((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Z) || Input.GetKey("left") || Input.GetKey("right") || Input.GetKey("down") || Input.GetKey("up"))))
         {
             sleepTimer += Time.deltaTime;
@@ -141,7 +143,7 @@ public class playerMovement : MonoBehaviour
             usingItem = true;
             Invoke("itemDone", 1);
         }
-        if (Input.GetKeyDown(KeyCode.Z) && !dashing && !dead)
+        if (Input.GetKeyDown(KeyCode.Z) && !dashing && !dead && !toolBoss.getUsingTool())
         {
             if (!inNpcRange)
             {
@@ -232,19 +234,15 @@ public class playerMovement : MonoBehaviour
             velocity = maxVelocity;
         }
 
+        // RIGHT
         if (hozDirection > 0)
         {
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
-            facingRight = true;
-            backFaceLeft.enabled = false;
-            backFaceRight.enabled = true;
+            rightFacing();
         }
+        // LEFT
         else if (hozDirection < 0)
         {
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
-            facingRight = false;
-            backFaceLeft.enabled = true;
-            backFaceRight.enabled = false;
+            leftFacing();
         }
     }
 
@@ -314,5 +312,29 @@ public class playerMovement : MonoBehaviour
     {
         dashing = false;
         Debug.Log("Dashed");
+    }
+
+    // Dash variable getter
+    public bool getDashing()
+    {
+        return dashing;
+    }
+
+    // RIGHT facing code
+    public void rightFacing()
+    {
+        gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        facingRight = true;
+        backFaceLeft.enabled = false;
+        backFaceRight.enabled = true;
+    }
+
+    // LEFT facing code
+    public void leftFacing()
+    {
+        gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        facingRight = false;
+        backFaceLeft.enabled = true;
+        backFaceRight.enabled = false;
     }
 }

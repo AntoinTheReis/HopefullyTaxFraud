@@ -7,6 +7,7 @@ public class watermelonManager : MonoBehaviour
 
     private bool watered;
     private int bp;
+    private GameObject player;
     public float push;
     public Sprite wateredWatermelon;
 
@@ -16,7 +17,8 @@ public class watermelonManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bp = 3;
+        bp = 5;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -53,16 +55,25 @@ public class watermelonManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        if(collision.gameObject.tag == "bullet" && watered)
+
+        if (collision.gameObject.tag == "bullet" && watered)
         {
-            Vector3 dir = collision.transform.position - transform.position;
-            dir = -dir.normalized;
-            GetComponent<Rigidbody2D>().AddForce(dir * push * 0.1f);
-            bp--;
-            if(bp == 0)
+            float dist = Vector3.Distance(player.transform.position, transform.position);
+            print(dist);
+            if (dist <= 3.0f)
             {
                 Exploded();
+            }
+            else
+            {
+                Vector3 dir = collision.transform.position - transform.position;
+                dir = -dir.normalized;
+                GetComponent<Rigidbody2D>().AddForce(dir * push * 0.1f);
+                bp--;
+                if (bp == 0)
+                {
+                    Exploded();
+                }
             }
         }
     }
