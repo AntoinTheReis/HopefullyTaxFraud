@@ -85,7 +85,7 @@ public class toolManager : MonoBehaviour
                 swordManager.enabled = false;
             }
         }
-        if(Input.GetKeyDown(KeyCode.S) && !usingTool && !playerCode.dead)
+        else if(Input.GetKeyDown(KeyCode.S) && !usingTool && !playerCode.dead)
         {
             counter++;
             if(counter > 2)
@@ -117,7 +117,10 @@ public class toolManager : MonoBehaviour
                 swordManager.enabled = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.X))
+        else if (Input.GetKeyDown(KeyCode.X) && !playerCode.getDashing() &&
+            (!canManager.getAbleToShoot() ||
+            !swordManager.getAbleToShoot() ||
+            !gunManager.getAbleToShoot()))
         {
             usingTool = true;
             backItemRendererRight.enabled = false;
@@ -249,16 +252,30 @@ public class toolManager : MonoBehaviour
 
     private void chillForSec()
     {
-        facingRight = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>().facingRight;
-        usingTool = false;
-        if (facingRight)
+        if (canManager.getAbleToShoot() &&
+            swordManager.getAbleToShoot() &&
+            gunManager.getAbleToShoot())
         {
-            backItemRendererRight.enabled = true;
+            facingRight = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>().facingRight;
+            usingTool = false;
+            if (facingRight)
+            {
+                backItemRendererRight.enabled = true;
+            }
+            else
+            {
+                backItemRendererLeft.enabled = true;
+            }
         }
         else
         {
-            backItemRendererLeft.enabled = true;
+            Invoke("chillForSec", 0.5f);
         }
     }
 
+    // usingTool getter
+    public bool getUsingTool()
+    {
+        return usingTool;
+    }
 }

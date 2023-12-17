@@ -13,9 +13,6 @@ public class DoorManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-
-        print(instance);
-
         DontDestroyOnLoad(gameObject);
         intializeAllStatus();
     }
@@ -46,14 +43,14 @@ public class DoorManager : MonoBehaviour
     // Function to set intialize statuses of all doors
     private void intializeAllStatus()
     {
-        areOpen[0] = false;
-        areOpen[1] = true;
-        areOpen[2] = true;
-        areOpen[3] = false;
-        areOpen[4] = true;
-        areOpen[5] = false;
-        areOpen[6] = true;
-        areOpen[7] = false;
-        areOpen[8] = false;
+        areOpen[0] = false; // Room 1
+        areOpen[1] = true; // Room 1
+        areOpen[2] = true; // Room 2
+        areOpen[3] = false; // Room 2
+        areOpen[4] = true; // Room 3
+        areOpen[5] = false; // Room 3
+        areOpen[6] = true; // Room 4
+        areOpen[7] = false; // Room 4
+        areOpen[8] = true; // Room 5
     }
 }

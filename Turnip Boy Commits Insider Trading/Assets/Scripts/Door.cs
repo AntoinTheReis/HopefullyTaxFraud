@@ -26,6 +26,11 @@ public class Door : MonoBehaviour
         {
             this.GetComponent<SpriteRenderer>().sprite = UnbreakableDoor;
         }
+
+        if (this.tag == "specialDoor" && DoorManager.instance.areOpen[doorNumber] == false)
+        {
+            this.GetComponent<BoxCollider2D>().edgeRadius = 2f;
+        }
     }
 
     // When player gets close to self
@@ -38,26 +43,43 @@ public class Door : MonoBehaviour
         {
             if (DoorManager.instance.areOpen[doorNumber])
             {
-                SceneManager.LoadScene(sceneName: associatedSceneName);
+                NewRoomPosHandler.prevRoom = SceneManager.GetActiveScene().name;
+                if (associatedSceneName != "End")
+                {
+                    SceneManager.LoadScene(sceneName: associatedSceneName);
+                }
+                else
+                {
+                    Application.Quit();
+                }
             }
             else
             {
-                keyChecks(activeSprite);
+                Checks(activeSprite);
             }
         }
         if (col.tag == "bombZone" && !DoorManager.instance.areOpen[doorNumber])
         {
             doorUnlock();
+
+            if (this.tag == "specialDoor")
+            {
+                this.GetComponent<BoxCollider2D>().edgeRadius = 0.8f;
+            }
         }
     }
 
     // Check if player has key 1 or 2
-    private void keyChecks(Sprite localActiveSprite)
+    private void Checks(Sprite localActiveSprite)
     {
         if (localActiveSprite == lockedDoor) 
         {
-            if ((SceneManager.GetActiveScene().name == "Level_3" && Key.keyGone1) ||
-                (SceneManager.GetActiveScene().name == "Level_5" && Key.keyGone2))
+            if ((SceneManager.GetActiveScene().name == "Room 2" && Key.keyGone1) ||
+                (SceneManager.GetActiveScene().name == "Room 1" && Key.keyGone2))
+            {
+                doorUnlock();
+            }
+            else if (SceneManager.GetActiveScene().name == "Room 3" && GameObject.FindGameObjectWithTag("Enemy") == null)
             {
                 doorUnlock();
             }

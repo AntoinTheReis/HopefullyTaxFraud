@@ -6,6 +6,7 @@ public class gunManager : MonoBehaviour
 {
     private CameraShakeManager shakeManager;
     public toolManager toolManager;
+    public playerMovement playerCode;
     public float shakeDuration = 0.2f;
     public float shakeIntensity = 0.4f;
 
@@ -72,7 +73,7 @@ public class gunManager : MonoBehaviour
         {
             UpdateDirection();
         }
-        if (Input.GetKeyDown(KeyCode.X) && ableToShoot)
+        if (Input.GetKeyDown(KeyCode.X) && ableToShoot && !playerCode.getDashing())
         {
             Instantiate(bullet, gun.transform.position, gun.transform.rotation);
             gunSprite.enabled = true;
@@ -246,5 +247,11 @@ public class gunManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(shootingWaitingTime);
         ableToShoot = true;
         gunSprite.enabled = false;
+    }
+
+    // ableToShoot getter
+    public bool getAbleToShoot()
+    {
+        return ableToShoot;
     }
 }

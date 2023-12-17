@@ -6,6 +6,7 @@ public class canManager : MonoBehaviour
 {
 
     public toolManager toolManager;
+    public playerMovement playerCode;
 
     private enum direction
     {
@@ -64,7 +65,7 @@ public class canManager : MonoBehaviour
         {
             UpdateDirection();
         }
-        if (Input.GetKeyDown(KeyCode.X) && ableToShoot)
+        if (Input.GetKeyDown(KeyCode.X) && ableToShoot && !playerCode.getDashing())
         {
             Instantiate(can, gun.transform.position, gun.transform.rotation, gameObject.transform);
             ableToShoot = false;
@@ -111,8 +112,8 @@ public class canManager : MonoBehaviour
             gun.transform.position = dirUpRight.position;
             gun.transform.rotation = dirUpRight.rotation;
         }
-
     }
+
     private void UpdateDirection()
     {
         if (Input.GetKey("left"))
@@ -235,4 +236,9 @@ public class canManager : MonoBehaviour
         ableToShoot = true;
     }
 
+    // ableToShoot getter
+    public bool getAbleToShoot()
+    {
+        return ableToShoot;
+    }
 }
