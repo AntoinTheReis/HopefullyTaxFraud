@@ -235,7 +235,7 @@ public class playerMovement : MonoBehaviour
         }
 
         // RIGHT
-        if (!usingItem)
+        if (!usingItem && !Input.GetKeyDown(KeyCode.X))
         {
             if (hozDirection > 0)
             {
