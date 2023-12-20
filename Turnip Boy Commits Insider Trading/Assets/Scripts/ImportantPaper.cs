@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test_paper_script : MonoBehaviour
+public class ImportantPaper : MonoBehaviour
 {
 
     // Necessary variable
@@ -13,9 +13,9 @@ public class Test_paper_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerClose && !paperGiven)
+        if (Input.GetKeyDown(KeyCode.Z) && playerClose && !paperGiven)
         {
-            Paper.activatePaper("holy smokes");
+            Paper.activatePaper("IMPORTANT\r\nDepartment of Taxation");
             paperGiven = true;
         }
     }
@@ -26,6 +26,15 @@ public class Test_paper_script : MonoBehaviour
         if (col.tag == "Player")
         {
             playerClose = true;
+        }
+    }
+
+    // When player walks away from self
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.tag == "Player")
+        {
+            playerClose = false;
         }
     }
 }
