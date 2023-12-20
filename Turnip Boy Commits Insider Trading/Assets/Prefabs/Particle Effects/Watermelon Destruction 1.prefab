@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7268130563221021670}
   - component: {fileID: 535428104482510517}
   m_Layer: 0
-  m_Name: Watermelon Destruction
+  m_Name: Watermelon Destruction 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4835,7 +4835,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1b0548776565f4350a027a01df0327bb, type: 2}
+  - {fileID: 2100000, guid: 8ff029a14ec7d874ea6e11e50d63d7b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

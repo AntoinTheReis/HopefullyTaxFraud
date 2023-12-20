@@ -6,6 +6,7 @@ public class heartLeaf : MonoBehaviour
 {
 
     public GameObject heart;
+    public ParticleSystem leavesParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class heartLeaf : MonoBehaviour
 
     public void Destroyed()
     {
+        Instantiate(leavesParticle, gameObject.transform.position, Quaternion.identity);
         float randomFloat = Random.Range(0f, 1f);
         if(randomFloat > 0.5f)
         {

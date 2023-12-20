@@ -172,3 +172,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heart: {fileID: 6560678765197248223, guid: 52793186ce2a7c7439d836e62f43a716, type: 3}
+  leavesParticle: {fileID: 7268130563221021670, guid: 3ec14de6c99c4c849be4f7ad0a0dc263, type: 3}

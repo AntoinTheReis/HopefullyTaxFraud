@@ -467,6 +467,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Watermelon Hole
       objectReference: {fileID: 0}
+    - target: {fileID: 2234142012088863133, guid: 6a72bd2dffb8c0649a3f657c79eb4d4e, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3367229397779321778, guid: 6a72bd2dffb8c0649a3f657c79eb4d4e, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1280
+      objectReference: {fileID: 0}
     - target: {fileID: 4094493511210054986, guid: 6a72bd2dffb8c0649a3f657c79eb4d4e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.3316584
