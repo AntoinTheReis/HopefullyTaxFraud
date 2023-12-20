@@ -28,7 +28,7 @@ public class toolManager : MonoBehaviour
     private bool right;
     private float holdingRight = 0;
 
-    private bool facingRight;
+    public bool facingRight;
 
     public enum direction
     {
@@ -53,14 +53,15 @@ public class toolManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.A) && !usingTool && !playerCode.dead && !Input.GetKeyDown(KeyCode.X))
         {
             counter--;
-            if(counter<0)
+            if (counter < 0)
             {
                 counter = 2;
             }
-            if(counter == 0)
+            if (counter == 0)
             {
                 backItemRendererRight.sprite = canSprite;
                 backItemRendererLeft.sprite = canSprite;
@@ -68,7 +69,7 @@ public class toolManager : MonoBehaviour
                 gunManager.enabled = false;
                 swordManager.enabled = false;
             }
-            else if(counter == 1)
+            else if (counter == 1)
             {
                 backItemRendererRight.sprite = swordSprite;
                 backItemRendererLeft.sprite = swordSprite;
@@ -85,10 +86,10 @@ public class toolManager : MonoBehaviour
                 swordManager.enabled = false;
             }
         }
-        else if(Input.GetKeyDown(KeyCode.S) && !usingTool && !playerCode.dead && !Input.GetKeyDown(KeyCode.X))
+        else if (Input.GetKeyDown(KeyCode.S) && !usingTool && !playerCode.dead && !Input.GetKeyDown(KeyCode.X))
         {
             counter++;
-            if(counter > 2)
+            if (counter > 2)
             {
                 counter = 0;
             }
@@ -125,12 +126,24 @@ public class toolManager : MonoBehaviour
             usingTool = true;
             backItemRendererRight.enabled = false;
             backItemRendererLeft.enabled = false;
-            Invoke("chillForSec", 1.05f);
+            Invoke("chillForSec", 1f);
         }
-        if (!usingTool)
+        /*if (usingTool)
         {
-            UpdateDirection();
+            backItemRendererRight.enabled = false;
+            backItemRendererLeft.enabled = false;
         }
+        if (!usingTool && facingRight)
+        {
+            backItemRendererRight.enabled = true;
+            backItemRendererLeft.enabled = false;
+        }
+        else if(!usingTool)
+        {
+            backItemRendererLeft.enabled = true;
+            backItemRendererRight.enabled = false;
+        }
+        */
     }
 
     private void UpdateDirection()

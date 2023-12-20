@@ -235,23 +235,29 @@ public class playerMovement : MonoBehaviour
         }
 
         // RIGHT
-        if (hozDirection > 0)
+        if (!usingItem)
         {
-            rightFacing();
-        }
-        // LEFT
-        else if (hozDirection < 0)
-        {
-            leftFacing();
+            if (hozDirection > 0)
+            {
+                rightFacing();
+            }
+            // LEFT
+            else if (hozDirection < 0)
+            {
+                leftFacing();
+            }
         }
     }
 
     // Method to consolidate redundancy in the input registration
     private void miscInputRegistration(int index)
     {
-        isMoving = true;
-        boolArray[index] = true;
-        accelerating();
+        if(!usingItem)
+        {
+            isMoving = true;
+            boolArray[index] = true;
+            accelerating();
+        }
     }
 
     // Resetting variables in the Update loop
