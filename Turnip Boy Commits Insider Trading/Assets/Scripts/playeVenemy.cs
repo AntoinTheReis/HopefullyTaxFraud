@@ -63,6 +63,20 @@ public class playeVenemy : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "bombZone")
+        {
+            shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
+            hp -= 0.5f;
+            HealthUIUpdate();
+            if (hp == 0)
+            {
+                Dead();
+            }
+        }
+    }
+
     private void Dead()
     {
         animator.SetTrigger("Dead");
