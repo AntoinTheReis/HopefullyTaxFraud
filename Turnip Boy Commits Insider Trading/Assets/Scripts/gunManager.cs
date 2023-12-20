@@ -75,7 +75,7 @@ public class gunManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X) && ableToShoot && !playerCode.getDashing())
         {
-            Instantiate(bullet, gun.transform.position, gun.transform.rotation);
+            Invoke("Shoot", 0.05f);
             gunSprite.enabled = true;
             ableToShoot = false;
             shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
@@ -253,5 +253,9 @@ public class gunManager : MonoBehaviour
     public bool getAbleToShoot()
     {
         return ableToShoot;
+    }
+    private void Shoot()
+    {
+        Instantiate(bullet, gun.transform.position, gun.transform.rotation);
     }
 }

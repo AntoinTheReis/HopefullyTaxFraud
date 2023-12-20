@@ -17,7 +17,7 @@ public class toolManager : MonoBehaviour
     public SpriteRenderer backItemRendererRight;
     public SpriteRenderer backItemRendererLeft;
 
-    private bool usingTool = false;
+    public bool usingTool = false;
 
     private bool up;
     private float holdingUp = 0;
@@ -53,7 +53,7 @@ public class toolManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) && !usingTool && !playerCode.dead)
+        if (Input.GetKeyDown(KeyCode.A) && !usingTool && !playerCode.dead && !Input.GetKeyDown(KeyCode.X))
         {
             counter--;
             if(counter<0)
@@ -85,7 +85,7 @@ public class toolManager : MonoBehaviour
                 swordManager.enabled = false;
             }
         }
-        else if(Input.GetKeyDown(KeyCode.S) && !usingTool && !playerCode.dead)
+        else if(Input.GetKeyDown(KeyCode.S) && !usingTool && !playerCode.dead && !Input.GetKeyDown(KeyCode.X))
         {
             counter++;
             if(counter > 2)
@@ -117,15 +117,15 @@ public class toolManager : MonoBehaviour
                 swordManager.enabled = false;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.X) && !playerCode.getDashing() &&
+        else if (Input.GetKeyDown(KeyCode.X) && !playerCode.getDashing() && !usingTool/*&&
             (!canManager.getAbleToShoot() ||
             !swordManager.getAbleToShoot() ||
-            !gunManager.getAbleToShoot()))
+            !gunManager.getAbleToShoot())*/)
         {
             usingTool = true;
             backItemRendererRight.enabled = false;
             backItemRendererLeft.enabled = false;
-            Invoke("chillForSec", 1);
+            Invoke("chillForSec", 1.05f);
         }
         if (!usingTool)
         {
@@ -252,12 +252,22 @@ public class toolManager : MonoBehaviour
 
     private void chillForSec()
     {
-        if (canManager.getAbleToShoot() &&
+        usingTool = false;
+        if (facingRight)
+        {
+            backItemRendererRight.enabled = true;
+        }
+        else
+        {
+            backItemRendererLeft.enabled = true;
+        }
+
+        /* if (canManager.getAbleToShoot() &&
             swordManager.getAbleToShoot() &&
             gunManager.getAbleToShoot())
         {
             facingRight = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>().facingRight;
-            usingTool = false;
+           
             if (facingRight)
             {
                 backItemRendererRight.enabled = true;
@@ -271,6 +281,7 @@ public class toolManager : MonoBehaviour
         {
             Invoke("chillForSec", 0.5f);
         }
+        */
     }
 
     // usingTool getter
