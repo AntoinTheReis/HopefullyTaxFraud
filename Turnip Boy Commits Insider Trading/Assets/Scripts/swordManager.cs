@@ -66,7 +66,9 @@ public class swordManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X) && ableToShoot && !playerCode.getDashing())
         {
-            Instantiate(sword, gun.gameObject.transform);
+            GameObject tempSword = Instantiate(sword, gun.gameObject.transform);
+            tempSword.GetComponent<AudioSource>().Play();
+
             ableToShoot = false;
             StartCoroutine(ShootCoroutine());
         }

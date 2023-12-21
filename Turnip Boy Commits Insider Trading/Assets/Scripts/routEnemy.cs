@@ -88,6 +88,7 @@ public class routEnemy : MonoBehaviour
             dir = -dir.normalized;
             GetComponent<Rigidbody2D>().AddForce(dir * push*0.1f);
             gp--;
+            this.GetComponent<AudioSource>().Play();
             if (gp == 0)
             {
                 //GetComponent<Rigidbody2D>().AddForce(dir * push*0.9f);
