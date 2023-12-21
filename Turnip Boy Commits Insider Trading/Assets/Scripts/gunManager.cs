@@ -256,6 +256,7 @@ public class gunManager : MonoBehaviour
     }
     private void Shoot()
     {
-        Instantiate(bullet, gun.transform.position, gun.transform.rotation);
+        GameObject tempBullet = Instantiate(bullet, gun.transform.position, gun.transform.rotation);
+        tempBullet.GetComponent<AudioSource>().Play();
     }
 }
