@@ -58,14 +58,25 @@ public class Door : MonoBehaviour
                 Checks(activeSprite);
             }
         }
-        if (col.tag == "bombZone" && !DoorManager.instance.areOpen[doorNumber])
-        {
-            doorUnlock();
+    }
 
-            if (this.tag == "specialDoor")
-            {
-                this.GetComponent<BoxCollider2D>().edgeRadius = 0.8f;
-            }
+    // Collision detection for bombZone interaction
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if (starterSprite == breakableDoor)
+        {
+            print(col.tag);
+            print(DoorManager.instance.areOpen[doorNumber]);
+        }
+
+        if (col.tag == "bombZone" && !DoorManager.instance.areOpen[doorNumber] && 
+            starterSprite == breakableDoor)
+        {
+
+            print("BOMBS AWAY!");
+
+            doorUnlock();
+            this.GetComponent<BoxCollider2D>().edgeRadius = 0.8f;
         }
     }
 

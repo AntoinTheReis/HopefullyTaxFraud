@@ -19,7 +19,7 @@ TagManager:
   - VCM
   - npcRange
   - heart
-  - specialDoor
+  - Bomb
   layers:
   - Default
   - TransparentFX

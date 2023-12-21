@@ -103,8 +103,10 @@ MonoBehaviour:
   OBJ_Dialogue_UI: {fileID: 3119956680320832596, guid: 9f90d94818d922c448a0d3c576ae9c13, type: 3}
   OBJ_Dialogue_Text: {fileID: 0}
   OBJ_Name_Text: {fileID: 0}
+  uiSprite: {fileID: 0}
   myDialogue: How dare you speak to me?!
   myName: Brown Box
+  characterSprite: {fileID: 0}
 --- !u!114 &-2021704999120816186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,4 +205,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1.25
