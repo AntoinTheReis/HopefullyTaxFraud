@@ -44,7 +44,6 @@ public class Paper : MonoBehaviour
             // Rip Up becomes TRANSLUCENT; Read becomes OPAQUE
             else if (Input.GetKeyDown("down") &&  ripT_readF)
             {
-                StartCoroutine(lerpTransform(OBJ_leftHalf, -5.0f, -2.5f, 1.5f));
                 StartCoroutine(lerpOpacity(OBJ_Read, 1.0f, 0.8f, "Box"));
                 StartCoroutine(lerpOpacity(OBJ_Read_Text, 1.0f, 0.8f, "Text"));
                 StartCoroutine(lerpOpacity(OBJ_Rip_Up, 0.5f, 0.8f, "Box"));
@@ -55,17 +54,13 @@ public class Paper : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Z) && ripT_readF)
             {
                 OBJ_paperImage.GetComponent<RawImage>().enabled = false;
-                //StartCoroutine(lerpTransform(OBJ_leftHalf, -5.0f, -2.5f, 1.5f));
-                //StartCoroutine(lerpTransform(OBJ_rightHalf, 5.0f, -2.5f, 1.5f));
-                StartCoroutine(lerpOpacity(OBJ_Rip_Up_Text, 0f, 1.5f, "Text"));
-                StartCoroutine(lerpOpacity(OBJ_Read_Text, 0f, 1.5f, "Text"));
-                StartCoroutine(lerpOpacity(OBJ_Rip_Up, 0f, 1.5f, "Box"));
-                StartCoroutine(lerpOpacity(OBJ_Read, 0f, 1.5f, "Box"));
-                StartCoroutine(lerpOpacity(OBJ_Background, 0f, 1.5f, "Box"));
-                OBJ_Player.set_higherUI(false);
-                this.GetComponent<HUDHandler>().EnableHUD();
-                OBJ_Ripping_UI.SetActive(false);
-                activated = false;
+                StartCoroutine(lerpTransform(OBJ_leftHalf, -15.0f, -7.5f, 0.8f));
+                StartCoroutine(lerpTransform(OBJ_rightHalf, 5.0f, -2.5f, 0.8f));
+                //StartCoroutine(lerpOpacity(OBJ_Rip_Up_Text, 0f, 0.8f, "Text"));
+                //StartCoroutine(lerpOpacity(OBJ_Read_Text, 0f, 0.8f, "Text"));
+                //StartCoroutine(lerpOpacity(OBJ_Rip_Up, 0f, 0.8f, "Box"));
+                //StartCoroutine(lerpOpacity(OBJ_Read, 0f, 0.8f, "Box"));
+                //StartCoroutine(lerpOpacity(OBJ_Background, 0f, 0.8f, "Box"));
             }
             else if (Input.GetKeyDown(KeyCode.Z) && !ripT_readF)
             {
@@ -137,15 +132,18 @@ public class Paper : MonoBehaviour
     {
         coroutineOn = true;
         float Timer = 0f;
-        Vector3 elementImage = halfPage.GetComponent<Transform>().position;
-        Vector3 OGposition = elementImage;
+        Vector3 OGposition = halfPage.GetComponent<Transform>().position;
         Vector3 finalPosition = new Vector3(OGposition.x + x_distance, OGposition.y + y_distance / 2, OGposition.z);
-        while (elementImage != finalPosition)
+        while (halfPage.GetComponent<Transform>().position != finalPosition)
         {
-            elementImage = Vector3.Lerp(OGposition, finalPosition, Timer);
+            halfPage.GetComponent<Transform>().position = Vector3.Lerp(OGposition, finalPosition, Timer);
             Timer = (Timer + Time.deltaTime) / totalTime;
             yield return null;
         }
         coroutineOn = false;
+        OBJ_Player.set_higherUI(false);
+        this.GetComponent<HUDHandler>().EnableHUD();
+        OBJ_Ripping_UI.SetActive(false);
+        activated = false;
     }
 }

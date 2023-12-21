@@ -6163,10 +6163,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door_7
       objectReference: {fileID: 0}
-    - target: {fileID: 5508639116737142349, guid: 31da075de02cf4c4da9bcc763dbdf699, type: 3}
-      propertyPath: m_TagString
-      value: specialDoor
-      objectReference: {fileID: 0}
     - target: {fileID: 6762305787016211965, guid: 31da075de02cf4c4da9bcc763dbdf699, type: 3}
       propertyPath: doorNumber
       value: 7
