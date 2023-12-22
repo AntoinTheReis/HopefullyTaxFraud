@@ -5,21 +5,21 @@ using UnityEngine;
 public class heartLeaf : MonoBehaviour
 {
 
+    private bool isDestroyed = false;
     public GameObject heart;
     public ParticleSystem leavesParticle;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (isDestroyed)
+        {
+            if (!this.GetComponent<AudioSource>().isPlaying)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -38,7 +38,8 @@ public class heartLeaf : MonoBehaviour
         {
             Instantiate(heart, gameObject.transform.position, Quaternion.identity);
         }
-        Destroy(gameObject);
+        this.GetComponent<SpriteRenderer>().enabled = false;
+        this.GetComponent<AudioSource>().Play();
+        isDestroyed = true;
     }
-
 }

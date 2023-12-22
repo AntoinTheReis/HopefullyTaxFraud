@@ -30,6 +30,7 @@ public class watermelonHole : MonoBehaviour
             GetComponent<Collider2D>().enabled= false;
             Destroy(collision.gameObject);
             filled = true;
+            this.GetComponent<AudioSource>().Play();
             Destroy(outside);
             GetComponent<SpriteRenderer>().sprite= covered;
         }

@@ -27,9 +27,11 @@ public class Door : MonoBehaviour
             this.GetComponent<SpriteRenderer>().sprite = UnbreakableDoor;
         }
 
-        if (this.tag == "specialDoor" && DoorManager.instance.areOpen[doorNumber] == false)
+        // Changing initial hitbox for breakable door in Room 4
+        if (starterSprite == breakableDoor && !DoorManager.instance.areOpen[doorNumber] && 
+            SceneManager.GetActiveScene().name == "Room 4")
         {
-            this.GetComponent<BoxCollider2D>().edgeRadius = 2f;
+            this.GetComponent<BoxCollider2D>().edgeRadius = 0.15f;
         }
     }
 
@@ -58,23 +60,9 @@ public class Door : MonoBehaviour
                 Checks(activeSprite);
             }
         }
-    }
-
-    // Collision detection for bombZone interaction
-    private void OnTriggerStay2D(Collider2D col)
-    {
-        if (starterSprite == breakableDoor)
+        else if (col.tag == "bombZone" && !DoorManager.instance.areOpen[doorNumber] &&
+                 starterSprite == breakableDoor)
         {
-            print(col.tag);
-            print(DoorManager.instance.areOpen[doorNumber]);
-        }
-
-        if (col.tag == "bombZone" && !DoorManager.instance.areOpen[doorNumber] && 
-            starterSprite == breakableDoor)
-        {
-
-            print("BOMBS AWAY!");
-
             doorUnlock();
             this.GetComponent<BoxCollider2D>().edgeRadius = 0.8f;
         }

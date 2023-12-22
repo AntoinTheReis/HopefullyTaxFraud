@@ -5,6 +5,7 @@ using UnityEngine;
 public class watermelonManager : MonoBehaviour
 {
 
+    private bool isDetroyed = false;
     private bool watered;
     private int bp;
     private GameObject player;
@@ -24,7 +25,13 @@ public class watermelonManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isDetroyed)
+        {
+            if (!this.GetComponent<AudioSource>().isPlaying)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,7 +66,6 @@ public class watermelonManager : MonoBehaviour
         if (collision.gameObject.tag == "bullet" && watered)
         {
             float dist = Vector3.Distance(player.transform.position, transform.position);
-            print(dist);
             if (dist <= 3.0f)
             {
                 Exploded();
@@ -78,10 +84,12 @@ public class watermelonManager : MonoBehaviour
         }
     }
 
+    // Function to explode watermelon
     private void Exploded()
     {
         Instantiate(slices, gameObject.transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        this.GetComponent<SpriteRenderer>().enabled = false;
+        this.GetComponent<AudioSource>().Play();
+        isDetroyed = true;
     }
-
 }

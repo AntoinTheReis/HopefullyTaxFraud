@@ -10,6 +10,9 @@ public class HUDHandler : MonoBehaviour
     public GameObject Heart_1;
     public GameObject Heart_2;
     public GameObject Heart_3;
+    public GameObject itemSwap;
+    public GameObject tripDash;
+    public GameObject useItem;
 
     // Static function to enable HUD elements
     public void EnableHUD()
@@ -18,7 +21,9 @@ public class HUDHandler : MonoBehaviour
         Heart_1.GetComponent<RawImage>().enabled = true;
         Heart_2.GetComponent<RawImage>().enabled = true;
         Heart_3.GetComponent<RawImage>().enabled = true;
-        // Insert similar statements for other HUD elements when they have been implemented
+        itemSwap.GetComponent<RawImage>().enabled = true;
+        tripDash.GetComponent<RawImage>().enabled = true;
+        useItem.GetComponent<RawImage>().enabled = true;
     }
 
     // Static function to disable HUD elements
@@ -28,6 +33,8 @@ public class HUDHandler : MonoBehaviour
         Heart_1.GetComponent<RawImage>().enabled = false;
         Heart_2.GetComponent<RawImage>().enabled = false;
         Heart_3.GetComponent<RawImage>().enabled = false;
-        // Insert similar statements for other HUD elements when they have been implemented
+        itemSwap.GetComponent<RawImage>().enabled = false;
+        tripDash.GetComponent<RawImage>().enabled = false;
+        useItem.GetComponent<RawImage>().enabled = false;
     }
 }

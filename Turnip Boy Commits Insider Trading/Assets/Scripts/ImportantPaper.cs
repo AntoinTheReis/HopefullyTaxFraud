@@ -8,7 +8,9 @@ public class ImportantPaper : MonoBehaviour
     // Necessary variable
     private bool playerClose;
     private bool paperGiven;
+    [Header("Necessary Objects")]
     public Paper Paper;
+    public GameObject sparkleParticle;
 
     // Update is called once per frame
     void Update()
@@ -36,5 +38,12 @@ public class ImportantPaper : MonoBehaviour
         {
             playerClose = false;
         }
+    }
+
+    // Method to destroy self and associated particle system after paper has been ripped
+    public void FinishTheRip()
+    {
+        Destroy(sparkleParticle);
+        Destroy(gameObject);
     }
 }

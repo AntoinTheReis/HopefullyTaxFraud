@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class NewRoomPosHandler : MonoBehaviour
 {
 
+    private static bool room2Complete;
+    [Header("Necessary Objects")]
+    public GameObject watermelonPrefab;
     [HideInInspector]
     public static string prevRoom;
 
@@ -57,6 +60,23 @@ public class NewRoomPosHandler : MonoBehaviour
         {
             this.transform.position = new Vector3(2.76f, 3.1f, 0f);
             this.GetComponent<playerMovement>().rightFacing();
+        }
+    }
+
+    // START function
+    void Start()
+    {
+        // When entering Room 3 for the first time, flip a static boolean value to indicate that Room 2 has been completed
+        if (SceneManager.GetActiveScene().name == "Room 3" && prevRoom == "Room 2" && !room2Complete)
+        {
+            room2Complete = true;
+        }
+
+        // If player is reentering Room 2 after completing it, place watermelon into the hole closest to Door 4
+        if (SceneManager.GetActiveScene().name == "Room 2" && room2Complete)
+        {
+            GameObject tempWatermelon = Instantiate(watermelonPrefab, gameObject.transform);
+            tempWatermelon.transform.position = new Vector3(-13.98f, 1.32f, 0f);
         }
     }
 }
