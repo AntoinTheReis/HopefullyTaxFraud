@@ -44,7 +44,6 @@ public class bomb : MonoBehaviour
             {
                 Instantiate(sparkles, gameObject.transform.position, Quaternion.identity);
                 watered = true;
-                Debug.Log("watered1");
                 animator.SetBool("Watered", true);
                 gameObject.GetComponent<Collider2D>().includeLayers = LayerMask.GetMask("characters");
                 gameObject.GetComponent<Collider2D>().excludeLayers = 0;
@@ -53,7 +52,6 @@ public class bomb : MonoBehaviour
             {
                 watered2 = true;
                 Invoke("Explode", 3);
-                Debug.Log("watered2");
                 animator.SetBool("StationaryExplosion", true);
             }
         }

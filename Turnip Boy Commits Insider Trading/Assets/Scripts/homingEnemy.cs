@@ -61,7 +61,6 @@ public class homingEnemy : MonoBehaviour
     {
         if(attacking && !dying)
         {
-            Debug.Log("Supposed to move");
             if (!OBJ_Dialogue_UI.activeSelf || !OBJ_Ripping_UI.activeSelf)
             {
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, vel);
@@ -76,6 +75,7 @@ public class homingEnemy : MonoBehaviour
             Vector3 dir = collision.transform.position - transform.position;
             dir = -dir.normalized;
             GetComponent<Rigidbody2D>().AddForce(dir * push);
+            this.GetComponent<AudioSource>().Play();
             dying = true;
             animator.SetTrigger("Dead");
             Invoke("Dying", 2);
@@ -89,8 +89,8 @@ public class homingEnemy : MonoBehaviour
             Vector3 dir = collision.transform.position - transform.position;
             dir = -dir.normalized;
             GetComponent<Rigidbody2D>().AddForce(dir * push * 0.1f);
-            gp--;
             this.GetComponent<AudioSource>().Play();
+            gp--;
             if (gp == 0)
             {
                 //GetComponent<Rigidbody2D>().AddForce(dir * push * 0.9f);

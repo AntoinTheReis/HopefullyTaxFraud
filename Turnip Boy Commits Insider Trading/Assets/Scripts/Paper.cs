@@ -12,6 +12,8 @@ public class Paper : MonoBehaviour
     private bool reading = false;
     private bool ripT_readF = true;
     private bool coroutineOn;
+    [Header("Actual Paper Object")]
+    public GameObject realPaper;
     [Header("Necessary Objects")]
     public playerMovement OBJ_Player;
     public GameObject OBJ_Ripping_UI;
@@ -35,10 +37,10 @@ public class Paper : MonoBehaviour
             // Rip Up becomes OPAQUE; Read becomes TRANSLUCENT
             if (Input.GetKeyDown("up") && !ripT_readF)
             {
-                StartCoroutine(lerpOpacity(OBJ_Rip_Up, 1.0f, 0.8f, "Box"));
-                StartCoroutine(lerpOpacity(OBJ_Rip_Up_Text, 1.0f, 0.8f, "Text"));
-                StartCoroutine(lerpOpacity(OBJ_Read, 0.5f, 0.8f, "Box"));
-                StartCoroutine(lerpOpacity(OBJ_Read_Text, 0.5f, 0.8f, "Text"));
+                StartCoroutine(lerpOpacity(OBJ_Rip_Up, 1.0f, 0.5f, "Box"));
+                StartCoroutine(lerpOpacity(OBJ_Rip_Up_Text, 1.0f, 0.5f, "Text"));
+                StartCoroutine(lerpOpacity(OBJ_Read, 0.5f, 0.5f, "Box"));
+                StartCoroutine(lerpOpacity(OBJ_Read_Text, 0.5f, 0.5f, "Text"));
                 ripT_readF = true;
             }
             // Rip Up becomes TRANSLUCENT; Read becomes OPAQUE
@@ -54,13 +56,15 @@ public class Paper : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Z) && ripT_readF)
             {
                 OBJ_paperImage.GetComponent<RawImage>().enabled = false;
-                StartCoroutine(lerpTransform(OBJ_leftHalf, -15.0f, -7.5f, 0.8f));
-                StartCoroutine(lerpTransform(OBJ_rightHalf, 5.0f, -2.5f, 0.8f));
-                //StartCoroutine(lerpOpacity(OBJ_Rip_Up_Text, 0f, 0.8f, "Text"));
-                //StartCoroutine(lerpOpacity(OBJ_Read_Text, 0f, 0.8f, "Text"));
-                //StartCoroutine(lerpOpacity(OBJ_Rip_Up, 0f, 0.8f, "Box"));
-                //StartCoroutine(lerpOpacity(OBJ_Read, 0f, 0.8f, "Box"));
-                //StartCoroutine(lerpOpacity(OBJ_Background, 0f, 0.8f, "Box"));
+                StartCoroutine(lerpTransform(OBJ_leftHalf, -150.0f, -100.0f, 1.5f));
+                StartCoroutine(lerpTransform(OBJ_rightHalf, 150.0f, -100.0f, 1.5f));
+                StartCoroutine(lerpOpacity(OBJ_leftHalf, 0f, 1.5f, "Box"));
+                StartCoroutine(lerpOpacity(OBJ_rightHalf, 0f, 1.5f, "Box"));
+                StartCoroutine(lerpOpacity(OBJ_Rip_Up_Text, 0f, 1.5f, "Text"));
+                StartCoroutine(lerpOpacity(OBJ_Read_Text, 0f, 1.5f, "Text"));
+                StartCoroutine(lerpOpacity(OBJ_Rip_Up, 0f, 1.5f, "Box"));
+                StartCoroutine(lerpOpacity(OBJ_Read, 0f, 1.5f, "Box"));
+                StartCoroutine(lerpOpacity(OBJ_Background, 0f, 1.5f, "Box"));
             }
             else if (Input.GetKeyDown(KeyCode.Z) && !ripT_readF)
             {
@@ -107,7 +111,7 @@ public class Paper : MonoBehaviour
             while (elementText.color != finalColor)
             {
                 elementText.color = Color.Lerp(OGcolor, finalColor, Timer);
-                Timer = (Timer + Time.deltaTime) / totalTime;
+                Timer = (Timer + Time.deltaTime); // / totalTime;
                 yield return null;
             }
             coroutineOn = false;
@@ -120,7 +124,7 @@ public class Paper : MonoBehaviour
             while (elementImage.color != finalColor)
             {
                 elementImage.color = Color.Lerp(OGcolor, finalColor, Timer);
-                Timer = (Timer + Time.deltaTime) / totalTime;
+                Timer = (Timer + Time.deltaTime); // / totalTime;
                 yield return null;
             }
             coroutineOn = false;
@@ -137,7 +141,7 @@ public class Paper : MonoBehaviour
         while (halfPage.GetComponent<Transform>().position != finalPosition)
         {
             halfPage.GetComponent<Transform>().position = Vector3.Lerp(OGposition, finalPosition, Timer);
-            Timer = (Timer + Time.deltaTime) / totalTime;
+            Timer = (Timer + Time.deltaTime); // / totalTime;
             yield return null;
         }
         coroutineOn = false;
@@ -145,5 +149,6 @@ public class Paper : MonoBehaviour
         this.GetComponent<HUDHandler>().EnableHUD();
         OBJ_Ripping_UI.SetActive(false);
         activated = false;
+        realPaper.GetComponent<ImportantPaper>().FinishTheRip();
     }
 }

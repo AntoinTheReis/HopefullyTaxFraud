@@ -32,6 +32,8 @@ public class playerMovement : MonoBehaviour
     public bool facingRight;
     public Animator animator;
     public toolManager toolBoss;
+    [Header("Audio file")]
+    public AudioClip dashSFX;
 
     private float sleepTimer;
     public bool dead;
@@ -147,12 +149,17 @@ public class playerMovement : MonoBehaviour
         {
             if (!inNpcRange)
             {
+
+                AudioSource tempAudioSource = this.GetComponent<AudioSource>();
+
                 if (Input.GetKey("right"))
                 {
                     if (Input.GetKey("up"))
                     {
                         Debug.Log("dash up right");
                         GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 1) * dashPush);
+                        tempAudioSource.clip = dashSFX;
+                        tempAudioSource.Play();
                         dashing = true;
                         animator.SetBool("Dashing", true);
                         Invoke("Dashing", dashTime);
@@ -161,6 +168,8 @@ public class playerMovement : MonoBehaviour
                     {
                         Debug.Log("dash right");
                         GetComponent<Rigidbody2D>().AddForce(Vector2.right * dashPush);
+                        tempAudioSource.clip = dashSFX;
+                        tempAudioSource.Play();
                         dashing = true;
                         animator.SetBool("Dashing", true);
                         Invoke("Dashing", dashTime);
@@ -169,6 +178,8 @@ public class playerMovement : MonoBehaviour
                     {
                         Debug.Log("dash down right");
                         GetComponent<Rigidbody2D>().AddForce(new Vector2(1, -1) * dashPush);
+                        tempAudioSource.clip = dashSFX;
+                        tempAudioSource.Play();
                         dashing = true;
                         animator.SetBool("Dashing", true);
                         Invoke("Dashing", dashTime);
@@ -180,6 +191,8 @@ public class playerMovement : MonoBehaviour
                     {
                         Debug.Log("dash up");
                         GetComponent<Rigidbody2D>().AddForce(Vector2.up * dashPush);
+                        tempAudioSource.clip = dashSFX;
+                        tempAudioSource.Play();
                         dashing = true;
                         animator.SetBool("Dashing", true);
                         Invoke("Dashing", dashTime);
@@ -188,6 +201,8 @@ public class playerMovement : MonoBehaviour
                     {
                         Debug.Log("dash down");
                         GetComponent<Rigidbody2D>().AddForce(Vector2.down * dashPush);
+                        tempAudioSource.clip = dashSFX;
+                        tempAudioSource.Play();
                         dashing = true;
                         animator.SetBool("Dashing", true);
                         Invoke("Dashing", dashTime);
@@ -199,6 +214,8 @@ public class playerMovement : MonoBehaviour
                     {
                         Debug.Log("dash left up");
                         GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, 1) * dashPush);
+                        tempAudioSource.clip = dashSFX;
+                        tempAudioSource.Play();
                         dashing = true;
                         animator.SetBool("Dashing", true);
                         Invoke("Dashing", dashTime);
@@ -207,6 +224,8 @@ public class playerMovement : MonoBehaviour
                     {
                         Debug.Log("dash left");
                         GetComponent<Rigidbody2D>().AddForce(Vector2.left * dashPush);
+                        tempAudioSource.clip = dashSFX;
+                        tempAudioSource.Play();
                         dashing = true;
                         animator.SetBool("Dashing", true);
                         Invoke("Dashing", dashTime);
@@ -215,6 +234,8 @@ public class playerMovement : MonoBehaviour
                     {
                         Debug.Log("dash left down");
                         GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, -1) * dashPush);
+                        tempAudioSource.clip = dashSFX;
+                        tempAudioSource.Play();
                         dashing = true;
                         animator.SetBool("Dashing", true);
                         Invoke("Dashing", dashTime);

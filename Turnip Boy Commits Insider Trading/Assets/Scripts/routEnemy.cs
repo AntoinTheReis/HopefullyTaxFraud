@@ -74,6 +74,7 @@ public class routEnemy : MonoBehaviour
             Vector3 dir = collision.transform.position - transform.position;
             dir = -dir.normalized;
             GetComponent<Rigidbody2D>().AddForce(dir * push);
+            this.GetComponent<AudioSource>().Play();
             gameObject.GetComponent<Animator>().SetTrigger("Dead");
             dying = true;
             Invoke("Dying", 2);
@@ -87,8 +88,8 @@ public class routEnemy : MonoBehaviour
             Vector3 dir = collision.transform.position - transform.position;
             dir = -dir.normalized;
             GetComponent<Rigidbody2D>().AddForce(dir * push*0.1f);
-            gp--;
             this.GetComponent<AudioSource>().Play();
+            gp--;
             if (gp == 0)
             {
                 //GetComponent<Rigidbody2D>().AddForce(dir * push*0.9f);

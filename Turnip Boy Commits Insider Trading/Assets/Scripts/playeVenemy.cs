@@ -22,6 +22,9 @@ public class playeVenemy : MonoBehaviour
     private Animator animator;
     public GameObject deathUiPrefab;
 
+    [Header("Audio file")]
+    public AudioClip hurtSFX;
+
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +72,8 @@ public class playeVenemy : MonoBehaviour
         {
             shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
             hp -= 0.5f;
+            this.GetComponent<AudioSource>().clip = hurtSFX;
+            this.GetComponent<AudioSource>().Play();
             HealthUIUpdate();
             if (hp == 0)
             {
@@ -80,7 +85,6 @@ public class playeVenemy : MonoBehaviour
     private void Dead()
     {
         animator.SetTrigger("Dead");
-        Debug.Log("dead");
         playerMovement.dead = true;
         Invoke("Dying", 1);
     }
@@ -131,6 +135,8 @@ public class playeVenemy : MonoBehaviour
             {
                 shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
                 hp -= 0.5f;
+                this.GetComponent<AudioSource>().clip = hurtSFX;
+                this.GetComponent<AudioSource>().Play();
                 Vector3 dir = collision.gameObject.transform.position - transform.position;
                 dir = -dir.normalized;
                 GetComponent<Rigidbody2D>().AddForce(dir * playerMovement.bombPush);
@@ -147,6 +153,8 @@ public class playeVenemy : MonoBehaviour
             {
                 shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
                 hp -= 0.5f;
+                this.GetComponent<AudioSource>().clip = hurtSFX;
+                this.GetComponent<AudioSource>().Play();
                 Vector3 dir = collision.gameObject.transform.position - transform.position;
                 dir = -dir.normalized;
                 GetComponent<Rigidbody2D>().AddForce(dir * playerMovement.bombPush);

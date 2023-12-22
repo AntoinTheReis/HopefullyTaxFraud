@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class bombZone : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class bombZone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Room 4")
+        {
+            this.GetComponent<CircleCollider2D>().radius = 0.3f;
+        }
         Invoke("PlayExplodeAudio", 0.05f);
         MP3player = this.GetComponent<AudioSource>();
     }
