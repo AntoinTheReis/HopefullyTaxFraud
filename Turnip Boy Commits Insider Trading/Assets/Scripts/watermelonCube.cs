@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class watermelonManager : MonoBehaviour
+public class watermelonCube : MonoBehaviour
 {
 
     private bool isDetroyed = false;
