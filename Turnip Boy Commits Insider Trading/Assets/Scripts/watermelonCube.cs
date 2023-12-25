@@ -40,7 +40,7 @@ public class watermelonCube : MonoBehaviour
         if (collision.tag == "water" && !watered)
         {
             Instantiate(sparkles, gameObject.transform.position, Quaternion.identity);
-            gameObject.transform.localScale += new Vector3(1, 1, 0);
+            //gameObject.transform.localScale += new Vector3(1, 1, 0);
             //Debug.Log("triggered water");
             //gameObject.GetComponent<Rigidbody2D>().constraints;
             gameObject.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionY;
