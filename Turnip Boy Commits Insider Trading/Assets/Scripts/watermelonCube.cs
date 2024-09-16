@@ -63,25 +63,45 @@ public class watermelonCube : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
+        GameObject bullet = GameObject.FindGameObjectWithTag("bullet");
+
         if (collision.gameObject.tag == "bullet" && watered)
         {
             float dist = Vector3.Distance(player.transform.position, transform.position);
+            // TOO CLOSE TO SELF
             if (dist <= 3.0f)
             {
                 Exploded();
             }
+            // BULLET COMING FROM UP, DOWN, LEFT, RIGHT
+            else if (bullet.GetComponent<bullet>().getDirection() != new Vector3(0, 0, 1))
+            {
+                reduceBP();
+                GetComponent<Rigidbody2D>().AddForce(bullet.GetComponent<bullet>().getDirection() * push * 0.1f,
+                                                     ForceMode2D.Impulse);
+            }
+            // BULLET COMING DIAGONALLY
             else
             {
+                reduceBP();
                 Vector3 dir = collision.transform.position - transform.position;
                 dir = -dir.normalized;
-                GetComponent<Rigidbody2D>().AddForce(dir * push * 0.1f);
-                bp--;
-                if (bp == 0)
-                {
-                    Exploded();
-                }
+                GetComponent<Rigidbody2D>().AddForce(dir * push * 0.1f, ForceMode2D.Impulse);
             }
         }
+    }
+
+    // Function to reduce BP
+    private void reduceBP()
+    {
+        bp--;
+        if (bp == 0)
+        {
+            Exploded();
+        }
+
+        Debug.Log(bp);
+
     }
 
     // Function to explode watermelon
@@ -91,5 +111,11 @@ public class watermelonCube : MonoBehaviour
         this.GetComponent<SpriteRenderer>().enabled = false;
         this.GetComponent<AudioSource>().Play();
         isDetroyed = true;
+    }
+
+    // BP getter
+    public int getBP()
+    { 
+        return bp;
     }
 }

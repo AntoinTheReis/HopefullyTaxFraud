@@ -5266,6 +5266,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 816707128111491684, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
+      propertyPath: m_TagString
+      value: Heart2
+      objectReference: {fileID: 0}
+    - target: {fileID: 878379354832668213, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
+      propertyPath: m_TagString
+      value: Heart1
+      objectReference: {fileID: 0}
     - target: {fileID: 2343883378885635338, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5354,9 +5362,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health_UI
       objectReference: {fileID: 0}
+    - target: {fileID: 6532830379658489952, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
+      propertyPath: m_TagString
+      value: ItemSwap
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428571732484263256, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
+      propertyPath: m_TagString
+      value: UseItem
+      objectReference: {fileID: 0}
     - target: {fileID: 8204811644762471996, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275238586423928025, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
+      propertyPath: m_TagString
+      value: TripDash
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522426035934840137, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
+      propertyPath: m_TagString
+      value: Heart3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

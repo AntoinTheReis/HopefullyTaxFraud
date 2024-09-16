@@ -63,7 +63,6 @@ public class gunManager : MonoBehaviour
     private void OnEnable()
     {
         facingDirection = (direction)((int)toolManager.facingDirection);
-        //Debug.Log("did a thing");
     }
 
     // Update is called once per frame

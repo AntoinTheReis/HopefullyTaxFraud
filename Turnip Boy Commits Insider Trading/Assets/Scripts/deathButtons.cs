@@ -9,6 +9,7 @@ public class deathButtons : MonoBehaviour
 {
 
     private playeVenemy playerHp;
+
     private GameObject selector;
     [Header("Interactables")]
     public GameObject retry;
@@ -18,6 +19,13 @@ public class deathButtons : MonoBehaviour
     void Start()
     {
         playerHp = GameObject.FindGameObjectWithTag("Player").GetComponent<playeVenemy>();
+        this.GetComponent<HUDHandler>().Heart_1 = GameObject.FindGameObjectWithTag("Heart1");
+        this.GetComponent<HUDHandler>().Heart_2 = GameObject.FindGameObjectWithTag("Heart2");
+        this.GetComponent<HUDHandler>().Heart_3 = GameObject.FindGameObjectWithTag("Heart3");
+        this.GetComponent<HUDHandler>().itemSwap = GameObject.FindGameObjectWithTag("ItemSwap");
+        this.GetComponent<HUDHandler>().tripDash = GameObject.FindGameObjectWithTag("TripDash");
+        this.GetComponent<HUDHandler>().useItem = GameObject.FindGameObjectWithTag("UseItem");
+        this.GetComponent<HUDHandler>().DisableHUD();
         selector = retry;
     }
 

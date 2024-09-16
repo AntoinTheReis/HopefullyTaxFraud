@@ -20,6 +20,12 @@ TagManager:
   - npcRange
   - heart
   - Bomb
+  - Heart1
+  - Heart2
+  - Heart3
+  - ItemSwap
+  - TripDash
+  - UseItem
   layers:
   - Default
   - TransparentFX

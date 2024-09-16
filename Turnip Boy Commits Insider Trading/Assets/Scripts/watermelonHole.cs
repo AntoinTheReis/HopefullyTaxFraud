@@ -12,7 +12,12 @@ public class watermelonHole : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "watermelon" && !filled)
+
+        GameObject watermelon = collision.gameObject;
+
+        Debug.Log(watermelon.GetComponent<watermelonCube>().getBP());
+
+        if(collision.tag == "watermelon" && !filled && watermelon.GetComponent<watermelonCube>().getBP() > 0)
         {
             GetComponent<SpriteRenderer>().color = Color.green;
             GetComponent<Collider2D>().enabled= false;
