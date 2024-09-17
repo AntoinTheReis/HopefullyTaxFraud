@@ -12,21 +12,29 @@ public class watermelonHole : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        StartCoroutine(stall(collision));
+    }
 
+    // Function to stall OnTriggerEnter2D for exactly 2 frames
+    IEnumerator stall(Collider2D collision)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            yield return null;
+        }
+
+        // OnTriggerEnter2D Proper
         GameObject watermelon = collision.gameObject;
 
-        Debug.Log(watermelon.GetComponent<watermelonCube>().getBP());
-
-        if(collision.tag == "watermelon" && !filled && watermelon.GetComponent<watermelonCube>().getBP() > 0)
+        if (collision.tag == "watermelon" && !filled && watermelon.GetComponent<watermelonCube>().getBP() > 0)
         {
             GetComponent<SpriteRenderer>().color = Color.green;
-            GetComponent<Collider2D>().enabled= false;
+            GetComponent<Collider2D>().enabled = false;
             Destroy(collision.gameObject);
             filled = true;
             this.GetComponent<AudioSource>().Play();
             Destroy(outside);
-            GetComponent<SpriteRenderer>().sprite= covered;
+            GetComponent<SpriteRenderer>().sprite = covered;
         }
     }
-
 }

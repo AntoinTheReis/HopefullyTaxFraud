@@ -76,14 +76,12 @@ public class watermelonCube : MonoBehaviour
             // BULLET COMING FROM UP, DOWN, LEFT, RIGHT
             else if (bullet.GetComponent<bullet>().getDirection() != new Vector3(0, 0, 1))
             {
-                reduceBP();
                 GetComponent<Rigidbody2D>().AddForce(bullet.GetComponent<bullet>().getDirection() * push * 0.1f,
                                                      ForceMode2D.Impulse);
             }
             // BULLET COMING DIAGONALLY
             else
             {
-                reduceBP();
                 Vector3 dir = collision.transform.position - transform.position;
                 dir = -dir.normalized;
                 GetComponent<Rigidbody2D>().AddForce(dir * push * 0.1f, ForceMode2D.Impulse);
@@ -92,16 +90,13 @@ public class watermelonCube : MonoBehaviour
     }
 
     // Function to reduce BP
-    private void reduceBP()
+    public void reduceBP()
     {
         bp--;
         if (bp == 0)
         {
             Exploded();
         }
-
-        Debug.Log(bp);
-
     }
 
     // Function to explode watermelon
@@ -117,5 +112,11 @@ public class watermelonCube : MonoBehaviour
     public int getBP()
     { 
         return bp;
+    }
+
+    // watered getter
+    public bool getWatered()
+    {
+        return watered;
     }
 }

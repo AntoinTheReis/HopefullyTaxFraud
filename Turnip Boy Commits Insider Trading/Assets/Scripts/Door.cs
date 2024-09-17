@@ -41,7 +41,7 @@ public class Door : MonoBehaviour
 
         Sprite activeSprite = this.GetComponent<SpriteRenderer>().sprite;
 
-        if (col.tag == "Player")
+        if (col.tag == "Player" && col.gameObject.GetComponent<playeVenemy>().getHP() > 0)
         {
             if (DoorManager.instance.areOpen[doorNumber])
             {

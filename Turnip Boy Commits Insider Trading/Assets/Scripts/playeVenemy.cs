@@ -166,4 +166,10 @@ public class playeVenemy : MonoBehaviour
             }
         }
     }
+
+    // HP getter
+    public float getHP()
+    {
+        return hp;
+    }
 }

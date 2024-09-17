@@ -60,6 +60,10 @@ public class bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "watermelon" && collision.gameObject.GetComponent<watermelonCube>().getWatered())
+        {
+            collision.gameObject.GetComponent<watermelonCube>().reduceBP();
+        }
         this.GetComponent<SpriteRenderer>().enabled = false;
         isDestroyed = true;
     }
