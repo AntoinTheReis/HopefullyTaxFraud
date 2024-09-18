@@ -65,10 +65,10 @@ public class canManager : MonoBehaviour
         {
             UpdateDirection();
         }
-        if (Input.GetKeyDown(KeyCode.X) && ableToShoot && !playerCode.getDashing())
+        if (Input.GetKeyDown(KeyCode.X) && ableToShoot && !playerCode.getDashing() && !playerCode.dead)
         {
 
-            GameObject tempCan = Instantiate(can, gun.transform.position, gun.transform.rotation, gameObject.transform);
+            GameObject tempCan = Instantiate(can, gun.gameObject.transform);
             tempCan.GetComponent<AudioSource>().Play();
             ableToShoot = false;
             StartCoroutine(ShootCoroutine());

@@ -118,32 +118,13 @@ public class toolManager : MonoBehaviour
                 swordManager.enabled = false;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.X) && !playerCode.getDashing() && !usingTool/*&&
-            (!canManager.getAbleToShoot() ||
-            !swordManager.getAbleToShoot() ||
-            !gunManager.getAbleToShoot())*/)
+        else if (Input.GetKeyDown(KeyCode.X) && !playerCode.getDashing() && !usingTool && !playerCode.dead)
         {
             usingTool = true;
             backItemRendererRight.enabled = false;
             backItemRendererLeft.enabled = false;
             Invoke("chillForSec", 1f);
         }
-        /*if (usingTool)
-        {
-            backItemRendererRight.enabled = false;
-            backItemRendererLeft.enabled = false;
-        }
-        if (!usingTool && facingRight)
-        {
-            backItemRendererRight.enabled = true;
-            backItemRendererLeft.enabled = false;
-        }
-        else if(!usingTool)
-        {
-            backItemRendererLeft.enabled = true;
-            backItemRendererRight.enabled = false;
-        }
-        */
     }
 
     private void UpdateDirection()

@@ -10,6 +10,7 @@ public class routEnemy : MonoBehaviour
     public Transform target2;
     private Transform currentTarget;
     private bool even = false;
+    private bool iframesActive;
     public float push;
 
     public ParticleSystem circle;
@@ -69,7 +70,24 @@ public class routEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if((collision.tag == "sword" || collision.tag == "bombZone") && !dying)
+        if (collision.tag == "sword" && !dying && !iframesActive)
+        {
+            vel = 0;
+            Vector3 dir = collision.transform.position - transform.position;
+            dir = -dir.normalized;
+            GetComponent<Rigidbody2D>().AddForce(dir * push * 0.5f);
+            this.GetComponent<AudioSource>().Play();
+            gp--;
+            if (gp == 0)
+            {
+                gameObject.GetComponent<Animator>().SetTrigger("Dead");
+                dying = true;
+                Invoke("Dying", 2);
+            }
+
+            StartCoroutine(iFrames());
+        }
+        else if (collision.tag == "bombZone" && !dying)
         {
             Vector3 dir = collision.transform.position - transform.position;
             dir = -dir.normalized;
@@ -84,19 +102,13 @@ public class routEnemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "bullet" && !dying)
         {
-            vel = 0;
             Vector3 dir = collision.transform.position - transform.position;
             dir = -dir.normalized;
-            GetComponent<Rigidbody2D>().AddForce(dir * push*0.1f);
+            GetComponent<Rigidbody2D>().AddForce(dir * push);
             this.GetComponent<AudioSource>().Play();
-            gp--;
-            if (gp == 0)
-            {
-                //GetComponent<Rigidbody2D>().AddForce(dir * push*0.9f);
-                gameObject.GetComponent<Animator>().SetTrigger("Dead");
-                dying = true;
-                Invoke("Dying", 2);
-            }
+            gameObject.GetComponent<Animator>().SetTrigger("Dead");
+            dying = true;
+            Invoke("Dying", 2);
         }
     }
 
@@ -106,5 +118,13 @@ public class routEnemy : MonoBehaviour
         Instantiate(circle, gameObject.transform.position, Quaternion.identity);
         Instantiate(skull, gameObject.transform.position, rotation);
         Destroy(gameObject);
+    }
+
+    // iFrames function
+    IEnumerator iFrames()
+    {
+        iframesActive = true;
+        yield return new WaitForSecondsRealtime(1f);
+        iframesActive = false;
     }
 }

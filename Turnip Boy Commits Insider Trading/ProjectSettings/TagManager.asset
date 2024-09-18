@@ -72,6 +72,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Holes, plants, & such
+    uniqueID: 563101703
+    locked: 0
+  - name: Tools
+    uniqueID: 3669368287
+    locked: 0
+  - name: Radish Boy
+    uniqueID: 2057492861
+    locked: 0
   - name: Particle Effects
     uniqueID: 777448013
     locked: 0

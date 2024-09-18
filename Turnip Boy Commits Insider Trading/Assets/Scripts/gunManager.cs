@@ -72,7 +72,7 @@ public class gunManager : MonoBehaviour
         {
             UpdateDirection();
         }
-        if (Input.GetKeyDown(KeyCode.X) && ableToShoot && !playerCode.getDashing())
+        if (Input.GetKeyDown(KeyCode.X) && ableToShoot && !playerCode.getDashing() && !playerCode.dead)
         {
             Invoke("Shoot", 0.05f);
             gunSprite.enabled = true;
