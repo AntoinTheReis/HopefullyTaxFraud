@@ -447,6 +447,7 @@ GameObject:
   - component: {fileID: 8492559362678775207}
   - component: {fileID: 7948306555492155223}
   - component: {fileID: 5755128220675251859}
+  - component: {fileID: -8423409795484787871}
   - component: {fileID: 1492706791366218220}
   - component: {fileID: 2546216672695354822}
   - component: {fileID: 1338111725728770541}
@@ -710,6 +711,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   watermelonPrefab: {fileID: 185618734967204497, guid: c8075f88d463b904ebec899778b61ed7, type: 3}
+--- !u!114 &-8423409795484787871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268243590973323220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4796f5c7f02ef44a343ada0cfdf5aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &1492706791366218220
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class gunManager : MonoBehaviour
     public float shakeDuration = 0.2f;
     public float shakeIntensity = 0.4f;
 
-    private enum direction
+    public enum direction
     {
         Up,
         Left,
@@ -59,10 +59,9 @@ public class gunManager : MonoBehaviour
         animator = gun.GetComponent<Animator>();
         shakeManager = GameObject.FindGameObjectWithTag("VCM").GetComponent<CameraShakeManager>();
     }
-
-    private void OnEnable()
+    private void SetActive()
     {
-        facingDirection = (direction)((int)toolManager.facingDirection);
+        facingDirection = (direction)(toolManager.facingDirection);
     }
 
     // Update is called once per frame
@@ -257,5 +256,11 @@ public class gunManager : MonoBehaviour
     {
         GameObject tempBullet = Instantiate(bullet, gun.transform.position, gun.transform.rotation);
         tempBullet.GetComponent<AudioSource>().Play();
+    }
+
+    // facingDirection setter
+    public void setFacingDirection(direction d)
+    {
+        facingDirection = d;
     }
 }

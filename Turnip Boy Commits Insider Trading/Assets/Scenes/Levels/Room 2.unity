@@ -11282,6 +11282,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Watermelon Hole (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1168788958308877275, guid: 6a72bd2dffb8c0649a3f657c79eb4d4e, type: 3}
+      propertyPath: m_TagString
+      value: R2H3
+      objectReference: {fileID: 0}
     - target: {fileID: 2234142012088863133, guid: 6a72bd2dffb8c0649a3f657c79eb4d4e, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 1024
@@ -11448,6 +11452,10 @@ PrefabInstance:
     - target: {fileID: 1168788958308877275, guid: 6a72bd2dffb8c0649a3f657c79eb4d4e, type: 3}
       propertyPath: m_Name
       value: Watermelon Hole (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1168788958308877275, guid: 6a72bd2dffb8c0649a3f657c79eb4d4e, type: 3}
+      propertyPath: m_TagString
+      value: R2H2
       objectReference: {fileID: 0}
     - target: {fileID: 2234142012088863133, guid: 6a72bd2dffb8c0649a3f657c79eb4d4e, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
@@ -11806,6 +11814,10 @@ PrefabInstance:
     - target: {fileID: 1168788958308877275, guid: 6a72bd2dffb8c0649a3f657c79eb4d4e, type: 3}
       propertyPath: m_Name
       value: Watermelon Hole (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1168788958308877275, guid: 6a72bd2dffb8c0649a3f657c79eb4d4e, type: 3}
+      propertyPath: m_TagString
+      value: R2H4
       objectReference: {fileID: 0}
     - target: {fileID: 2234142012088863133, guid: 6a72bd2dffb8c0649a3f657c79eb4d4e, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
@@ -13678,6 +13690,10 @@ PrefabInstance:
     - target: {fileID: 1168788958308877275, guid: 6a72bd2dffb8c0649a3f657c79eb4d4e, type: 3}
       propertyPath: m_Name
       value: Watermelon Hole
+      objectReference: {fileID: 0}
+    - target: {fileID: 1168788958308877275, guid: 6a72bd2dffb8c0649a3f657c79eb4d4e, type: 3}
+      propertyPath: m_TagString
+      value: R2H1
       objectReference: {fileID: 0}
     - target: {fileID: 2234142012088863133, guid: 6a72bd2dffb8c0649a3f657c79eb4d4e, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits

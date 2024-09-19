@@ -6,9 +6,15 @@ public class watermelonHole : MonoBehaviour
 {
 
     private bool filled;
+    private ContinuityHandler CH;
     public GameObject outside;
-
     public Sprite covered;
+
+    // START function
+    void Start()
+    {
+        CH = GameObject.FindGameObjectWithTag("Player").GetComponent<ContinuityHandler>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -35,6 +41,17 @@ public class watermelonHole : MonoBehaviour
             this.GetComponent<AudioSource>().Play();
             Destroy(outside);
             GetComponent<SpriteRenderer>().sprite = covered;
+            CH.reportingSystem(this.tag);
         }
+    }
+
+    // Function to fill watermelon holes internally
+    public void internalFill()
+    {
+        GetComponent<SpriteRenderer>().color = Color.green;
+        GetComponent<Collider2D>().enabled = false;
+        filled = true;
+        Destroy(outside);
+        GetComponent<SpriteRenderer>().sprite = covered;
     }
 }

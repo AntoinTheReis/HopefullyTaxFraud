@@ -39,9 +39,6 @@ public class homingEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Debug.Log("update");
-
         if(!attacking && Vector3.Distance(gameObject.transform.position, player.transform.position) <= closeness)
         {
             attacking = true;

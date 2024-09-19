@@ -63,6 +63,9 @@ public class deathButtons : MonoBehaviour
         playerHp.resetHp();
         Key.keyGone1 = false;
         Key.keyGone2 = false;
+        NewRoomPosHandler.prevRoom = null;
+        ContinuityHandler.resetBools();
+        DoorManager.initializeAllStatus();
         SceneManager.LoadScene(0);
     }
 

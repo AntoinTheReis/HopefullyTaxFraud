@@ -8,7 +8,7 @@ public class canManager : MonoBehaviour
     public toolManager toolManager;
     public playerMovement playerCode;
 
-    private enum direction
+    public enum direction
     {
         Up,
         Left,
@@ -242,5 +242,11 @@ public class canManager : MonoBehaviour
     public bool getAbleToShoot()
     {
         return ableToShoot;
+    }
+
+    // facingDirection setter
+    public void setFacingDirection(direction d)
+    {
+        facingDirection = d;
     }
 }

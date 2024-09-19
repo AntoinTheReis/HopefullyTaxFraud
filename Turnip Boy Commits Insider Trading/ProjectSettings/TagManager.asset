@@ -26,6 +26,14 @@ TagManager:
   - ItemSwap
   - TripDash
   - UseItem
+  - DoorManager
+  - R2H1
+  - R2H2
+  - R2H3
+  - R4H1
+  - R2H4
+  - Paper
+  - PaperParticles
   layers:
   - Default
   - TransparentFX
