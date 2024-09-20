@@ -10,6 +10,7 @@ public class playerMovement : MonoBehaviour
     private int vertDirection;
     private int prevHozDirection;
     private int prevVertDirection;
+    private bool paperON;
     private bool isMoving;
     private bool higherUI = false;
     private float velocity;
@@ -145,7 +146,7 @@ public class playerMovement : MonoBehaviour
             usingItem = true;
             Invoke("itemDone", 1);
         }
-        if (Input.GetKeyDown(KeyCode.Z) && !dashing && !dead && !toolBoss.getUsingTool())
+        if (Input.GetKeyDown(KeyCode.Z) && !dashing && !dead && !toolBoss.getUsingTool() && !paperON)
         {
             if (!inNpcRange)
             {
@@ -363,5 +364,11 @@ public class playerMovement : MonoBehaviour
         facingRight = false;
         backFaceLeft.enabled = true;
         backFaceRight.enabled = false;
+    }
+
+    // paperON setter
+    public void setPaperON(bool b)
+    { 
+        paperON = b;
     }
 }

@@ -9,6 +9,7 @@ public class NPC : MonoBehaviour
     private bool playerClose;
     private bool UI_On;
     private bool interactHit;
+    private string prevTool;
     private GameObject OBJ_Player;
     [Header("Necessary Objects")] // For dragging and dropping into the inspector,
                                   // remember to drag and drop the Dialogue_UI object that's IN THE SCENE,
@@ -42,6 +43,22 @@ public class NPC : MonoBehaviour
             UI_On = true;
             OBJ_Player.GetComponent<playerMovement>().set_higherUI(UI_On);
             interactHit = true;
+            OBJ_Player.GetComponent<toolManager>().enabled = false;
+            if (OBJ_Player.GetComponent<swordManager>().enabled)
+            {
+                prevTool = "sword";
+                OBJ_Player.GetComponent<swordManager>().enabled = false;
+            }
+            else if (OBJ_Player.GetComponent<gunManager>().enabled)
+            {
+                prevTool = "gun";
+                OBJ_Player.GetComponent<gunManager>().enabled = false;
+            }
+            else if (OBJ_Player.GetComponent<canManager>().enabled)
+            {
+                prevTool = "can";
+                OBJ_Player.GetComponent<canManager>().enabled = false;
+            }
         }
 
         // When player is actively talking to self
@@ -51,6 +68,19 @@ public class NPC : MonoBehaviour
             this.GetComponent<HUDHandler>().EnableHUD();
             UI_On = false;
             OBJ_Player.GetComponent<playerMovement>().set_higherUI(UI_On);
+            OBJ_Player.GetComponent<toolManager>().enabled = true;
+            switch (prevTool)
+            {
+                case "sword":
+                    OBJ_Player.GetComponent<swordManager>().enabled = true;
+                    break;
+                case "gun":
+                    OBJ_Player.GetComponent<gunManager>().enabled = true;
+                    break;
+                case "can":
+                    OBJ_Player.GetComponent<canManager>().enabled = true;
+                    break;
+            }
         }
 
         interactHit = false;
@@ -72,11 +102,5 @@ public class NPC : MonoBehaviour
         {
             playerClose = false;
         }
-    }
-
-    // When sprites and animations are implemented for the UI elements, this method will serve to execute those animations
-    private void Untitled(bool boolean)
-    {
-        // TODO: Execute UI animations
     }
 }

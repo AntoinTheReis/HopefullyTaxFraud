@@ -18,6 +18,8 @@ public class Door : MonoBehaviour
     // Depending on status, set sprite (START function)
     void Start()
     {
+        if (this.GetComponent<Rigidbody2D>() != null) { this.GetComponent<Rigidbody2D>().isKinematic = true; }
+
         if (DoorManager.areOpen[doorNumber] == false)
         {
             this.GetComponent<SpriteRenderer>().sprite = starterSprite;
