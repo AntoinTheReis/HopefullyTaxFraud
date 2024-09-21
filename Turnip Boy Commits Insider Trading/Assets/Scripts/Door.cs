@@ -79,10 +79,12 @@ public class Door : MonoBehaviour
                 (SceneManager.GetActiveScene().name == "Room 1" && Key.keyGone2))
             {
                 doorUnlock();
+                this.GetComponent<AudioSource>().Play();
             }
             else if (SceneManager.GetActiveScene().name == "Room 3" && GameObject.FindGameObjectWithTag("Enemy") == null)
             {
                 doorUnlock();
+                this.GetComponent<AudioSource>().Play();
             }
         }
     }

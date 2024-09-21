@@ -18,6 +18,7 @@ public class ImportantPaper : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        Paper.enabled = false;
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class ImportantPaper : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z) && playerClose && !paperGiven)
         {
+            Paper.enabled = true;
             Paper.activatePaper("IMPORTANT\r\nDepartment of Taxation");
             paperGiven = true;
             player.GetComponent<ContinuityHandler>().reportingSystem(this.tag);

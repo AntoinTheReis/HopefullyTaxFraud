@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class Paper : MonoBehaviour
 {
 
-    // TODO: Gotta make basically everything an opacity lerp at some point.
-
     private bool activated = false;
     private bool reading = false;
     private bool ripT_readF = true;
@@ -37,10 +35,13 @@ public class Paper : MonoBehaviour
             // Rip Up becomes OPAQUE; Read becomes TRANSLUCENT
             if (Input.GetKeyDown("up") && !ripT_readF)
             {
+                /*
                 StartCoroutine(lerpOpacity(OBJ_Rip_Up, 1.0f, 0.5f, "Box"));
                 StartCoroutine(lerpOpacity(OBJ_Rip_Up_Text, 1.0f, 0.5f, "Text"));
                 StartCoroutine(lerpOpacity(OBJ_Read, 0.5f, 0.5f, "Box"));
                 StartCoroutine(lerpOpacity(OBJ_Read_Text, 0.5f, 0.5f, "Text"));
+                */
+                OBJ_Rip_Up.GetComponent<RawImage>().color = new Color()
                 ripT_readF = true;
             }
             // Rip Up becomes TRANSLUCENT; Read becomes OPAQUE
@@ -56,6 +57,7 @@ public class Paper : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Z) && ripT_readF)
             {
                 OBJ_paperImage.GetComponent<RawImage>().enabled = false;
+                this.GetComponent<AudioSource>().Play();
                 StartCoroutine(lerpTransform(OBJ_leftHalf, -150.0f, -100.0f, 1.5f));
                 StartCoroutine(lerpTransform(OBJ_rightHalf, 150.0f, -100.0f, 1.5f));
                 StartCoroutine(lerpOpacity(OBJ_leftHalf, 0f, 1.5f, "Box"));
