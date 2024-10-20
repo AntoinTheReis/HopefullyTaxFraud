@@ -9,7 +9,9 @@ public class NPC : MonoBehaviour
     private bool playerClose;
     private bool UI_On;
     private bool interactHit;
+    private Animator animator;
     private string prevTool;
+    private string currentState; // might fuck around and delete this var later
     private GameObject OBJ_Player;
     [Header("Necessary Objects")] // For dragging and dropping into the inspector,
                                   // remember to drag and drop the Dialogue_UI object that's IN THE SCENE,
@@ -27,6 +29,8 @@ public class NPC : MonoBehaviour
     void Start()
     {
         OBJ_Player = GameObject.FindWithTag("Player");
+        animator = GetComponent<Animator>();
+        animator.Play("IDLE");
     }
 
     // Update is called once per frame
