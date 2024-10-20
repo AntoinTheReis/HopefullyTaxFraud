@@ -35,22 +35,27 @@ public class Paper : MonoBehaviour
             // Rip Up becomes OPAQUE; Read becomes TRANSLUCENT
             if (Input.GetKeyDown("up") && !ripT_readF)
             {
-                /*
-                StartCoroutine(lerpOpacity(OBJ_Rip_Up, 1.0f, 0.5f, "Box"));
-                StartCoroutine(lerpOpacity(OBJ_Rip_Up_Text, 1.0f, 0.5f, "Text"));
-                StartCoroutine(lerpOpacity(OBJ_Read, 0.5f, 0.5f, "Box"));
-                StartCoroutine(lerpOpacity(OBJ_Read_Text, 0.5f, 0.5f, "Text"));
-                */
-                OBJ_Rip_Up.GetComponent<RawImage>().color = new Color()
+                Color OG_RU_Color = OBJ_Rip_Up.GetComponent<RawImage>().color;
+                OBJ_Rip_Up.GetComponent<RawImage>().color = new Color(OG_RU_Color.r, OG_RU_Color.g, OG_RU_Color.b, 1.0f);
+                Color OG_RUT_Color = OBJ_Rip_Up_Text.GetComponent<Text>().color;
+                OBJ_Rip_Up_Text.GetComponent<Text>().color = new Color(OG_RUT_Color.r, OG_RUT_Color.g, OG_RUT_Color.b, 1.0f);
+                Color OG_R_Color = OBJ_Read.GetComponent<RawImage>().color;
+                OBJ_Read.GetComponent<RawImage>().color = new Color(OG_R_Color.r, OG_R_Color.g, OG_R_Color.b, 0.5f);
+                Color OG_RT_Color = OBJ_Read_Text.GetComponent<Text>().color;
+                OBJ_Read_Text.GetComponent<Text>().color = new Color(OG_RT_Color.r, OG_RT_Color.g, OG_RT_Color.b, 0.5f);
                 ripT_readF = true;
             }
             // Rip Up becomes TRANSLUCENT; Read becomes OPAQUE
             else if (Input.GetKeyDown("down") &&  ripT_readF)
             {
-                StartCoroutine(lerpOpacity(OBJ_Read, 1.0f, 0.8f, "Box"));
-                StartCoroutine(lerpOpacity(OBJ_Read_Text, 1.0f, 0.8f, "Text"));
-                StartCoroutine(lerpOpacity(OBJ_Rip_Up, 0.5f, 0.8f, "Box"));
-                StartCoroutine(lerpOpacity(OBJ_Rip_Up_Text, 0.5f, 0.8f, "Text"));
+                Color OG_RU_Color = OBJ_Rip_Up.GetComponent<RawImage>().color;
+                OBJ_Rip_Up.GetComponent<RawImage>().color = new Color(OG_RU_Color.r, OG_RU_Color.g, OG_RU_Color.b, 0.5f);
+                Color OG_RUT_Color = OBJ_Rip_Up_Text.GetComponent<Text>().color;
+                OBJ_Rip_Up_Text.GetComponent<Text>().color = new Color(OG_RUT_Color.r, OG_RUT_Color.g, OG_RUT_Color.b, 0.5f);
+                Color OG_R_Color = OBJ_Read.GetComponent<RawImage>().color;
+                OBJ_Read.GetComponent<RawImage>().color = new Color(OG_R_Color.r, OG_R_Color.g, OG_R_Color.b, 1.0f);
+                Color OG_RT_Color = OBJ_Read_Text.GetComponent<Text>().color;
+                OBJ_Read_Text.GetComponent<Text>().color = new Color(OG_RT_Color.r, OG_RT_Color.g, OG_RT_Color.b, 1.0f);
                 ripT_readF = false;
             }
             // Selecting Rip Up
