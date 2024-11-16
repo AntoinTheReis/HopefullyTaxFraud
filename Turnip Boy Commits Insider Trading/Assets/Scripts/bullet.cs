@@ -65,6 +65,7 @@ public class bullet : MonoBehaviour
             collision.gameObject.GetComponent<watermelonCube>().reduceBP();
         }
         this.GetComponent<SpriteRenderer>().enabled = false;
+        this.GetComponent<BoxCollider2D>().enabled = false;
         isDestroyed = true;
     }
 

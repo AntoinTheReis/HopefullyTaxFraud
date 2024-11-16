@@ -27,11 +27,18 @@ public class Door : MonoBehaviour
         else
         {
             this.GetComponent<SpriteRenderer>().sprite = UnbreakableDoor;
+            this.transform.localScale = new Vector3(1, 1, 1);
         }
 
         // Changing initial hitbox for breakable door in Room 4
-        if (starterSprite == breakableDoor && !DoorManager.areOpen[doorNumber] && 
+        if (starterSprite == breakableDoor && !DoorManager.areOpen[doorNumber] &&
             SceneManager.GetActiveScene().name == "Room 4")
+        {
+            this.GetComponent<PolygonCollider2D>().offset = new Vector2(0.05f, 0.3f);
+            this.GetComponent<BoxCollider2D>().edgeRadius = 0.15f;
+        }
+        else if (starterSprite == breakableDoor && !DoorManager.areOpen[doorNumber] &&
+                 SceneManager.GetActiveScene().name == "Room 3")
         {
             this.GetComponent<BoxCollider2D>().edgeRadius = 0.15f;
         }
@@ -66,7 +73,9 @@ public class Door : MonoBehaviour
                  starterSprite == breakableDoor)
         {
             doorUnlock();
+            this.transform.localScale = new Vector3(1, 1, 1);
             this.GetComponent<BoxCollider2D>().edgeRadius = 0.8f;
+            this.GetComponent<PolygonCollider2D>().offset = new Vector2(0, 0);
         }
     }
 
@@ -77,11 +86,6 @@ public class Door : MonoBehaviour
         {
             if ((SceneManager.GetActiveScene().name == "Room 2" && Key.keyGone1) ||
                 (SceneManager.GetActiveScene().name == "Room 1" && Key.keyGone2))
-            {
-                doorUnlock();
-                this.GetComponent<AudioSource>().Play();
-            }
-            else if (SceneManager.GetActiveScene().name == "Room 3" && GameObject.FindGameObjectWithTag("Enemy") == null)
             {
                 doorUnlock();
                 this.GetComponent<AudioSource>().Play();

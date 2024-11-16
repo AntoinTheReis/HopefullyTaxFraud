@@ -29,8 +29,8 @@ public class NPC : MonoBehaviour
     void Start()
     {
         OBJ_Player = GameObject.FindWithTag("Player");
-        animator = GetComponent<Animator>();
-        animator.Play("IDLE");
+        // animator = GetComponent<Animator>();
+        // animator.Play("IDLE");
     }
 
     // Update is called once per frame
