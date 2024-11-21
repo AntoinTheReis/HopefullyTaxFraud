@@ -54,4 +54,10 @@ public class watermelonHole : MonoBehaviour
         Destroy(outside);
         GetComponent<SpriteRenderer>().sprite = covered;
     }
+
+    // filled getter
+    public bool getFilled() // (what an amazing function name lmao)
+    {
+        return filled;
+    }
 }
