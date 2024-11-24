@@ -39,6 +39,7 @@ public class NPC : MonoBehaviour
         // When player interacts with self
         if (playerClose && Input.GetKeyDown(KeyCode.Z) && !UI_On)
         {
+            this.GetComponent<AudioSource>().Play();
             OBJ_Dialogue_UI.SetActive(true);
             this.GetComponent<HUDHandler>().DisableHUD();
             OBJ_Dialogue_Text.GetComponent<Text>().text = myDialogue;
@@ -68,6 +69,7 @@ public class NPC : MonoBehaviour
         // When player is actively talking to self
         if (UI_On && Input.GetKeyDown(KeyCode.Z) && !interactHit)
         {
+            this.GetComponent<AudioSource>().Play();
             OBJ_Dialogue_UI.SetActive(false);
             this.GetComponent<HUDHandler>().EnableHUD();
             UI_On = false;

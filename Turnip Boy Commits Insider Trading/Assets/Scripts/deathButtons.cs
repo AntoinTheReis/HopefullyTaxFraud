@@ -39,10 +39,12 @@ public class deathButtons : MonoBehaviour
         if (Input.GetKeyDown("up") && selector != retry)
         {
             selector = retry;
+            this.GetComponent<AudioSource>().Play();
         }
         else if (Input.GetKeyDown("down") && selector != quit)
         {
             selector = quit;
+            this.GetComponent<AudioSource>().Play();
         }
             // ... Actually picking one of them
         else if (Input.GetKeyDown(KeyCode.Z))
@@ -60,6 +62,7 @@ public class deathButtons : MonoBehaviour
 
     public void Retry()
     {
+        this.GetComponent<AudioSource>().Play();
         playerHp.resetHp();
         Key.keyGone1 = false;
         Key.keyGone2 = false;
@@ -71,6 +74,7 @@ public class deathButtons : MonoBehaviour
 
     public void Quit()
     {
+        this.GetComponent<AudioSource>().Play();
         Application.Quit();
     }
 

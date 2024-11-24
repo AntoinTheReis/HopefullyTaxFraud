@@ -26,6 +26,7 @@ public class ImportantPaper : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z) && playerClose && !paperGiven)
         {
+            this.GetComponent<AudioSource>().Play();
             Paper.enabled = true;
             Paper.activatePaper("IMPORTANT\r\nDepartment of Taxation");
             paperGiven = true;

@@ -343,6 +343,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   realPaper: {fileID: 0}
+  paperRippingSFX: {fileID: 8300000, guid: 836f9419a2645c548bc6d130a6e402cc, type: 3}
+  UI_Sound: {fileID: 8300000, guid: 90af3a3a361b7114ea0c1bee97731d4a, type: 3}
   OBJ_Player: {fileID: 0}
   OBJ_Ripping_UI: {fileID: 3501594053482820343}
   OBJ_paperImage: {fileID: 3557243304648089866}
@@ -383,7 +385,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 836f9419a2645c548bc6d130a6e402cc, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.8
   m_Pitch: 1
