@@ -23,6 +23,7 @@ public class DoorManager : MonoBehaviour
             Z_Icon = Instantiate(Z_Icon_Prefab, gameObject.transform);
             Z_Icon.GetComponent<SpriteRenderer>().enabled = false;
             Z_Icon.GetComponent<SpriteRenderer>().sortingOrder = 100;
+            Z_Icon.GetComponent<SpriteRenderer>().sortingLayerName = "Radish Boy";
         }
         else
         {
