@@ -10063,6 +10063,10 @@ PrefabInstance:
       value: Not The Mayor
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: NPC_Type
+      value: Onion
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: uiSprite
       value: 
       objectReference: {fileID: 1574570202}

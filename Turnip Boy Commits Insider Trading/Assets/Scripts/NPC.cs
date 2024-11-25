@@ -9,9 +9,7 @@ public class NPC : MonoBehaviour
     private bool playerClose;
     private bool UI_On;
     private bool interactHit;
-    private Animator animator;
     private string prevTool;
-    private string currentState; // might fuck around and delete this var later
     private GameObject OBJ_Player;
     [Header("Necessary Objects")] // For dragging and dropping into the inspector,
                                   // remember to drag and drop the Dialogue_UI object that's IN THE SCENE,
@@ -24,13 +22,12 @@ public class NPC : MonoBehaviour
     public string myDialogue;
     public string myName;
     public Sprite characterSprite;
+    public string NPC_Type;
 
     // Start is called before the first frame update
     void Start()
     {
         OBJ_Player = GameObject.FindWithTag("Player");
-        // animator = GetComponent<Animator>();
-        // animator.Play("IDLE");
     }
 
     // Update is called once per frame
@@ -63,6 +60,10 @@ public class NPC : MonoBehaviour
             {
                 prevTool = "can";
                 OBJ_Player.GetComponent<canManager>().enabled = false;
+            }
+            if (!DoorManager.startTalking)
+            {
+                DoorManager.talkingHasCommenced();
             }
         }
 
@@ -98,6 +99,14 @@ public class NPC : MonoBehaviour
         if (col.tag == "Player")
         {
             playerClose = true;
+            if (!DoorManager.startTalking)
+            {
+                float dist_from_head = (gameObject.GetComponent<SpriteRenderer>().size.y / 2) + 1.1f;
+                DoorManager.Z_Icon.transform.position = new Vector3(gameObject.transform.position.x, 
+                                                                    gameObject.transform.position.y + dist_from_head, 
+                                                                    gameObject.transform.position.z);
+                DoorManager.Z_Icon.GetComponent<SpriteRenderer>().enabled = true;
+            }
         }
     }
 
@@ -107,6 +116,10 @@ public class NPC : MonoBehaviour
         if (col.tag == "Player")
         {
             playerClose = false;
+            if (!DoorManager.startTalking)
+            {
+                DoorManager.Z_Icon.GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
     }
 }

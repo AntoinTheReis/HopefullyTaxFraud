@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6714297551977278175}
   - component: {fileID: 2569342745795392245}
   - component: {fileID: -7817244407722155523}
+  - component: {fileID: 7508446902950313636}
   m_Layer: 0
   m_Name: NPC
   m_TagString: npcRange
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+  m_Sprite: {fileID: -59615523, guid: d86cd132df5559d4991c9a04a1c716cd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,13 +102,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a26fb4923d4f14a95c9185174d77b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OBJ_Dialogue_UI: {fileID: 3119956680320832596, guid: 9f90d94818d922c448a0d3c576ae9c13, type: 3}
+  OBJ_Dialogue_UI: {fileID: 0}
   OBJ_Dialogue_Text: {fileID: 0}
   OBJ_Name_Text: {fileID: 0}
   uiSprite: {fileID: 0}
-  myDialogue: How dare you speak to me?!
-  myName: Brown Box
-  characterSprite: {fileID: 0}
+  myDialogue: Me and my twin were seperated at birth. My mom told me we'd eventually
+    find each other, that there was a sign, but maybe that was just a lie.
+  myName: Po
+  characterSprite: {fileID: 21300000, guid: cb713bd5810b4094ab5017b1cf76ff94, type: 3}
+  NPC_Type: Bean
 --- !u!114 &-2021704999120816186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,8 +164,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 5, y: 5}
+    oldSize: {x: 1.0666667, y: 2.1333334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -306,3 +309,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &7508446902950313636
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681136771897723352}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe9abf127131b4742bdb8580e0527181, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

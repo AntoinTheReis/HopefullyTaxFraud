@@ -980,6 +980,10 @@ PrefabInstance:
       value: Toot
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: NPC_Type
+      value: Bean
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: uiSprite
       value: 
       objectReference: {fileID: 926783522}
@@ -5630,6 +5634,10 @@ PrefabInstance:
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myName
       value: Certified Squash
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: NPC_Type
+      value: Squash
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: uiSprite

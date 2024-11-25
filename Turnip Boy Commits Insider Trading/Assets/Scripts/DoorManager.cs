@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class DoorManager : MonoBehaviour
 {
 
+    public GameObject Z_Icon_Prefab;
+    public static GameObject Z_Icon;
+    public static bool startTalking = false;
     public static DoorManager instance = null;
     public static bool[] areOpen = new bool[9];
 
@@ -17,6 +20,9 @@ public class DoorManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
             initializeAllStatus();
+            Z_Icon = Instantiate(Z_Icon_Prefab, gameObject.transform);
+            Z_Icon.GetComponent<SpriteRenderer>().enabled = false;
+            Z_Icon.GetComponent<SpriteRenderer>().sortingOrder = 100;
         }
         else
         {
@@ -36,5 +42,12 @@ public class DoorManager : MonoBehaviour
         areOpen[6] = true; // Room 4
         areOpen[7] = false; // Room 4
         areOpen[8] = true; // Room 5
+    }
+
+    // Function to destroy Z_Icon object and flip related bool because player has successfully learned how to talk to NPCs
+    public static void talkingHasCommenced()
+    {
+        Destroy(Z_Icon);
+        startTalking = true;
     }
 }
