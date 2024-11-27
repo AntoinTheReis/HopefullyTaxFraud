@@ -10076,8 +10076,9 @@ PrefabInstance:
       objectReference: {fileID: 1574570202}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myDialogue
-      value: That gun looks strong enough to have an effect on the watermelons, but
-        not enough to destroy them immediately.
+      value: You have a gun? Oh, ya know, these watermelons can actually withstand
+        some of that firepower. They are quite slippery thou- Wait, WHY DO YOU HAVE
+        A GUN?!
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: OBJ_Name_Text
