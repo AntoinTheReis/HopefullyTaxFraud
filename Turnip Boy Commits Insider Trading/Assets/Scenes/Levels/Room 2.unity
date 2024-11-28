@@ -10064,7 +10064,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 859e770ff9059974796fba4ce316a6b4, type: 2}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myName
-      value: Not The Mayor
+      value: Peele B. Layers
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: NPC_Type

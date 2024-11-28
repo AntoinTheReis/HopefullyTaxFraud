@@ -913,7 +913,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.2796185
+      value: 1.95
       objectReference: {fileID: 0}
     - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_LocalPosition.y
@@ -977,7 +977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myName
-      value: Toot
+      value: Carbio Bean
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: NPC_Type
@@ -989,8 +989,9 @@ PrefabInstance:
       objectReference: {fileID: 926783522}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myDialogue
-      value: Goddamn that stack is sparkly. I wonder if there is anything important
-        in those papers...
+      value: I can't believe he left those papers out in the open, but more than
+        that, I can't believe I have to get back on LinkedIn. *sigh* Guess I gotta
+        update the ol' resume.
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: OBJ_Name_Text
@@ -5637,7 +5638,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: b3af832df3f01854f9252ccf93fd2e80, type: 2}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myName
-      value: Certified Squash
+      value: Ms. Squish
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: NPC_Type
@@ -5649,8 +5650,9 @@ PrefabInstance:
       objectReference: {fileID: 926783522}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myDialogue
-      value: It is a certified fact that you can shoot a bomb while it is moving
-        to make it blow up before it bumps into something!
+      value: God, I hate this job. If I could get into my boss's office, I'd give
+        him a piece of my mind, but the bomb never goes off at the right tim- I MEAN,
+        I didn- UHH, nothing!
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: OBJ_Name_Text
