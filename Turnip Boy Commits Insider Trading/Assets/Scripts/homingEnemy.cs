@@ -8,6 +8,7 @@ public class homingEnemy : MonoBehaviour
 
     private GameObject player;
     private bool attacking;
+    private bool iframesActive;
     private SpriteRenderer spriteRenderer;
 
     public ParticleSystem circle;
@@ -47,7 +48,7 @@ public class homingEnemy : MonoBehaviour
             vel += accel;
         }
 
-        if(gameObject.transform.position.x < player.transform.position.x)
+        if(gameObject.transform.position.x < player.transform.position.x && !dying)
         {
             spriteRenderer.flipX= true;
         }
@@ -70,7 +71,28 @@ public class homingEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.tag == "sword" || collision.tag == "bombZone") && !dying)
+        if (collision.tag == "sword" && !dying && !iframesActive)
+        {
+            vel = 0;
+            Vector3 dir = collision.transform.position - transform.position;
+            dir = -dir.normalized;
+            GetComponent<Rigidbody2D>().AddForce(dir * push * 0.5f);
+            this.GetComponent<AudioSource>().Play();
+            gp--;
+            if (gp == 0)
+            {
+                dying = true;
+                animator.SetTrigger("Dead");
+                Invoke("Dying", 2);
+            }
+            if (!attacking)
+            {
+                attacking = true;
+            }
+
+            StartCoroutine(iFrames());
+        }
+        else if (collision.tag == "bombZone" && !dying)
         {
             Vector3 dir = collision.transform.position - transform.position;
             dir = -dir.normalized;
@@ -85,23 +107,13 @@ public class homingEnemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "bullet" && !dying)
         {
-            vel = 0;
             Vector3 dir = collision.transform.position - transform.position;
             dir = -dir.normalized;
-            GetComponent<Rigidbody2D>().AddForce(dir * push * 0.1f);
+            GetComponent<Rigidbody2D>().AddForce(dir * push);
             this.GetComponent<AudioSource>().Play();
-            gp--;
-            if (gp == 0)
-            {
-                //GetComponent<Rigidbody2D>().AddForce(dir * push * 0.9f);
-                dying = true;
-                animator.SetTrigger("Dead");
-                Invoke("Dying", 2);
-            }
-            if (!attacking)
-            {
-                attacking = true;
-            }
+            dying = true;
+            animator.SetTrigger("Dead");
+            Invoke("Dying", 2);
         }
     }
 
@@ -113,4 +125,11 @@ public class homingEnemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // iFrames function
+    IEnumerator iFrames()
+    {
+        iframesActive = true;
+        yield return new WaitForSecondsRealtime(1f);
+        iframesActive = false;
+    }
 }

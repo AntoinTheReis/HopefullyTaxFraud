@@ -8,7 +8,7 @@ public class swordManager : MonoBehaviour
     public toolManager toolManager;
     public playerMovement playerCode;
 
-    private enum direction
+    public enum direction
     {
         Up,
         Left,
@@ -51,8 +51,7 @@ public class swordManager : MonoBehaviour
     {
         gun.GetComponent<SpriteRenderer>().enabled = false;
     }
-
-    private void OnEnable()
+    private void SetActive()
     {
         facingDirection = (direction)(toolManager.facingDirection);
     }
@@ -64,7 +63,7 @@ public class swordManager : MonoBehaviour
         {
             UpdateDirection();
         }
-        if (Input.GetKeyDown(KeyCode.X) && ableToShoot && !playerCode.getDashing())
+        if (Input.GetKeyDown(KeyCode.X) && ableToShoot && !playerCode.getDashing() && !playerCode.dead)
         {
             GameObject tempSword = Instantiate(sword, gun.gameObject.transform);
             tempSword.GetComponent<AudioSource>().Play();
@@ -242,5 +241,11 @@ public class swordManager : MonoBehaviour
     public bool getAbleToShoot()
     {
         return ableToShoot;
+    }
+
+    // facingDirection setter
+    public void setFacingDirection(direction d)
+    {
+        facingDirection = d;
     }
 }

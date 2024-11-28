@@ -10,6 +10,7 @@ public class playeVenemy : MonoBehaviour
     public float shakeDuration = 0.15f;
     private playerMovement playerMovement;
     private CameraShakeManager shakeManager;
+    private bool iFrames = false;
 
     [Header("HP & Health_UI Object")]
     public static float hp = 3;
@@ -35,50 +36,37 @@ public class playeVenemy : MonoBehaviour
         HealthUIUpdate();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (hp > 3)
-        {
-            hp = 3;
-        }
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
             // Taking damage IF the enemy is a routing enemy AND if they are NOT DYING.
-            if (collision.gameObject.GetComponent<routEnemy>() != null)
+            if (collision.gameObject.GetComponent<routEnemy>() != null && !iFrames)
             {
                 takeDamage(collision, "r");
             }
             // Taking damage IF the enemy is a homing enemy AND if they are NOT DYING.
-            else if (collision.gameObject.GetComponent<homingEnemy>() != null)
+            else if (collision.gameObject.GetComponent<homingEnemy>() != null && !iFrames)
             {
                 takeDamage(collision, "h");
             }
         }
-        if(collision.gameObject.tag == "heart")
+        if (collision.gameObject.tag == "heart")
         {
             hp += 0.5f;
+            if (hp > 3)
+            {
+                hp = 3;
+            }
             HealthUIUpdate();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "bombZone")
+        if (collision.tag == "bombZone" && !iFrames)
         {
-            shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
-            hp -= 0.5f;
-            this.GetComponent<AudioSource>().clip = hurtSFX;
-            this.GetComponent<AudioSource>().Play();
-            HealthUIUpdate();
-            if (hp == 0)
-            {
-                Dead();
-            }
+            takeDamage(null, "bZ");
         }
     }
 
@@ -129,41 +117,82 @@ public class playeVenemy : MonoBehaviour
     // Function to TAKE DAMAGE
     private void takeDamage(Collision2D collision, string enemyType)
     {
-        if (enemyType == "r")
+        if (enemyType == "r") // Rat
         {
             if (!collision.gameObject.GetComponent<routEnemy>().dying)
             {
-                shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
-                hp -= 0.5f;
-                this.GetComponent<AudioSource>().clip = hurtSFX;
-                this.GetComponent<AudioSource>().Play();
-                Vector3 dir = collision.gameObject.transform.position - transform.position;
-                dir = -dir.normalized;
-                GetComponent<Rigidbody2D>().AddForce(dir * playerMovement.bombPush);
-                HealthUIUpdate();
-                if (hp == 0)
-                {
-                    Dead();
-                }
+                damageFromEnemies(collision);
             }
         }
-        else if (enemyType == "h")
+        else if (enemyType == "h") // Snake
         {
             if (!collision.gameObject.GetComponent<homingEnemy>().dying)
             {
-                shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
-                hp -= 0.5f;
-                this.GetComponent<AudioSource>().clip = hurtSFX;
-                this.GetComponent<AudioSource>().Play();
-                Vector3 dir = collision.gameObject.transform.position - transform.position;
-                dir = -dir.normalized;
-                GetComponent<Rigidbody2D>().AddForce(dir * playerMovement.bombPush);
-                HealthUIUpdate();
-                if (hp == 0)
-                {
-                    Dead();
-                }
+                damageFromEnemies(collision);
             }
         }
+        else if (enemyType == "bZ")
+        {
+            shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
+            hp -= 0.5f;
+            this.GetComponent<AudioSource>().clip = hurtSFX;
+            this.GetComponent<AudioSource>().Play();
+            HealthUIUpdate();
+            if (hp == 0)
+            {
+                Dead();
+            }
+            else
+            { 
+                StartCoroutine(Run_iFrames());
+            }
+        }
+    }
+
+    // Subsidiary function of takeDamage() specifically for damage from enemies
+    private void damageFromEnemies(Collision2D collision)
+    {
+        shakeManager.ShakeCamera(shakeDuration, shakeIntensity);
+        hp -= 0.5f;
+        this.GetComponent<AudioSource>().clip = hurtSFX;
+        this.GetComponent<AudioSource>().Play();
+        Vector3 dir = collision.gameObject.transform.position - transform.position;
+        dir = -dir.normalized;
+        GetComponent<Rigidbody2D>().AddForce(dir * playerMovement.bombPush);
+        HealthUIUpdate();
+        if (hp == 0)
+        {
+            Dead();
+        }
+        else
+        {
+            StartCoroutine(Run_iFrames());
+        }
+    }
+
+    // Function to give player invincibility frames after taking damage
+    private IEnumerator Run_iFrames()
+    {
+        iFrames = true;
+        for (int i = 0; i < 10; i++)
+        {
+            if (this.GetComponent<SpriteRenderer>().enabled)
+            {
+                this.GetComponent<SpriteRenderer>().enabled = false;
+            }
+            else
+            {
+                this.GetComponent<SpriteRenderer>().enabled = true;
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+        this.GetComponent<SpriteRenderer>().enabled = true;
+        iFrames = false;
+    }
+
+    // HP getter
+    public float getHP()
+    {
+        return hp;
     }
 }

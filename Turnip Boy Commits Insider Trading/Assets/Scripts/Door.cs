@@ -18,18 +18,27 @@ public class Door : MonoBehaviour
     // Depending on status, set sprite (START function)
     void Start()
     {
-        if (DoorManager.instance.areOpen[doorNumber] == false)
+        if (this.GetComponent<Rigidbody2D>() != null) { this.GetComponent<Rigidbody2D>().isKinematic = true; }
+
+        if (DoorManager.areOpen[doorNumber] == false)
         {
             this.GetComponent<SpriteRenderer>().sprite = starterSprite;
         }
         else
         {
             this.GetComponent<SpriteRenderer>().sprite = UnbreakableDoor;
+            this.transform.localScale = new Vector3(1, 1, 1);
         }
 
         // Changing initial hitbox for breakable door in Room 4
-        if (starterSprite == breakableDoor && !DoorManager.instance.areOpen[doorNumber] && 
+        if (starterSprite == breakableDoor && !DoorManager.areOpen[doorNumber] &&
             SceneManager.GetActiveScene().name == "Room 4")
+        {
+            this.GetComponent<PolygonCollider2D>().offset = new Vector2(0.05f, 0.3f);
+            this.GetComponent<BoxCollider2D>().edgeRadius = 0.15f;
+        }
+        else if (starterSprite == breakableDoor && !DoorManager.areOpen[doorNumber] &&
+                 SceneManager.GetActiveScene().name == "Room 3")
         {
             this.GetComponent<BoxCollider2D>().edgeRadius = 0.15f;
         }
@@ -41,9 +50,9 @@ public class Door : MonoBehaviour
 
         Sprite activeSprite = this.GetComponent<SpriteRenderer>().sprite;
 
-        if (col.tag == "Player")
+        if (col.tag == "Player" && col.gameObject.GetComponent<playeVenemy>().getHP() > 0)
         {
-            if (DoorManager.instance.areOpen[doorNumber])
+            if (DoorManager.areOpen[doorNumber])
             {
                 NewRoomPosHandler.prevRoom = SceneManager.GetActiveScene().name;
                 if (associatedSceneName != "End")
@@ -60,11 +69,13 @@ public class Door : MonoBehaviour
                 Checks(activeSprite);
             }
         }
-        else if (col.tag == "bombZone" && !DoorManager.instance.areOpen[doorNumber] &&
+        else if (col.tag == "bombZone" && !DoorManager.areOpen[doorNumber] &&
                  starterSprite == breakableDoor)
         {
             doorUnlock();
+            this.transform.localScale = new Vector3(1, 1, 1);
             this.GetComponent<BoxCollider2D>().edgeRadius = 0.8f;
+            this.GetComponent<PolygonCollider2D>().offset = new Vector2(0, 0);
         }
     }
 
@@ -77,10 +88,7 @@ public class Door : MonoBehaviour
                 (SceneManager.GetActiveScene().name == "Room 1" && Key.keyGone2))
             {
                 doorUnlock();
-            }
-            else if (SceneManager.GetActiveScene().name == "Room 3" && GameObject.FindGameObjectWithTag("Enemy") == null)
-            {
-                doorUnlock();
+                this.GetComponent<AudioSource>().Play();
             }
         }
     }
@@ -89,6 +97,6 @@ public class Door : MonoBehaviour
     private void doorUnlock()
     {
         this.GetComponent<SpriteRenderer>().sprite = UnbreakableDoor;
-        DoorManager.instance.areOpen[doorNumber] = true;
+        DoorManager.areOpen[doorNumber] = true;
     }
 }

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class wateringCan : MonoBehaviour
 {
-    canManager SwordManager;
+
+    private float shootingWaitingTime = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        SwordManager = GetComponentInParent<canManager>();
-        StartCoroutine(SelfDestruct(SwordManager.shootingWaitingTime));
+        StartCoroutine(SelfDestruct(shootingWaitingTime));
     }
 
     // Update is called once per frame

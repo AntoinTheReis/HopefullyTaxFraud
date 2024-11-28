@@ -8,7 +8,7 @@ public class canManager : MonoBehaviour
     public toolManager toolManager;
     public playerMovement playerCode;
 
-    private enum direction
+    public enum direction
     {
         Up,
         Left,
@@ -65,10 +65,10 @@ public class canManager : MonoBehaviour
         {
             UpdateDirection();
         }
-        if (Input.GetKeyDown(KeyCode.X) && ableToShoot && !playerCode.getDashing())
+        if (Input.GetKeyDown(KeyCode.X) && ableToShoot && !playerCode.getDashing() && !playerCode.dead)
         {
 
-            GameObject tempCan = Instantiate(can, gun.transform.position, gun.transform.rotation, gameObject.transform);
+            GameObject tempCan = Instantiate(can, gun.gameObject.transform);
             tempCan.GetComponent<AudioSource>().Play();
             ableToShoot = false;
             StartCoroutine(ShootCoroutine());
@@ -242,5 +242,11 @@ public class canManager : MonoBehaviour
     public bool getAbleToShoot()
     {
         return ableToShoot;
+    }
+
+    // facingDirection setter
+    public void setFacingDirection(direction d)
+    {
+        facingDirection = d;
     }
 }

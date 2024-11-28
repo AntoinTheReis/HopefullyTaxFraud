@@ -14,6 +14,7 @@ public class KeyGet : MonoBehaviour
             isKey = true;
             col.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             col.gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+            col.gameObject.GetComponent<AudioSource>().Play();
             
             if (col.tag == "Key1")
             {

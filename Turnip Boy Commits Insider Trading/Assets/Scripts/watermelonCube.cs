@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class watermelonManager : MonoBehaviour
+public class watermelonCube : MonoBehaviour
 {
 
     private bool isDetroyed = false;
@@ -40,7 +40,7 @@ public class watermelonManager : MonoBehaviour
         if (collision.tag == "water" && !watered)
         {
             Instantiate(sparkles, gameObject.transform.position, Quaternion.identity);
-            gameObject.transform.localScale += new Vector3(1, 1, 0);
+            //gameObject.transform.localScale += new Vector3(1, 1, 0);
             //Debug.Log("triggered water");
             //gameObject.GetComponent<Rigidbody2D>().constraints;
             gameObject.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionY;
@@ -63,24 +63,39 @@ public class watermelonManager : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
+        GameObject bullet = GameObject.FindGameObjectWithTag("bullet");
+
         if (collision.gameObject.tag == "bullet" && watered)
         {
             float dist = Vector3.Distance(player.transform.position, transform.position);
+            // TOO CLOSE TO SELF
             if (dist <= 3.0f)
             {
                 Exploded();
             }
+            // BULLET COMING FROM UP, DOWN, LEFT, RIGHT
+            else if (bullet.GetComponent<bullet>().getDirection() != new Vector3(0, 0, 1))
+            {
+                GetComponent<Rigidbody2D>().AddForce(bullet.GetComponent<bullet>().getDirection() * push * 0.1f,
+                                                     ForceMode2D.Impulse);
+            }
+            // BULLET COMING DIAGONALLY
             else
             {
                 Vector3 dir = collision.transform.position - transform.position;
                 dir = -dir.normalized;
-                GetComponent<Rigidbody2D>().AddForce(dir * push * 0.1f);
-                bp--;
-                if (bp == 0)
-                {
-                    Exploded();
-                }
+                GetComponent<Rigidbody2D>().AddForce(dir * push * 0.1f, ForceMode2D.Impulse);
             }
+        }
+    }
+
+    // Function to reduce BP
+    public void reduceBP()
+    {
+        bp--;
+        if (bp == 0)
+        {
+            Exploded();
         }
     }
 
@@ -91,5 +106,17 @@ public class watermelonManager : MonoBehaviour
         this.GetComponent<SpriteRenderer>().enabled = false;
         this.GetComponent<AudioSource>().Play();
         isDetroyed = true;
+    }
+
+    // BP getter
+    public int getBP()
+    { 
+        return bp;
+    }
+
+    // watered getter
+    public bool getWatered()
+    {
+        return watered;
     }
 }

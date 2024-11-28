@@ -5,6 +5,9 @@ using UnityEngine;
 public class watermelonLeaf : MonoBehaviour
 {
 
+    private bool holeFilled = false;
+    private bool stopEverything;
+    public watermelonHole correspondingHole;
     public GameObject watermelonPrefab;
     public GameObject watermelon;
 
@@ -17,9 +20,22 @@ public class watermelonLeaf : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(watermelon == null)
+        if (!stopEverything)
         {
-            watermelon = Instantiate(watermelonPrefab, gameObject.transform);
+            if (correspondingHole != null)
+            {
+                holeFilled = correspondingHole.getFilled();
+            }
+
+            if (watermelon != null && holeFilled)
+            {
+                Destroy(watermelon);
+                stopEverything = true;
+            }
+            else if (watermelon == null && !holeFilled)
+            {
+                watermelon = Instantiate(watermelonPrefab, gameObject.transform);
+            }
         }
     }
 }

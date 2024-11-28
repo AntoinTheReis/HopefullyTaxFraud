@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 563101703
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: -795251970, guid: a511dfb70f2be424ba0b17731973a292, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b8509c4010c254fbf18faa323a9d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  push: 50
+  push: 25
   wateredWatermelon: {fileID: 1352260830, guid: a511dfb70f2be424ba0b17731973a292, type: 3}
   sparkles: {fileID: 4996703990930973002, guid: e034e0bf510e99f459b34f91bde6658d, type: 3}
   slices: {fileID: 7268130563221021670, guid: b9a3e984a4b9e6b4ca217dc3e1742d81, type: 3}

@@ -1376,6 +1376,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 59318838118350009, guid: e264dd908671367478603a045b0613fe, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 59318838118350009, guid: e264dd908671367478603a045b0613fe, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -625599009
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575850150861626202, guid: e264dd908671367478603a045b0613fe, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2575850150861626202, guid: e264dd908671367478603a045b0613fe, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -625599009
+      objectReference: {fileID: 0}
     - target: {fileID: 5030844992859930416, guid: e264dd908671367478603a045b0613fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.12612
@@ -1419,6 +1435,14 @@ PrefabInstance:
     - target: {fileID: 6268243590973323220, guid: e264dd908671367478603a045b0613fe, type: 3}
       propertyPath: m_Name
       value: Radish Boy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7100256645469810326, guid: e264dd908671367478603a045b0613fe, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7100256645469810326, guid: e264dd908671367478603a045b0613fe, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -625599009
       objectReference: {fileID: 0}
     - target: {fileID: 8492559362678775207, guid: e264dd908671367478603a045b0613fe, type: 3}
       propertyPath: Heart_1
@@ -1478,12 +1502,16 @@ PrefabInstance:
       value: NPC (4)
       objectReference: {fileID: 0}
     - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.10576
+      value: -9.37
       objectReference: {fileID: 0}
     - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.24448374
+      value: 1.87
       objectReference: {fileID: 0}
     - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1518,6 +1546,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.0666667
       objectReference: {fileID: 0}
@@ -1543,7 +1579,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myName
-      value: Tato
+      value: Caloria Bean
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: NPC_Type
+      value: Bean
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: uiSprite
@@ -1551,7 +1591,9 @@ PrefabInstance:
       objectReference: {fileID: 1719809725}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myDialogue
-      value: Sup
+      value: Dude, if I could escape through that door, I would sell ALL of my stock
+        in this company. The others say I'm gullible, but there's no way my sister's
+        lying this time!
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: OBJ_Name_Text
@@ -1611,12 +1653,16 @@ PrefabInstance:
       value: NPC
       objectReference: {fileID: 0}
     - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.08702
+      value: -4.61
       objectReference: {fileID: 0}
     - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.988589
+      value: -4.14
       objectReference: {fileID: 0}
     - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1650,33 +1696,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.0666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.1333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 7487119637224290249, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 985326a72968ece48a7db7deb60e4516, type: 3}
-    - target: {fileID: 7487119637224290249, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7487119637224290249, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7487119637224290249, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myName
-      value: Po
+      value: Potassia Bean
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: uiSprite
@@ -1684,8 +1706,9 @@ PrefabInstance:
       objectReference: {fileID: 1719809725}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myDialogue
-      value: Me and my twin were seperated at birth. My mom told me we'd eventually
-        find each other, that there was a sign, but maybe that was just a lie.
+      value: Apparently, this company's boutta pull a Blockbuster Video, if ya catch
+        my drift. My brother over in finance says he has proof, but hey, ya didn't
+        hear that from me.
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: OBJ_Name_Text
@@ -1695,10 +1718,6 @@ PrefabInstance:
       propertyPath: OBJ_Dialogue_UI
       value: 
       objectReference: {fileID: 487232365}
-    - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
-      propertyPath: characterSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: cb713bd5810b4094ab5017b1cf76ff94, type: 3}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: OBJ_Dialogue_Text
       value: 
@@ -2498,11 +2517,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.763497
+      value: -14.04
       objectReference: {fileID: 0}
     - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.943376
+      value: -3.6
       objectReference: {fileID: 0}
     - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2537,12 +2556,52 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.0666667
       objectReference: {fileID: 0}
     - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 2.1333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487119637224290249, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_Sprite
@@ -2560,9 +2619,17 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7508446902950313636, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b3af832df3f01854f9252ccf93fd2e80, type: 2}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myName
       value: Mr. Squash
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: NPC_Type
+      value: Squash
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: uiSprite
@@ -2570,7 +2637,9 @@ PrefabInstance:
       objectReference: {fileID: 1719809725}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myDialogue
-      value: I'm so thirtsy... in a PG way
+      value: "I gotta say \u2014 life's going great! I'm married. I got a great job
+        here. And I'm about to be a dad! Everything's coming up roses! I am really
+        thirsty though."
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: OBJ_Name_Text
@@ -3119,6 +3188,10 @@ PrefabInstance:
       value: NPC (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102300186746831461, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.007603
       objectReference: {fileID: 0}
@@ -3159,6 +3232,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.0666667
       objectReference: {fileID: 0}
@@ -3166,10 +3247,34 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 2.1333334
       objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: 0.47
+      objectReference: {fileID: 0}
     - target: {fileID: 7487119637224290249, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2d8a750c72137e349b4a45581099b7ee, type: 3}
+      objectReference: {fileID: 2131553665, guid: b7da9bc488082da4fa2265656f66269e, type: 3}
     - target: {fileID: 7487119637224290249, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -3182,8 +3287,16 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7508446902950313636, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: acf0090e47a6c374186407ad38076ef8, type: 2}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myName
+      value: Mac
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: NPC_Type
       value: Mac
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
@@ -3192,13 +3305,8 @@ PrefabInstance:
       objectReference: {fileID: 1719809725}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myDialogue
-      value: You have made a massive mistake. Doing this for me would have made you
-        a symbol in the world of intellect and literature. It is so typical for someone
-        like you to forget this. It is so typical for someone like you to use abbreviated
-        words. I was prepared to open your world to my knowledge and share my stories
-        and art, with you. You will forever regret the choice you just made, so I
-        will offer to let you do this project again. If you do not, you will have
-        to face the consequences.
+      value: Did you ever hear the tragedy of Darth Plagueis the wise? I thought
+        not. It's not a story the Jedi would tell you. It's a Sith legend.
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: OBJ_Name_Text
@@ -3232,6 +3340,14 @@ PrefabInstance:
     - target: {fileID: 378009926715846577, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 816707128111491684, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
+      propertyPath: m_TagString
+      value: Heart2
+      objectReference: {fileID: 0}
+    - target: {fileID: 878379354832668213, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
+      propertyPath: m_TagString
+      value: Heart1
       objectReference: {fileID: 0}
     - target: {fileID: 2343883378885635338, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
       propertyPath: m_Pivot.x
@@ -3321,9 +3437,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health_UI
       objectReference: {fileID: 0}
+    - target: {fileID: 6532830379658489952, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
+      propertyPath: m_TagString
+      value: ItemSwap
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428571732484263256, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
+      propertyPath: m_TagString
+      value: UseItem
+      objectReference: {fileID: 0}
     - target: {fileID: 8204811644762471996, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8275238586423928025, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
+      propertyPath: m_TagString
+      value: TripDash
+      objectReference: {fileID: 0}
+    - target: {fileID: 8522426035934840137, guid: 7a0b00d5f3bad5e468f5eea11b7d8e1a, type: 3}
+      propertyPath: m_TagString
+      value: Heart3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4070,12 +4202,44 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.0666667
       objectReference: {fileID: 0}
     - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 2.1333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6714297551977278175, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7487119637224290249, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: m_Sprite
@@ -4093,9 +4257,17 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7508446902950313636, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b3af832df3f01854f9252ccf93fd2e80, type: 2}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myName
-      value: Ms. Brown
+      value: Mrs. Squash
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
+      propertyPath: NPC_Type
+      value: Squash
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: uiSprite
@@ -4103,7 +4275,9 @@ PrefabInstance:
       objectReference: {fileID: 1719809725}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: myDialogue
-      value: I don't like how the guy by the water fountain is looking at me...
+      value: I can't believe it! My husband and I bought a home! It seemed impossible,
+        but thanks to this strong, stable company, we were finally able to settle
+        down!
       objectReference: {fileID: 0}
     - target: {fileID: 8456757886866692058, guid: 7cf65ddf7729d8745b3f3e567e9f5512, type: 3}
       propertyPath: OBJ_Name_Text

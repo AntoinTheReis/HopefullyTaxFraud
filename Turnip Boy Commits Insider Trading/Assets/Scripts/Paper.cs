@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class Paper : MonoBehaviour
 {
 
-    // TODO: Gotta make basically everything an opacity lerp at some point.
-
     private bool activated = false;
     private bool reading = false;
     private bool ripT_readF = true;
@@ -15,6 +13,8 @@ public class Paper : MonoBehaviour
     [Header("Actual Paper Object")]
     public GameObject realPaper;
     [Header("Necessary Objects")]
+    public AudioClip paperRippingSFX;
+    public AudioClip UI_Sound;
     public playerMovement OBJ_Player;
     public GameObject OBJ_Ripping_UI;
     public GameObject OBJ_paperImage;
@@ -37,25 +37,36 @@ public class Paper : MonoBehaviour
             // Rip Up becomes OPAQUE; Read becomes TRANSLUCENT
             if (Input.GetKeyDown("up") && !ripT_readF)
             {
-                StartCoroutine(lerpOpacity(OBJ_Rip_Up, 1.0f, 0.5f, "Box"));
-                StartCoroutine(lerpOpacity(OBJ_Rip_Up_Text, 1.0f, 0.5f, "Text"));
-                StartCoroutine(lerpOpacity(OBJ_Read, 0.5f, 0.5f, "Box"));
-                StartCoroutine(lerpOpacity(OBJ_Read_Text, 0.5f, 0.5f, "Text"));
+                this.GetComponent<AudioSource>().PlayOneShot(UI_Sound, 0.25F);
+                Color OG_RU_Color = OBJ_Rip_Up.GetComponent<RawImage>().color;
+                OBJ_Rip_Up.GetComponent<RawImage>().color = new Color(OG_RU_Color.r, OG_RU_Color.g, OG_RU_Color.b, 1.0f);
+                Color OG_RUT_Color = OBJ_Rip_Up_Text.GetComponent<Text>().color;
+                OBJ_Rip_Up_Text.GetComponent<Text>().color = new Color(OG_RUT_Color.r, OG_RUT_Color.g, OG_RUT_Color.b, 1.0f);
+                Color OG_R_Color = OBJ_Read.GetComponent<RawImage>().color;
+                OBJ_Read.GetComponent<RawImage>().color = new Color(OG_R_Color.r, OG_R_Color.g, OG_R_Color.b, 0.5f);
+                Color OG_RT_Color = OBJ_Read_Text.GetComponent<Text>().color;
+                OBJ_Read_Text.GetComponent<Text>().color = new Color(OG_RT_Color.r, OG_RT_Color.g, OG_RT_Color.b, 0.5f);
                 ripT_readF = true;
             }
             // Rip Up becomes TRANSLUCENT; Read becomes OPAQUE
             else if (Input.GetKeyDown("down") &&  ripT_readF)
             {
-                StartCoroutine(lerpOpacity(OBJ_Read, 1.0f, 0.8f, "Box"));
-                StartCoroutine(lerpOpacity(OBJ_Read_Text, 1.0f, 0.8f, "Text"));
-                StartCoroutine(lerpOpacity(OBJ_Rip_Up, 0.5f, 0.8f, "Box"));
-                StartCoroutine(lerpOpacity(OBJ_Rip_Up_Text, 0.5f, 0.8f, "Text"));
+                this.GetComponent<AudioSource>().PlayOneShot(UI_Sound, 0.25F);
+                Color OG_RU_Color = OBJ_Rip_Up.GetComponent<RawImage>().color;
+                OBJ_Rip_Up.GetComponent<RawImage>().color = new Color(OG_RU_Color.r, OG_RU_Color.g, OG_RU_Color.b, 0.5f);
+                Color OG_RUT_Color = OBJ_Rip_Up_Text.GetComponent<Text>().color;
+                OBJ_Rip_Up_Text.GetComponent<Text>().color = new Color(OG_RUT_Color.r, OG_RUT_Color.g, OG_RUT_Color.b, 0.5f);
+                Color OG_R_Color = OBJ_Read.GetComponent<RawImage>().color;
+                OBJ_Read.GetComponent<RawImage>().color = new Color(OG_R_Color.r, OG_R_Color.g, OG_R_Color.b, 1.0f);
+                Color OG_RT_Color = OBJ_Read_Text.GetComponent<Text>().color;
+                OBJ_Read_Text.GetComponent<Text>().color = new Color(OG_RT_Color.r, OG_RT_Color.g, OG_RT_Color.b, 1.0f);
                 ripT_readF = false;
             }
             // Selecting Rip Up
             else if (Input.GetKeyDown(KeyCode.Z) && ripT_readF)
             {
                 OBJ_paperImage.GetComponent<RawImage>().enabled = false;
+                this.GetComponent<AudioSource>().PlayOneShot(paperRippingSFX, 0.8F);
                 StartCoroutine(lerpTransform(OBJ_leftHalf, -150.0f, -100.0f, 1.5f));
                 StartCoroutine(lerpTransform(OBJ_rightHalf, 150.0f, -100.0f, 1.5f));
                 StartCoroutine(lerpOpacity(OBJ_leftHalf, 0f, 1.5f, "Box"));
@@ -68,6 +79,7 @@ public class Paper : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Z) && !ripT_readF)
             {
+                this.GetComponent<AudioSource>().PlayOneShot(UI_Sound, 0.25F);
                 OBJ_Readable.SetActive(true);
                 OBJ_Readable_BG.SetActive(true);
                 reading = true;
@@ -77,6 +89,7 @@ public class Paper : MonoBehaviour
         // Exiting out of the reading UI
         else if (reading && Input.GetKeyDown(KeyCode.X))
         {
+            this.GetComponent<AudioSource>().PlayOneShot(UI_Sound, 0.25F);
             OBJ_Readable.SetActive(false);
             OBJ_Readable_BG.SetActive(false);
             reading = false;

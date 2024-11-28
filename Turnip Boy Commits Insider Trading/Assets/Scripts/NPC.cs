@@ -9,6 +9,7 @@ public class NPC : MonoBehaviour
     private bool playerClose;
     private bool UI_On;
     private bool interactHit;
+    private string prevTool;
     private GameObject OBJ_Player;
     [Header("Necessary Objects")] // For dragging and dropping into the inspector,
                                   // remember to drag and drop the Dialogue_UI object that's IN THE SCENE,
@@ -21,6 +22,7 @@ public class NPC : MonoBehaviour
     public string myDialogue;
     public string myName;
     public Sprite characterSprite;
+    public string NPC_Type;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,7 @@ public class NPC : MonoBehaviour
         // When player interacts with self
         if (playerClose && Input.GetKeyDown(KeyCode.Z) && !UI_On)
         {
+            this.GetComponent<AudioSource>().Play();
             OBJ_Dialogue_UI.SetActive(true);
             this.GetComponent<HUDHandler>().DisableHUD();
             OBJ_Dialogue_Text.GetComponent<Text>().text = myDialogue;
@@ -42,15 +45,49 @@ public class NPC : MonoBehaviour
             UI_On = true;
             OBJ_Player.GetComponent<playerMovement>().set_higherUI(UI_On);
             interactHit = true;
+            OBJ_Player.GetComponent<toolManager>().enabled = false;
+            if (OBJ_Player.GetComponent<swordManager>().enabled)
+            {
+                prevTool = "sword";
+                OBJ_Player.GetComponent<swordManager>().enabled = false;
+            }
+            else if (OBJ_Player.GetComponent<gunManager>().enabled)
+            {
+                prevTool = "gun";
+                OBJ_Player.GetComponent<gunManager>().enabled = false;
+            }
+            else if (OBJ_Player.GetComponent<canManager>().enabled)
+            {
+                prevTool = "can";
+                OBJ_Player.GetComponent<canManager>().enabled = false;
+            }
+            if (!DoorManager.startTalking)
+            {
+                DoorManager.talkingHasCommenced();
+            }
         }
 
         // When player is actively talking to self
         if (UI_On && Input.GetKeyDown(KeyCode.Z) && !interactHit)
         {
+            this.GetComponent<AudioSource>().Play();
             OBJ_Dialogue_UI.SetActive(false);
             this.GetComponent<HUDHandler>().EnableHUD();
             UI_On = false;
             OBJ_Player.GetComponent<playerMovement>().set_higherUI(UI_On);
+            OBJ_Player.GetComponent<toolManager>().enabled = true;
+            switch (prevTool)
+            {
+                case "sword":
+                    OBJ_Player.GetComponent<swordManager>().enabled = true;
+                    break;
+                case "gun":
+                    OBJ_Player.GetComponent<gunManager>().enabled = true;
+                    break;
+                case "can":
+                    OBJ_Player.GetComponent<canManager>().enabled = true;
+                    break;
+            }
         }
 
         interactHit = false;
@@ -62,6 +99,14 @@ public class NPC : MonoBehaviour
         if (col.tag == "Player")
         {
             playerClose = true;
+            if (!DoorManager.startTalking)
+            {
+                float dist_from_head = (gameObject.GetComponent<SpriteRenderer>().size.y / 2) + 1.1f;
+                DoorManager.Z_Icon.transform.position = new Vector3(gameObject.transform.position.x, 
+                                                                    gameObject.transform.position.y + dist_from_head, 
+                                                                    gameObject.transform.position.z);
+                DoorManager.Z_Icon.GetComponent<SpriteRenderer>().enabled = true;
+            }
         }
     }
 
@@ -71,12 +116,10 @@ public class NPC : MonoBehaviour
         if (col.tag == "Player")
         {
             playerClose = false;
+            if (!DoorManager.startTalking)
+            {
+                DoorManager.Z_Icon.GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
-    }
-
-    // When sprites and animations are implemented for the UI elements, this method will serve to execute those animations
-    private void Untitled(bool boolean)
-    {
-        // TODO: Execute UI animations
     }
 }
