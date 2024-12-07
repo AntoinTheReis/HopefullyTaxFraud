@@ -104,8 +104,15 @@ public class Paper : MonoBehaviour
         OBJ_Ripping_UI.SetActive(true);
         OBJ_Readable.SetActive(false);
         OBJ_Readable_BG.SetActive(false);
-        activated = true;
         OBJ_Readable.GetComponent<Text>().text = desiredText;
+        StartCoroutine(inputDelay());
+    }
+
+    // Coroutine for delaying input when the paper gets activated
+    private IEnumerator inputDelay()
+    {
+        yield return new WaitForSeconds(1);
+        activated = true;
     }
 
     // Coroutine for lerpping opacity (NOTE: Might make the totalTime the same for all opacity lerps if I determine that they're all the same

@@ -10,7 +10,9 @@ public class ImportantPaper : MonoBehaviour
     private bool paperGiven;
     private string prevTool;
     private GameObject player;
+    private GameObject Icon_Z;
     [Header("Necessary Objects")]
+    public GameObject Icon_Z_Prefab;
     public Paper Paper;
     public GameObject sparkleParticle;
 
@@ -19,6 +21,15 @@ public class ImportantPaper : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         Paper.enabled = false;
+        Icon_Z = Instantiate(Icon_Z_Prefab, gameObject.transform);
+        Icon_Z.GetComponent<SpriteRenderer>().enabled = false;
+        Icon_Z.GetComponent<SpriteRenderer>().sortingOrder = 100;
+        Icon_Z.GetComponent<SpriteRenderer>().sortingLayerName = "Radish Boy";
+        float dist_from_head = (gameObject.GetComponent<SpriteRenderer>().size.y / 2) + 1.6f;
+        Icon_Z.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
+        Icon_Z.transform.position = new Vector3(gameObject.transform.position.x + 0.12f,
+                                                gameObject.transform.position.y + dist_from_head,
+                                                gameObject.transform.position.z);
     }
 
     // Update is called once per frame
@@ -48,6 +59,7 @@ public class ImportantPaper : MonoBehaviour
                 player.GetComponent<canManager>().enabled = false; 
             }
             player.GetComponent<playerMovement>().setPaperON(true);
+            Destroy(Icon_Z);
         }
     }
 
@@ -57,6 +69,7 @@ public class ImportantPaper : MonoBehaviour
         if (col.tag == "Player")
         {
             playerClose = true;
+            Icon_Z.GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 
@@ -66,6 +79,10 @@ public class ImportantPaper : MonoBehaviour
         if (col.tag == "Player")
         {
             playerClose = false;
+            if (Icon_Z != null)
+            {
+                Icon_Z.GetComponent<SpriteRenderer>().enabled = false;
+            }
         }
     }
 
