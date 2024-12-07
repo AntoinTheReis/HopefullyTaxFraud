@@ -2265,10 +2265,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dialogue_UI (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 3119956680320832596, guid: 9f90d94818d922c448a0d3c576ae9c13, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7112157317403168458, guid: 9f90d94818d922c448a0d3c576ae9c13, type: 3}
       propertyPath: m_Pivot.x
       value: 0

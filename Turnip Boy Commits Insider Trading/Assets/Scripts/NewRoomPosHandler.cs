@@ -43,16 +43,16 @@ public class NewRoomPosHandler : MonoBehaviour
         // Entering Room 3 forward
         else if (SceneManager.GetActiveScene().name == "Room 3" && prevRoom == "Room 2")
         {
-            this.transform.position = new Vector3(0.42f, 0.84f, 0f);
-            this.GetComponent<playerMovement>().rightFacing();
-            ToolDirectionRIGHT();
+            this.transform.position = new Vector3(23.3f, 0.52f, 0f);
+            this.GetComponent<playerMovement>().leftFacing();
+            ToolDirectionLEFT();
         }
         // Entering Room 3 backward
         else if (SceneManager.GetActiveScene().name == "Room 3" && prevRoom == "Room 4")
         {
-            this.transform.position = new Vector3(23.62f, 0.84f, 0f);
-            this.GetComponent<playerMovement>().leftFacing();
-            ToolDirectionLEFT();
+            this.transform.position = new Vector3(0.55f, 0.52f, 0f);
+            this.GetComponent<playerMovement>().rightFacing();
+            ToolDirectionRIGHT();
         }
         // Entering Room 4 forward
         else if (SceneManager.GetActiveScene().name == "Room 4" && prevRoom == "Room 3")
