@@ -87,7 +87,7 @@ public class Paper : MonoBehaviour
         }
         
         // Exiting out of the reading UI
-        else if (reading && Input.GetKeyDown(KeyCode.X))
+        else if (reading && Input.GetKeyDown(KeyCode.Z))
         {
             this.GetComponent<AudioSource>().PlayOneShot(UI_Sound, 0.25F);
             OBJ_Readable.SetActive(false);
